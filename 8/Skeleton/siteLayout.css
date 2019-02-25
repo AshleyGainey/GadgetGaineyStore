@@ -1,0 +1,542 @@
+* {
+	padding: 0px;
+	margin: 0px;
+}
+
+body {
+	max-width: 1024px;
+	background-color: rgb(228, 228, 228);	
+	margin: 0;
+	padding: 0;
+		height: 100%;
+			font-family: Century Gothic;
+
+}
+
+html {
+	margin:0;
+padding:0;
+height:100%
+}
+
+/* Set the container to min-height to 100% because then the footer will 
+display at the bottom, doesn't matter whether or not it is small or a big page */
+#container {
+	width: 100%;
+	min-height:100%;
+	position: relative;
+}
+
+/* Start: Trusting Banner at the top*/
+
+#Top-Header, footer {
+	Background-image: url("Images/OnEveryPage/Trust Banner/Background.png");
+}
+
+.Trust-Header, #Main-Header {
+	display: flex;
+	align-items: center;
+
+}
+
+.Trust-Header h3 {
+	color: white;
+	font-family: Century Gothic;
+	font-size: 14px;
+}
+
+/* This makes sure that the  that the ebay */
+
+#Trust-eBay img {
+	height: 50px;
+	vertical-align: middle;
+		display: inline-block;
+
+}
+
+#Trust-eBay, #Trust-Fast_Delivery, #Trust-Free_Delivery  {
+	margin: 0 auto;
+}
+
+
+#Logo, .search-box, .RightButtons  {
+	margin: 0 auto;
+}
+
+#Trust-eBay h3, #Trust-Fast_Delivery h3, #Trust-Free_Delivery h3 {
+	display: inline;
+/* Don't know if this needed */
+	vertical-align: middle;
+
+}
+
+#Trust-Fast_Delivery img, #Trust-Free_Delivery img {
+	height: 40px;
+	vertical-align: middle;
+}
+
+/* End: Trusting Banner at the top*/
+
+/* All links will be white (instead of blue) and no underline until hover */
+a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+/* If hover then allow the link to have an underline under it, 
+this makes it more recognisable that it is a link*/
+a:hover {
+	text-decoration: underline;
+}
+
+/* Separates the trust us Header with the main header with a grey line, 
+making it 75% of the width, a visible but small width. making the margin auto 
+for left and right to position the line in the middle    */
+.line {
+	color: rgba(37, 37, 37, 0.041);
+	width: 75%;
+	height: 1px;
+	margin-left: auto;
+	margin-right: auto;
+	/* Gives space from the line and the Main Header (which contains the logo, search, help and basket*/
+		padding-bottom: 10px;
+}
+/* Logo was too big so I reduced it by 20% */
+#Logo img {
+	height: 80px;
+}
+
+/*Start: Search Bar*/
+/* Inline flex because then the search bar and the button are right next to each other without any spacing*/
+.search-box {
+	display: inline-flex;
+}
+
+.search-box-input {
+	/* Adding a 3px black border to the searchbar */
+	border: 3px solid #000000;
+	/* Rounding the top left and bottom left corners*/
+	border-radius: 6px 0 0 6px;
+	/* Making the padding 8 by 16 to not have the typed input to be up against the border of the searchbar  */
+	padding: 8px 16px;
+}
+
+.search-box-button {
+		/* Adding a 3px black border to the search button */
+	border: 3px solid #000000;
+			/* Adding a 3px black border to the search button */
+	/* Rounding the top right and bottom right corners*/
+	border-radius: 0 5px 5px 0;
+	/* Make the width of the button 10%, so it isn't large */
+	width: 10%;
+	/* Add a background colour of black */
+	background-color: #000000;
+
+	/* Border left to 0px, you can noticably see the difference if you were to have the default bordering,
+	 it has more black when on hover, which isn't what I want */
+	border-left: 0;
+/* Change the cursor to a pointer to show that this is a button and the user can click it */
+	cursor: pointer;
+
+}
+/* On hover change the border color of the search box to grey  */
+.search-box-input:hover,
+.search-box-input:focus {
+	border-color: #a7a7a7;
+}
+
+/* On hover change the background color of the search box to grey, 
+not the border color because it doesn't look right  */
+.search-box-button:hover,
+.search-box-button:focus {
+	background-color: #a7a7a7;
+}
+
+/* Logo was too big so I reduced it by 50% */
+.search-box-button img {
+	width: 50%;
+}
+
+
+
+/* To get rid of the X button, isn't neccessary to have it in */
+.search-box-input::-webkit-search-cancel-button {
+	-webkit-appearance: none;
+}
+/*End: Search Bar*/
+
+/* Start: Help*/
+
+
+/* TODO: Doesn't work, need to check out */
+.RightButtons {
+	margin: 0 auto;
+	display: inline;
+
+}
+
+/* TODO: Doesn't work as intended, need to check out */
+
+#Help h3 {
+	display: inline;
+
+}
+
+#Basket h3 {
+	display: inline;
+}
+
+
+#Help img {
+	width: 10%;
+	display: inline-block;
+	vertical-align: middle;
+
+}
+
+#Basket img {
+	width: 10%;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.RightButtons img {
+	/* TODO: Edit the alignment here */
+}
+
+.search-box {
+	/* Adds padding to the all of the searchbox itself */
+	/* But this is disabled at the moment due to the whole main header not working */
+	/* TODO: Get the main header to centralise */
+
+
+	/* padding: 0px 0px 0px 50px; */
+}
+
+/*Start Already here code */
+.menuItem {
+	list-style-type: none;
+	border-width: 0 0 1px 0;
+	padding: 5px;
+	width: 150px;
+}
+
+.navmenuItem {
+	display: inline-block;
+	text-align: center;
+	cursor: pointer;
+}
+.navmenu {
+width:100%;
+}
+.submenuItem {
+	width: 300px;
+}
+
+MainBody:after {
+	clear: both
+}
+
+.subMenu {
+	display: none;
+	position: absolute;
+	margin-left: -3px;
+	margin-top: 2px;
+	border-width: 1px 1px 0 1px;
+	z-index: 1024;
+}
+
+.menuItemHover {
+	display: block;
+}
+
+.subsubMenu {
+	margin-top: -1.2em;
+	left: 99%;
+}
+
+.anchorMenuItem {
+	display: block;
+}
+/*End: Already here code */
+
+
+/* Add a margin to the main_container that is inside the main body, this is because we 
+want something up against the Nav (for instance the breadcrumb/the carousel)*/
+#Main_container {
+	margin-top: 30px;
+	margin-left: 50px;
+	margin-right: 50px;
+	/* margin-bottom: 50px; */
+
+	min-height:100%;
+	 position:relative;
+
+	 	/* Was having an issue if I typed more than expected for the search, then it would destroy the padding 
+	so have added word-wrap, this should apply to the main_container, no matter whether it is a heading 
+	(h1, h2, h3 etc.), paragraph (p) or something other */
+	 	word-wrap: break-word;
+
+}
+
+#thefooter {
+	min-height:100%;
+
+}
+.container {
+	min-height:100%;
+	position:relative;
+
+}
+
+
+footer {
+
+/* For the background to go the full length */
+	min-height: 200px;
+
+
+
+	position: absolute;
+	left: 0;
+	bottom: 0;
+
+	color: white;
+
+ }
+
+
+
+
+
+
+
+
+
+#Main_container h1 {
+	font-family: Century Gothic;
+	font-size: 40px;
+	text-align: center;
+}
+
+footer h1 {
+	font-size: 18px;
+	padding-top: 10px;
+	
+	padding-bottom: 20px;
+
+}
+footer h2 {
+	font-size: 16px;
+	padding-top: 15px;
+		text-align: center;
+
+	padding-bottom: 20px;
+}
+
+footer h4 {
+		text-align: center;
+			font-size: 14px;
+	display: block;
+	padding: 10px, 0px;
+		padding-bottom: 10px;
+
+
+}
+
+#Footer-GadgetGainey{
+ float:left;
+ width:15%;  
+ padding:10px;
+}
+#Footer-TheBoringStuff{
+ width:15%;        
+ float:left;
+ text-align:justify;
+padding:10px;
+ }
+#Footer-Support{
+ width:15%;        
+ float:left;
+ text-align:justify;
+padding:10px;
+ }
+ 
+#Footer-Supported_Payments {
+ width:20%;        
+ float:left;
+ text-align:justify;
+padding:10px;
+			text-align: center;
+
+ }
+
+#Footer-Supported_Payments img{
+ display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+  
+#Footer-Find-eBay {
+ width:24%;        
+ float:left;
+ text-align:justify;
+padding-left:10px;
+padding-top:10px;
+padding-bottom:0px;
+
+}
+
+#Footer-Find-eBay img{
+ display: block;
+ padding-top:0px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+ 
+#Footer-copyright{
+float:left;
+text-align:center;
+ width:100%;    
+ padding-bottom: 5px;    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Outside_Body {
+	padding-bottom: 250px;
+
+}
+
+
+
+
+#Outside_Body {
+	padding-bottom: 250px;
+
+}
+
+
+
+
+
+
+
+
+  .contenedor-slider {
+	margin: auto;
+	position: relative;
+	overflow: hidden;
+	box-shadow: 0 0 0 5px #143576;
+  }
+  
+  .slider {
+	display: flex;
+	width: 600%;
+
+  }
+  
+  .slider__section {
+	width: 100%;
+  }
+  
+
+   
+  .slider__img {
+	display: block;
+	width: 100%;
+	height: 100%;
+  }
+  
+  .btn-prev, .btn-next {
+	width: 50px;
+	height: 40px;
+	background: #143576;
+	color: white;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 25px;
+	text-align: center;
+	border-radius: 25%;
+	font-family: Arial Black;
+	cursor: pointer;
+  }
+  
+  .btn-prev:hover, .btn-next:hover {
+	background: white;
+	color: #143576;
+
+  }
+  
+  .btn-prev {
+	left: 5px;
+  }
+  
+  .btn-next {
+	right: 5px;
+  }
+  

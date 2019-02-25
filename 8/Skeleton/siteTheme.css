@@ -1,0 +1,29 @@
+.menuItem, .subMenu {
+	background-color: black;
+	color: white;
+	font-family: Century Gothic;
+	font-size: 15px;
+	width: 200px;
+
+}
+
+.navmenu {
+	background-color: black;
+	width: 100%;
+	  text-align: center;
+
+
+}
+.navmenuItem {
+	background-color: black;
+}
+.anchorMenuItem {
+	background-color: none;
+	color: white;
+}
+.anchorMenuItem {
+    text-decoration: none;
+}
+.chosenItem {
+	background-color: #1B3C7D;
+}
