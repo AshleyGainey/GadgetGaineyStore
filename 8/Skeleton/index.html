@@ -14,6 +14,8 @@
 		car, ride on, ride on bike, ride on cars, cars, bike, outdoor, racing">
     <link rel="icon" href="/Images/OnEveryPage/Gadget Gainey icon.png">
     <Title>Gadget Gainey Store - Home of the best kids products!</Title>
+
+    <!--links to the CSS-->
     <link rel="stylesheet" href="siteLayout.css" type="text/css" media="screen,projection"/>
     <link rel="stylesheet" href="siteTheme.css" type="text/css" media="screen,projection"/>
 
@@ -123,67 +125,51 @@
             autoplay();
 
 
-//Ignore all of this now because this is useless
-// 			var a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
-// 			var randomIndex = 0;
-// 			for (i = 1; i < 7; i++) {
-// 				randomIndex = Math.floor(Math.random() * a.length + 1);
-//
-//
-// 				console.log('Removing: ' + a.splice(a.indexOf(randomIndex), 1));
-//
-//
-// 				console.log('Random Number: ' + randomIndex)
-//
-//
-//
-// 				//If error, then come up with loading warning//
-// 				if (randomIndex == 0) {
-// 					$('#slider' + i).attr('src', 'Images/Home/Loading.png');
-//
-// 				} else {
-// $('#slider' + i).children('img').attr('src', 'Images/Carousel/Product ' + randomIndex + '.png');
-//
-//
-// if (randomIndex < 9) {
-//
-// 	randomIndex = "0" + randomIndex
-//
-// }
-// $('#slider' + i).attr('href', '/product.html?id=00' + randomIndex);
-//
-//
-//
-// }
-//
-//
-//
-//
-// 			}
-//
-//
-//
-//
-// 			console.log('Array: ' + a)
+            var imgSrc = null;
+            var imgTitle = null;
+            var imgCost = null;
+            var imgID = null;
 
 
+            var carouselImage = [];
+           var carouselTitle = [];
+           var carouselCost = [];
+           var carouselID = [];
+
+            console.log(vars['prod1']);
+            console.log(vars['prod2']);
+            console.log(vars['prod3']);
+            console.log(vars['prod4']);
+            console.log(vars['prod5']);
+            console.log(vars['prod6']);
             //Do this function for every product
-            $product.find("product").each(function () {
 
+
+            $products.find("product").each(function () {
 
                 //Get the data from the product//
                 var imgSrc = $(this).find("picture").text();
                 var imgTitle = $(this).find("title").text();
                 var imgCost = $(this).find("price").text();
-                var ImgID = $(this).find("id").text();
-
-                theImage.attr('src', "ProductImages/" + imgSrc);
+                var imgID = $(this).find("id").text();
 
                 carouselImage.push(imgSrc);
                 carouselTitle.push(imgTitle);
                 carouselCost.push(imgCost);
                 carouselID.push(imgID);
             });
+            car(imgSrc, imgTitle, imgCost, imgID);
+
+            function car(imgSrc, imgTitle, imgCost, imgID) {
+
+
+                for (var i = 1; i < 7; i++) {
+                    console.log("Print out" + vars['prod' + i])
+
+                    $('#slider' + i).children('img').attr('src', "/Images/ProductImages/" + vars['prod' + i] + ".png");
+                    $('#slider' + i).attr('href', '/product.html?id=' + vars['prod' + i]);
+                }
+            }
 
 
             //For me to pause animation if needed//
@@ -266,6 +252,14 @@
             <div id=Main_container>
                 <div class="carousel">
                     <div class="row visible-md visible-lg">
+                        <div id="slider-Information">
+                            <h1 id="title">TITLE</h1>
+                            <div id="brand&cost">
+                                <h1 id="brand" style="text-align:left;float:left;">By: BRAND</h1>
+                                <h1 id="cost" style="text-align:right;float:right;">£CO.ST</h1>
+                                <hr style="clear:both;"/>
+                            </div>
+                        </div>
                         <div id="contenedor-slider" class="contenedor-slider">
                             <div id="slider" class="slider">
                                 <a id="slider1" class="slider__section" href=""><img src="Images\Home\Loading.png"
