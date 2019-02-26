@@ -33,6 +33,8 @@
 
         // Your global variables should be declared below here -v
 
+        var slide = 1;
+        var sliderID = [];
 
         // Your global variables should be declared above here -^
         // Any user defined functions should be declared below here -v
@@ -71,21 +73,45 @@
             var slider = $('#slider');
 
 
+
+
+
             // move the last image to the first place
             $('#slider .slider__section:last').insertBefore('#slider .slider__section:first');
             // display the first image with a margin of -100%
             slider.css('margin-left', '-' + 100 + '%');
 
             function moveNext() {
+                if (slide == 6) {
+                    slide = 0;
+                }
+                slide = slide + 1;
+
                 slider.animate({
                     marginLeft: '-' + 200 + '%'
                 }, 700, function () {
                     $('#slider .slider__section:first').insertAfter('#slider .slider__section:last');
                     slider.css('margin-left', '-' + 100 + '%');
                 });
+
+                updateValues()
+            }
+            function updateValues() {
+
+               slideIndex =  slide - 1;
+                // var currentCarouselProduct =  productsID[index].value;
+                // console.log(carouselTitle[index]);
+
+                $("#carouselTitleHeader").text(sliderID[slideIndex]);
+
             }
 
             function movePrev() {
+                if (slide == 1) {
+                    slide = 7;
+                }
+                slide = slide - 1;
+
                 slider.animate({
                     marginLeft: 0
                 }, 700, function () {
@@ -121,37 +147,23 @@
                 autoplay();
             });
 
-
             autoplay();
-
-
-            var imgSrc = null;
-            var imgTitle = null;
-            var imgCost = null;
-            var imgID = null;
-
 
             var carouselImage = [];
            var carouselTitle = [];
            var carouselCost = [];
            var carouselID = [];
 
-            console.log(vars['prod1']);
-            console.log(vars['prod2']);
-            console.log(vars['prod3']);
-            console.log(vars['prod4']);
-            console.log(vars['prod5']);
-            console.log(vars['prod6']);
             //Do this function for every product
 
 
             $products.find("product").each(function () {
 
                 //Get the data from the product//
-                var imgSrc = $(this).find("picture").text();
-                var imgTitle = $(this).find("title").text();
-                var imgCost = $(this).find("price").text();
-                var imgID = $(this).find("id").text();
+                imgSrc = $(this).find("picture").text();
+                imgTitle = $(this).find("title").text();
+                imgCost = $(this).find("price").text();
+                imgID = $(this).find("id").text();
 
                 carouselImage.push(imgSrc);
                 carouselTitle.push(imgTitle);
@@ -164,11 +176,20 @@
 
 
                 for (var i = 1; i < 7; i++) {
-                    console.log("Print out" + vars['prod' + i])
 
                     $('#slider' + i).children('img').attr('src', "/Images/ProductImages/" + vars['prod' + i] + ".png");
+                    console.log(vars['prod' + i]);
+
+                    var iNum = parseInt(vars['prod' + i]);
+                    var hello = sliderID.push[iNum];
+                    console.log(carouselTitle[iNum]);
+
+                   console.log(iNum - 1);
+
                     $('#slider' + i).attr('href', '/product.html?id=' + vars['prod' + i]);
                 }
+
+
             }
 
 
@@ -253,10 +274,10 @@
                 <div class="carousel">
                     <div class="row visible-md visible-lg">
                         <div id="slider-Information">
-                            <h1 id="title">TITLE</h1>
-                            <div id="brand&cost">
-                                <h1 id="brand" style="text-align:left;float:left;">By: BRAND</h1>
-                                <h1 id="cost" style="text-align:right;float:right;">£CO.ST</h1>
+                            <h1 id="carouselTitleHeader">g </h1>
+                            <div id="carouselBrand&cost">
+                                <h1 id="carouselBrand" style="text-align:left;float:left;">By: </h1>
+                                <h1 id="carouselCost" style="text-align:right;float:right;">£</h1>
                                 <hr style="clear:both;"/>
                             </div>
                         </div>
