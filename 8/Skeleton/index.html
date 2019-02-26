@@ -80,7 +80,6 @@
             $('#slider .slider__section:last').insertBefore('#slider .slider__section:first');
             // display the first image with a margin of -100%
             slider.css('margin-left', '-' + 100 + '%');
-
             function moveNext() {
                 if (slide == 6) {
                     slide = 0;
@@ -99,10 +98,21 @@
             function updateValues() {
 
                slideIndex =  slide - 1;
-                // var currentCarouselProduct =  productsID[index].value;
-                // console.log(carouselTitle[index]);
 
-                $("#carouselTitleHeader").text(sliderID[slideIndex]);
+
+
+                    var currentSlideID = sliderID[slide - 1]
+
+                    console.log("Current Slide ID: " + sliderID[slide - 1]);
+                console.log("Current Slide title: " + carouselTitle[currentSlideID - 1]);
+                console.log(carouselTitle);
+
+                                $("#carouselTitleHeader").text(carouselTitle[currentSlideID - 1]);
+                                $("#carouselBrand").text("By: " + carouselBrand[currentSlideID - 1]);
+                               $("#carouselCost").text("£" + carouselCost[currentSlideID - 1]);
+
+
+
 
             }
 
@@ -118,6 +128,7 @@
                     $('#slider .slider__section:last').insertBefore('#slider .slider__section:first');
                     slider.css('margin-left', '-' + 100 + '%');
                 });
+                 updateValues()
             }
 
             function autoplay() {
@@ -151,6 +162,8 @@
 
             var carouselImage = [];
            var carouselTitle = [];
+           var carouselBrand = [];
+
            var carouselCost = [];
            var carouselID = [];
 
@@ -162,11 +175,13 @@
                 //Get the data from the product//
                 imgSrc = $(this).find("picture").text();
                 imgTitle = $(this).find("title").text();
+                imgBrand = $(this).find("brand").text();
                 imgCost = $(this).find("price").text();
                 imgID = $(this).find("id").text();
 
                 carouselImage.push(imgSrc);
                 carouselTitle.push(imgTitle);
+                carouselBrand.push(imgBrand);
                 carouselCost.push(imgCost);
                 carouselID.push(imgID);
             });
@@ -179,12 +194,14 @@
 
                     $('#slider' + i).children('img').attr('src', "/Images/ProductImages/" + vars['prod' + i] + ".png");
                     console.log(vars['prod' + i]);
+ updateValues()
 
-                    var iNum = parseInt(vars['prod' + i]);
-                    var hello = sliderID.push[iNum];
-                    console.log(carouselTitle[iNum]);
+                    var convertedID = parseInt(vars['prod' + i]);
+                                       console.log("Converted ID is:" + convertedID);
 
-                   console.log(iNum - 1);
+                    sliderID.push(convertedID);
+
+                   console.log("SliderID is: " + sliderID);
 
                     $('#slider' + i).attr('href', '/product.html?id=' + vars['prod' + i]);
                 }
@@ -274,10 +291,10 @@
                 <div class="carousel">
                     <div class="row visible-md visible-lg">
                         <div id="slider-Information">
-                            <h1 id="carouselTitleHeader">g </h1>
+                            <h1 id="carouselTitleHeader">TITLE</h1>
                             <div id="carouselBrand&cost">
-                                <h1 id="carouselBrand" style="text-align:left;float:left;">By: </h1>
-                                <h1 id="carouselCost" style="text-align:right;float:right;">£</h1>
+                                <h3 id="carouselBrand" style="text-align:left;float:left;">By: BRAND </h3>
+                                <h2 id="carouselCost" style="text-align:right;float:right;">£Co.st</h2>
                                 <hr style="clear:both;"/>
                             </div>
                         </div>
