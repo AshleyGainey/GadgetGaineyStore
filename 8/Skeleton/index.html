@@ -33,8 +33,16 @@
 
         // Your global variables should be declared below here -v
 
-        var slide = 1;
+        var slideNum = 1;
         var sliderID = [];
+
+        var carouselImage = [];
+        var carouselTitle = [];
+        var carouselBrand = [];
+
+        var carouselCost = [];
+        var carouselID = [];
+
 
         // Your global variables should be declared above here -^
         // Any user defined functions should be declared below here -v
@@ -68,105 +76,6 @@
             }, 100);
 
             // Your $(document).ready() event script code goes below here -v
-
-            // Variable for the slider itself
-            var slider = $('#slider');
-
-
-
-
-
-            // move the last image to the first place
-            $('#slider .slider__section:last').insertBefore('#slider .slider__section:first');
-            // display the first image with a margin of -100%
-            slider.css('margin-left', '-' + 100 + '%');
-            function moveNext() {
-                if (slide == 6) {
-                    slide = 0;
-                }
-                slide = slide + 1;
-
-                slider.animate({
-                    marginLeft: '-' + 200 + '%'
-                }, 700, function () {
-                    $('#slider .slider__section:first').insertAfter('#slider .slider__section:last');
-                    slider.css('margin-left', '-' + 100 + '%');
-                });
-
-                updateValues()
-            }
-            function updateValues() {
-
-               slideIndex =  slide - 1;
-
-
-
-                    var currentSlideID = sliderID[slide - 1]
-
-                    console.log("Current Slide ID: " + sliderID[slide - 1]);
-                console.log("Current Slide title: " + carouselTitle[currentSlideID - 1]);
-                console.log(carouselTitle);
-
-                                $("#carouselTitleHeader").text(carouselTitle[currentSlideID - 1]);
-                                $("#carouselBrand").text("By: " + carouselBrand[currentSlideID - 1]);
-                               $("#carouselCost").text("£" + carouselCost[currentSlideID - 1]);
-
-
-
-
-            }
-
-            function movePrev() {
-                if (slide == 1) {
-                    slide = 7;
-                }
-                slide = slide - 1;
-
-                slider.animate({
-                    marginLeft: 0
-                }, 700, function () {
-                    $('#slider .slider__section:last').insertBefore('#slider .slider__section:first');
-                    slider.css('margin-left', '-' + 100 + '%');
-                });
-                 updateValues()
-            }
-
-            function autoplay() {
-                interval = setInterval(function () {
-                    moveNext();
-                }, 5000);
-            }
-
-            $('#btn-next').on('click', function () {
-                moveNext();
-                clearInterval(interval);
-                autoplay();
-            });
-
-            $('#slider').mouseenter(function () {
-                clearInterval(interval);
-            });
-
-            $('#slider').mouseleave(function () {
-                autoplay();
-
-            });
-
-            $('#btn-prev').on('click', function () {
-                movePrev();
-                clearInterval(interval);
-                autoplay();
-            });
-
-            autoplay();
-
-            var carouselImage = [];
-           var carouselTitle = [];
-           var carouselBrand = [];
-
-           var carouselCost = [];
-           var carouselID = [];
-
             //Do this function for every product
 
 
@@ -185,29 +94,121 @@
                 carouselCost.push(imgCost);
                 carouselID.push(imgID);
             });
-            car(imgSrc, imgTitle, imgCost, imgID);
+            carouselImages();
 
-            function car(imgSrc, imgTitle, imgCost, imgID) {
-
-
+            function carouselImages() {
                 for (var i = 1; i < 7; i++) {
-
                     $('#slider' + i).children('img').attr('src', "/Images/ProductImages/" + vars['prod' + i] + ".png");
-                    console.log(vars['prod' + i]);
- updateValues()
+                    $('#slider' + i).attr('href', '/product.html?id=' + vars['prod' + i]);
+
+                    updateValues();
 
                     var convertedID = parseInt(vars['prod' + i]);
-                                       console.log("Converted ID is:" + convertedID);
 
                     sliderID.push(convertedID);
-
-                   console.log("SliderID is: " + sliderID);
-
-                    $('#slider' + i).attr('href', '/product.html?id=' + vars['prod' + i]);
                 }
+            }
 
+            // Variable for the slider itself
+            var slider = $('#slider');
+
+            // move the last image to the first place
+            $('#slider .slider__section:last').insertBefore('#slider .slider__section:first');
+            // display the first image with a margin of -100%
+            slider.css('margin-left', '-' + 100 + '%');
+
+
+            function moveNext() {
+                if (slideNum == 6) {
+                    slideNum = 0;
+                }
+                slideNum = slideNum + 1;
+                fadeOut();
+                slider.animate({marginLeft: '-' + 200 + '%'}, 700, function () {
+                    $('#slider .slider__section:first').insertAfter('#slider .slider__section:last');
+                    slider.css('margin-left', '-' + 100 + '%');
+                });
+                fadeIn();
 
             }
+
+            function fadeOut() {
+                $("#carouselTitleHeader").fadeTo(500, 0)
+                $("#carouselBrand").fadeTo(500, 0);
+                $("#carouselCost").fadeTo(500, 0, function () {
+                    updateValues();
+                });
+
+
+                fadeIn();
+            }
+
+            function fadeIn() {
+                $("#carouselTitleHeader").fadeTo(500, 1);
+                $("#carouselBrand").fadeTo(500, 1);
+                $("#carouselCost").fadeTo(500, 1);
+
+            }
+
+
+            function updateValues() {
+                var currentSlideID = sliderID[slideNum - 1];
+                $("#carouselTitleHeader").text(carouselTitle[currentSlideID - 1]);
+                $("#carouselBrand").text("By: " + carouselBrand[currentSlideID - 1]);
+                $("#carouselCost").text("£" + carouselCost[currentSlideID - 1]);
+
+                fadeIn();
+
+            }
+
+            function movePrev() {
+                if (slideNum == 1) {
+                    slideNum = 7;
+                }
+                slideNum = slideNum - 1;
+                fadeOut();
+
+                slider.animate({marginLeft: 0}, 700, function () {
+                    $('#slider .slider__section:last').insertBefore('#slider .slider__section:first');
+                    slider.css('margin-left', '-' + 100 + '%');
+                });
+                fadeIn();
+            }
+
+            //Runs moveNext, every 5 seconds//
+            function autoplay() {interval = setInterval(function () {
+                    moveNext();
+
+            }, 5000);
+            }
+
+            //When the user clicks the Next (>) button
+            $('#btn-next').on('click', function () {
+                //Runs MoveNext and resets timer and goes back to autoplay//
+                moveNext();
+                clearInterval(interval);
+                autoplay();
+            });
+
+            //When the user clicks the Previous (<) button
+            $('#btn-prev').on('click', function () {
+                //Runs MoveNext and resets timer nd goes back to autoplay//
+                movePrev();
+                clearInterval(interval);
+                autoplay();
+            });
+
+            //When the user's mouse enters the carousel
+            $('#slider').mouseenter(function () {
+                clearInterval(interval);
+            });
+
+            //When the user's mouse leaves the carousel
+            $('#slider').mouseleave(function () {
+                autoplay();
+
+            });
+            autoplay();
 
 
             //For me to pause animation if needed//
@@ -290,15 +291,10 @@
             <div id=Main_container>
                 <div class="carousel">
                     <div class="row visible-md visible-lg">
-                        <div id="slider-Information">
+                        <div id="slider-carouselTitleHeader">
                             <h1 id="carouselTitleHeader">TITLE</h1>
-                            <div id="carouselBrand&cost">
-                                <h3 id="carouselBrand" style="text-align:left;float:left;">By: BRAND </h3>
-                                <h2 id="carouselCost" style="text-align:right;float:right;">£Co.st</h2>
-                                <hr style="clear:both;"/>
-                            </div>
                         </div>
-                        <div id="contenedor-slider" class="contenedor-slider">
+                        <div id="full-slider" class="full-slider">
                             <div id="slider" class="slider">
                                 <a id="slider1" class="slider__section" href=""><img src="Images\Home\Loading.png"
                                                                                      class="slider__img">
@@ -323,76 +319,81 @@
                             <div id="btn-next" class="btn-next">&#62;</div>
 
                         </div>
-
+                        <div id="carouselBrandcost">
+                            <h3 id="carouselBrand" style="text-align:left;float:left;">By: BRAND </h3>
+                            <h2 id="carouselCost" style="text-align:right;float:right;">£Co.st</h2>
+                            <hr id=""style="clear:both;"/>
+                        </div>
                     </div>
 
 
                 </div>
             </div>
-            Hello Outside
         </div>
-
-        <!-- 1 remaining div left -->
-
-        <footer>
-            <div id="thefooter">
-
-                <div id="Footer-GadgetGainey">
-                    <a href="index.html">
-                        <h1>Gadget Gainey</h1>
-                    </a>
-                    <a href="About.html">
-                        <h4>About Us</h4>
-                    </a>
-                    <a href="Basket.html">
-                        <h4>Basket </h4>
-                    </a>
-                    <a href="https://bit.ly/2BLLE05" target="_blank">
-                        <h4>eBay Store </h4>
-                    </a>
-                    <a href="sitemap.html">
-                        <h4>Sitemap</h4>
-                    </a>
-                </div>
-                <div id="Footer-TheBoringStuff">
-                    <h2>The Boring Stuff</h2>
-                    <a href="Delivery&Returns.html">
-                        <h4>Shipping & Delivery</h4>
-                    </a>
-                    <a href="Delivery&Returns.html#Returns">
-                        <h4>Returns & Refunds</h4>
-                    </a>
-                    <a href="Terms&Conditions.html">
-                        <h4>Terms & Conditions</h4>
-                    </a>
-                </div>
-                <div id="Footer-Support">
-                    <h2>Support</h2>
-                    <a href="Contact.html">
-                        <h4>Contact Us</h4>
-                    </a>
-                    <a href="FAQ.html">
-                        <h4>FAQ's</h4>
-                    </a>
-                </div>
-                <div id="Footer-Supported_Payments">
-                    <h2>Supported Payments </h2>
-                    <img src="Images/OnEveryPage/Payment Types.png">
-                </div>
-                <div id="Footer-Find-eBay">
-                    <h2>Find us on</h2>
-                    <a href="https://bit.ly/2BLLE05" target="_blank">
-                        <img src="Images/OnEveryPage/Trust Banner/eBay logo.png">
-                    </a>
-                </div>
-                <div id="Footer-copyright">
-                    <h5>
-                        © Gadget Gainey 2019. All Rights Reserved
-                    </h5>
-                </div>
-            </div>
-        </footer>
+        Hello Outside
     </div>
+
+    <!-- 1 remaining div left -->
+
+    <footer>
+        <div id="thefooter">
+
+            <div id="Footer-GadgetGainey">
+                <a href="index.html">
+                    <h1>Gadget Gainey</h1>
+                </a>
+                <a href="About.html">
+                    <h4>About Us</h4>
+                </a>
+                <a href="Basket.html">
+                    <h4>Basket </h4>
+                </a>
+                <a href="https://bit.ly/2BLLE05" target="_blank">
+                    <h4>eBay Store </h4>
+                </a>
+                <a href="sitemap.html">
+                    <h4>Sitemap</h4>
+                </a>
+            </div>
+            <div id="Footer-TheBoringStuff">
+                <h2>The Boring Stuff</h2>
+                <a href="Delivery&Returns.html">
+                    <h4>Shipping & Delivery</h4>
+                </a>
+                <a href="Delivery&Returns.html#Returns">
+                    <h4>Returns & Refunds</h4>
+                </a>
+                <a href="Terms&Conditions.html">
+                    <h4>Terms & Conditions</h4>
+                </a>
+            </div>
+            <div id="Footer-Support">
+                <h2>Support</h2>
+                <a href="Contact.html">
+                    <h4>Contact Us</h4>
+                </a>
+                <a href="FAQ.html">
+                    <h4>FAQ's</h4>
+                </a>
+            </div>
+            <div id="Footer-Supported_Payments">
+                <h2>Supported Payments </h2>
+                <img src="Images/OnEveryPage/Payment Types.png">
+            </div>
+            <div id="Footer-Find-eBay">
+                <h2>Find us on</h2>
+                <a href="https://bit.ly/2BLLE05" target="_blank">
+                    <img src="Images/OnEveryPage/Trust Banner/eBay logo.png">
+                </a>
+            </div>
+            <div id="Footer-copyright">
+                <h5>
+                    © Gadget Gainey 2019. All Rights Reserved
+                </h5>
+            </div>
+        </div>
+    </footer>
+</div>
 </div>
 </body>
 </html>
