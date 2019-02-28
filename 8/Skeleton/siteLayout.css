@@ -262,7 +262,7 @@ MainBody:after {
 
 
 /* Add a margin to the main_container that is inside the main body, this is because we 
-want something up against the Nav (for instance the breadcrumb/the carousel)*/
+want something up against the Nav (for instance the breadcrumb/the half price Sale)*/
 #Main_container {
 	margin-top: 30px;
 	margin-left: 50px;
@@ -272,16 +272,10 @@ want something up against the Nav (for instance the breadcrumb/the carousel)*/
 	min-height:100%;
 	 position:relative;
 
-	 	/* Was having an issue if I typed more than expected for the search, then it would destroy the padding 
-	so have added word-wrap, this should apply to the main_container, no matter whether it is a heading 
-	(h1, h2, h3 etc.), paragraph (p) or something other */
-	 	word-wrap: break-word;
-
 }
 
 #thefooter {
 	min-height:100%;
-
 }
 .container {
 	min-height:100%;
@@ -295,28 +289,15 @@ footer {
 /* For the background to go the full length */
 	min-height: 200px;
 
-
-
 	position: absolute;
 	left: 0;
 	bottom: 0;
 
 	color: white;
-
  }
-
-
-
-
-
-
-
-
 
 #Main_container h1 {
 	font-family: Century Gothic;
-	font-size: 40px;
-	text-align: center;
 }
 
 footer h1 {
@@ -400,19 +381,6 @@ float:left;
 text-align:center;
  width:100%;    
  padding-bottom: 5px;    
-}
-
-
-
-
-#carouselTitleHeader {
-	min-height: 120px;
-
-	/*If the title is one liner than align it to the bottom so it is more near the carousel itself*/
-	display: flex;
-	justify-content: center;
-	align-items: flex-end;
-	padding-bottom: 15px;
 }
 
 
@@ -550,5 +518,7 @@ text-align:center;
 	  padding-top: 5px;
 	  padding-left: 5px;
 	  padding-right: 5px;
+
+
   }
   
