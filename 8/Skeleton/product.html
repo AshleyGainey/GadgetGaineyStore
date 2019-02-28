@@ -38,6 +38,14 @@
                 margin-bottom: 20px;
             }
 
+#PriceBasket {
+width: 50%;
+min-height: 80px;
+}
+
+
+
+
         .AreasOfProduct h1 {
             font-size: 30px;
         }
@@ -49,13 +57,8 @@
 
         .productInformation img {
             width: 100%;
-            height: 450px;
 
-            border-radius: 10px 10px 10px 10px;
-            /*For Firefox*/
-            -moz-border-radius: 10px 10px 10px 10px;
-            /*For Safari users*/
-            -webkit-border-radius: 10px 10px 10px 10px;
+
         }
 
         .leftFloatLine {
@@ -76,12 +79,53 @@
             border: none;
 
             min-width: 50px;
-            width: 150px;
+            width: 200px;
+    color: #FFFFFF;
+
+    float:left;
+
+
+             padding: 10px;
+
+    margin-right: 75px;
+    margin-bottom:10px;
+
+
+
+   border-radius: 10px 10px 10px 10px;
+            /*For Firefox*/
+            -moz-border-radius: 10px 10px 10px 10px;
+            /*For Safari users*/
+            -webkit-border-radius: 10px 10px 10px 10px;
+
+font-size: 15px;
+font-family: Century Gothic;
+
+.button p {
+  padding-top: 30px;
+  padding-bottom: 30px;}
 
         }
         .button img {
-            width: 30px;
+            width: 40px;
+  margin: 0 auto;
+
         }
+
+        #PriceBasket h1 {
+         padding-top: 30px;
+  padding-bottom: 30px;
+  font-size: 50px}
+
+.button_blue {
+    border: 1px solid #305875;
+    color: #FBFBFB;
+    background-color: #3D6E97;
+}
+.button:hover {
+    opacity:0.9;
+);
+}
     </style>
     <script src="jquery-3.3.1.min.js"></script>
     <script src='Shop.js'></script>
@@ -246,21 +290,24 @@
                 </div>
 
             </div>
-                <div>
+
+                <div class="productInformation" id="PriceBasket">
+                    <h1 id="productCost">£CO.ST</h1>
 
                     <button class="button"><img
-                            src="Images/ProductPage/basket.png" alt="Search" >
+                                                src="Images/ProductPage/basket.png" alt="Add to Basket" ><p>Add to basket</p></img></button>
+                <div>
 
-                    </img></button>
+
                 </div>
-
+                    </div>
 
                 <div class="productInformation">
-                    <img  id="productImage" src="Images\Home\Loading.png">
+                    <img id="productImage" src="Images\Home\Loading.png">
                 </div>
 
                 <div id="middleSideProduct" class="AreasOfProduct">
-                    <h4 id="productCost">£CO.ST</h4>
+
                 </div>
 
 
