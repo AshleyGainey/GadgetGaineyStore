@@ -15,7 +15,15 @@
 
 	<!-- <base href="/images/" target = "_blank"> -->
 	<style>
-		/* This is an internal style sheet */
+
+		#Main_container{
+			/* Was having an issue if I typed more than expected for the search, then it would destroy the padding
+so have added word-wrap, this should apply to the main_container, no matter whether it is a heading
+(h1, h2, h3 etc.), paragraph (p) or something other */
+			word-wrap: break-word;
+		}
+
+
 	</style>
 	<script src="jquery-3.3.1.min.js"></script>
 	<script src='Shop.js'></script>

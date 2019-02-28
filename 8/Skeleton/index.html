@@ -21,7 +21,26 @@
 
     <!-- <base href="/images/" target = "_blank"> -->
     <style>
-        /* This is an internal style sheet */
+
+
+        #carouselTitleHeader {
+            min-height: 120px;
+
+            /*If the title is one liner than align it to the bottom so it is more near the carousel itself*/
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            padding-bottom: 15px;
+        }
+
+
+
+        #Main_container h1 {
+            font-family: Century Gothic;
+            font-size: 40px;
+            text-align: center;
+        }
+
     </style>
     <script src="jquery-3.3.1.min.js"></script>
     <script src='Shop.js'></script>
@@ -259,7 +278,7 @@
                 <div class="search-box">
                     <input type="search" class="search-box-input" name="searchTerm" autocomplete="off"
                            placeholder="Search Gadget Gainey..."/>
-                    <button class="search-box-button"><img
+                    <button class="search-box-button"> <img
                             src="Images/OnEveryPage/Main Banner/Maginifer Glass - Search.png" alt="Search">
                     </img></button>
                 </div>
