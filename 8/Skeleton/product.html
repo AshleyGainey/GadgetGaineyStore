@@ -13,7 +13,7 @@
     <meta name="keywords" content="toys, kids, children, store, go kart, playsets, play, presents, fun, little kids, pedal, pedal go karts, pedal go kart,
 		car, ride on, ride on bike, ride on cars, cars, bike, outdoor, racing">
     <link rel="icon" href="/Images/OnEveryPage/Gadget Gainey icon.png">
-    <Title>TEMPLATE - EDIT THIS TITLE - Gadget Gainey</Title>
+    <Title>Gadget Gainey Store</Title>
     <link rel="stylesheet" href="siteLayout.css" type="text/css" media="screen,projection"/>
     <link rel="stylesheet" href="siteTheme.css" type="text/css" media="screen,projection"/>
 
@@ -94,7 +94,7 @@
             width: 20%;
         }
 
-        .button {
+        #button {
             background-image: url(/Images/Background.png);
             color: white;
             border: none;
@@ -111,10 +111,18 @@
 
         }
 
-        .button:hover {
+        #button:hover {
             color: #FBFBFB;
             opacity: 0.9;
             filter: alpha(opacity=90);
+        }
+
+        #redirectDiv {
+            text-align: center;
+            display: none;
+        }
+        #redirectDiv img {
+            width: 20%
         }
     </style>
     <script src="jquery-3.3.1.min.js"></script>
@@ -130,7 +138,9 @@
         carouselBrand = [];
         carouselCost = [];
         carouselDesc = [];
+        carouseleBayLink = [];
 
+        indexedeBayLinks = null;
         // Your global variables should be declared above here -^
         // Any user defined functions should be declared below here -v
 
@@ -175,13 +185,17 @@
                 imgCost = $(this).find("price").text();
                 imgID = $(this).find("id").text();
                 imgDesc = $(this).find("description").text();
+                imgeBay = $(this).find("eBayLink").text();
 
                 carouselTitle.push(imgTitle);
                 carouselBrand.push(imgBrand);
                 carouselCost.push(imgCost);
                 carouselDesc.push(imgDesc);
-
+                carouseleBayLink.push(imgeBay)
             });
+
+
+
             ProductInformation();
 
             function ProductInformation() {
@@ -194,19 +208,57 @@
 
 
                     var convertedID = parseInt(vars['id']);
+                    var iDforIndex = convertedID - 1;
 
-                    console.log(convertedID);
 
-                    $('#productTitle').text(carouselTitle[convertedID - 1]);
-                    $('#productBrand').text("By: " + carouselBrand[convertedID - 1]);
-                    $('#productCost').text("£" + carouselCost[convertedID - 1]);
-                    $('#productDescription').text(carouselDesc[convertedID - 1]);
+
+                    $('#productTitle').text(carouselTitle[iDforIndex]);
+                    $('#productBrand').text("By: " + carouselBrand[iDforIndex]);
+                    $('#productCost').text("£" + carouselCost[iDforIndex]);
+                    $('#productDescription').text(carouselDesc[iDforIndex]);
+
 
                 }
+               indexedeBayLinks = carouseleBayLink[iDforIndex];
+
+                    console.log("index" + indexedeBayLinks);
+
+            // Old method of doing eBayLinks
+            //     var eBayLinks = new Array('292990669558', '292990887892', '292990887884', '292990887889', '292990887887', '292990887871',
+            //         "292990887875", "292990887897", "292990887874", "292990887882", "292990887877", "292990887878",
+            //         "292990887885", "292990887880", "292990887883", "292990887886", "292990944330", "292990944339", "292990944333", '292990944361');
+
+
+                // var indexedeBayLinks =  eBayLinks[iDforIndex];
+
+
+
+               // $('#buttonID').attr('href', 'https://www.ebay.co.uk/itm/' + indexedeBayLinks);
+
+                $("#buttonID").click(function(){
+                    $("#redirectDiv").show(500);
+                    delayRedirect();
+                });
             }
 
             // Your $(document).ready() event script code goes above here -^
         });
+
+        function delayRedirect() {
+            var count = 5;
+            setInterval(function() {
+                count = count - 1;
+               if (count > 1) {
+                   $('#redirectText').text("Redirecting to eBay in " + count + " seconds.");
+               } else if (count <= 1) {
+                    $('#redirectText').text("Redirecting to eBay now. Come back soon!");
+                }
+               if (count == 0) {
+                    console.log("Hit 0");
+                    window.location = "https://www.ebay.co.uk/itm/" + indexedeBayLinks;
+                }
+        }, 1000)
+        }
     </script>
 </head>
 
@@ -240,7 +292,7 @@
                     src="Images/OnEveryPage/Main Banner/Gadget Gainey White Small Logo.png" alt="Logo"> </a>
             </div>
 
-            <form method="get" action="results.php">
+            <form method="get" action="results.html">
 
                 <div class="search-box">
                     <input type="search" class="search-box-input" name="searchTerm" autocomplete="off"
@@ -271,6 +323,15 @@
     </ul>
     <div id=Outside_Body>
         <div id=Main_Body>
+            <div id="redirectDiv">
+                <h1> Thank you for browsing Gadget Gainey. </h1>
+                <h2 id="redirectText"> Redirecting to eBay in <span id="countDown">5</span> seconds. </h2>
+                    <img src="Images/OnEveryPage/Trust Banner/eBay logo.png">
+            </div>
+
+
+
+
             <div id=Main_container>
                 <div class="productInformation">
                     <div id="upperTopProduct">
@@ -281,9 +342,9 @@
 
                 <div class="productInformation" id="PriceBasket">
                     <h1 id="productCost">£CO.ST</h1>
-                    <button class="button"><img
+                    <a id="buttonID"><button id="button">  <img
                             src="Images/ProductPage/basket.png" alt="Add to Basket">
-                        <p>Add to basket</p></img></button>
+                        <p>Add to basket</p></img></button></a>
                 </div>
                 <div class="productInformation">
                     <img id="productImage" src="Images\Home\Loading.png">

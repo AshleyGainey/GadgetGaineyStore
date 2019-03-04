@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html>
+
 <head>
     <!-- This is a comment tag -->
 
@@ -10,21 +13,13 @@
     <meta name="keywords" content="toys, kids, children, store, go kart, playsets, play, presents, fun, little kids, pedal, pedal go karts, pedal go kart,
 		car, ride on, ride on bike, ride on cars, cars, bike, outdoor, racing">
     <link rel="icon" href="/Images/OnEveryPage/Gadget Gainey icon.png">
-    <Title>Results for <?php echo $_GET['searchTerm']; ?> - Gadget Gainey Store</Title>
+    <Title>Results for "<?php echo $_GET["searchTerm"]; ?>" - Gadget Gainey Store</Title>
     <link rel="stylesheet" href="siteLayout.css" type="text/css" media="screen,projection"/>
     <link rel="stylesheet" href="siteTheme.css" type="text/css" media="screen,projection"/>
 
     <!-- <base href="/images/" target = "_blank"> -->
     <style>
-
-        #Main_container {
-            /* Was having an issue if I typed more than expected for the search, then it would destroy the padding
-so have added word-wrap, this should apply to the main_container, no matter whether it is a heading
-(h1, h2, h3 etc.), paragraph (p) or something other */
-            word-wrap: break-word;
-        }
-
-
+        /* This is an internal style sheet */
     </style>
     <script src="jquery-3.3.1.min.js"></script>
     <script src='Shop.js'></script>
@@ -79,7 +74,7 @@ so have added word-wrap, this should apply to the main_container, no matter whet
     <div id="Top-Header">
         <div class="Trust-Header">
             <div id="Trust-eBay">
-                <a href="https://bit.ly/2to8o1z" target="_self">
+                <a href="https://bit.ly/2to8o1z" target="_blank">
                     <h3> 98% OF CUSTOMERS LOVE US ON</h3>
                     <img src="Images/OnEveryPage/Trust Banner/eBay logo.png" alt="eBay">
                 </a>
@@ -102,11 +97,10 @@ so have added word-wrap, this should apply to the main_container, no matter whet
         </div>
         <div id="Main-Header">
             <div id="Logo"><a href="index.html"> <img
-                    src="Images/OnEveryPage/Main Banner/Gadget Gainey White Small Logo.png"
-                    alt="Logo"> </a>
+                    src="Images/OnEveryPage/Main Banner/Gadget Gainey White Small Logo.png" alt="Logo"> </a>
             </div>
 
-            <form method="get" action="results.php">
+            <form method="get" action="results.html">
 
                 <div class="search-box">
                     <input type="search" class="search-box-input" name="searchTerm" autocomplete="off"
@@ -123,30 +117,93 @@ so have added word-wrap, this should apply to the main_container, no matter whet
                     <h3>Help</h3>
                 </a>
                 </div>
-                <div id="Basket"><a href="Basket.html"> <img src="Images/OnEveryPage/Main Banner/Basket.png"
-                                                             alt="Basket">
+                <div id="Basket"><a href="PaymentTypes.html"> <img src="Images/OnEveryPage/Main Banner/Basket.png"
+                                                                   alt="Basket">
                     <h3>Basket</h3>
                 </a>
                 </div>
             </div>
         </div>
     </div>
+
+
     <ul class="navmenu">
     </ul>
+    <div id=Outside_Body>
+        Hello Outside
+        <div id=Main_Body>
+            <div id=Main_container>
+                <!--<h1>You searched for: <?php echo $_GET["searchTerm"]; ?></h1>-->
 
 
-    <div id=Main_Body>
-        <div id=Main_container>
 
-            <h1>You searched for:<i>
-                <?php echo $_GET['searchTerm']; ?></i></h1></div>
+                <h1>You searched for:<i>
+                    <?php echo $_GET["searchTerm"]; ?></i></h1></div>
+                Hello Inside
+            </div>
 
-
+        </div>
+        Hello Outside
     </div>
+
+
+    <footer>
+        <div id="thefooter">
+            <div id="Footer-GadgetGainey">
+                <a href="index.html">
+                    <h1>Gadget Gainey</h1>
+                </a>
+                <a href="About.html">
+                    <h4>About Us</h4>
+                </a>
+                <a href="Basket.html">
+                    <h4>Basket </h4>
+                </a>
+                <a href="https://bit.ly/2BLLE05" target="_blank">
+                    <h4>eBay Store </h4>
+                </a>
+                <a href="sitemap.html">
+                    <h4>Sitemap</h4>
+                </a>
+            </div>
+            <div id="Footer-TheBoringStuff">
+                <h2>The Boring Stuff</h2>
+                <a href="Delivery&Returns.html">
+                    <h4>Shipping & Delivery</h4>
+                </a>
+                <a href="Delivery&Returns.html#Returns">
+                    <h4>Returns & Refunds</h4>
+                </a>
+                <a href="Terms&Conditions.html">
+                    <h4>Terms & Conditions</h4>
+                </a>
+            </div>
+            <div id="Footer-Support">
+                <h2>Support</h2>
+                <a href="Contact.html">
+                    <h4>Contact Us</h4>
+                </a>
+                <a href="FAQ.html">
+                    <h4>FAQ's</h4>
+                </a>
+            </div>
+            <div id="Footer-Supported_Payments">
+                <h2>Supported Payments </h2>
+                <img src="Images/OnEveryPage/Payment Types.png">
+            </div>
+            <div id="Footer-Find-eBay">
+                <h2>Find us on</h2>
+                <a href="https://bit.ly/2BLLE05" target="_blank">
+                    <img src="Images/OnEveryPage/Trust Banner/eBay logo.png">
+                </a>
+            </div>
+            <div id="Footer-copyright">
+                <h5>
+                    © Gadget Gainey 2019. All Rights Reserved
+                </h5>
+            </div>
+        </div>
+    </footer>
 </div>
-
-
-</div>
-
-
 </body>
+</html>

@@ -1,0 +1,3 @@
+
+# If 404 error then go to the 404Error.html
+ErrorDocument 404 /404Error.html

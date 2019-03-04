@@ -54,6 +54,7 @@
 					// Your $(document).ready() event script code goes below here -v
 
 
+                        console.log("here " +  '<?php echo $_GET["searchTerm"]; ?>')
 
 					// Your $(document).ready() event script code goes above here -^
 				}
@@ -96,7 +97,7 @@
 						 alt="Logo"> </a>
 				</div>
 
-					<form method="get" action="results.php">
+					<form method="get" action="results.html">
 
 				<div class="search-box">
 					<input type="search" class="search-box-input" name="searchTerm" autocomplete="off" placeholder="Search Gadget Gainey..." />
