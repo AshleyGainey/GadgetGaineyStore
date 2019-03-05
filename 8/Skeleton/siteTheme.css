@@ -27,3 +27,132 @@
 .chosenItem {
     background-color: #1B3C7D;
 }
+
+body {
+    font-family: Century Gothic;
+    background-color: rgb(228, 228, 228);
+}
+
+
+/* Start: Trusting Banner at the top*/
+
+#Top-Header, footer {
+    Background-image: url("Images/OnEveryPage/Trust Banner/Background.png");
+}
+
+.Trust-Header h3 {
+    color: white;
+    font-family: Century Gothic;
+    font-size: 14px;
+}
+/* End: Trusting Banner at the top*/
+
+/* All links will be white (instead of blue) and no underline until hover */
+a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+/* If hover then allow the link to have an underline under it,
+this makes it more recognisable that it is a link*/
+a:hover {
+    text-decoration: underline;
+}
+
+/* Gives the line some colour  */
+.line {
+    color: rgba(37, 37, 37, 0.041);
+}
+
+.search-box-input, .search-box-button  {
+    /* Adding a 3px black border to the searchbar & button */
+    border: 3px solid #000000;
+}
+
+.search-box-input {
+    /* Rounding the top left and bottom left corners*/
+    border-radius: 6px 0 0 6px;
+}
+
+.search-box-button {
+    /* Add a background colour of black to the search button */
+    background-color: #000000;
+
+    /* Rounding the top right and bottom right corners*/
+    border-radius: 0 5px 5px 0;
+}
+
+/* On hover change the border color of the search box to grey  */
+.search-box-input:hover,
+.search-box-input:focus {
+    border-color: #a7a7a7;
+}
+
+/* On hover change the background color of the search box to grey,
+not the border color because it doesn't look right  */
+.search-box-button:hover,
+.search-box-button:focus {
+    background-color: #a7a7a7;
+}
+
+/* To get rid of the X button, isn't neccessary to have it in */
+.search-box-input::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}
+
+/*End of Search Bar*/
+
+footer {
+    color: white;
+}
+
+footer h1 {
+    font-size: 18px;
+}
+
+footer h2 {
+    font-size: 16px;
+}
+
+footer h4 {
+    font-size: 14px;
+}
+
+#Footer-GadgetGainey {
+    float: left;
+}
+
+
+#Footer-GadgetGainey, #Footer-TheBoringStuff, #Footer-Supported_Payments, #Footer-Find-eBay, #Footer-copyright {
+    float: left;
+}
+
+.curveRadius {
+
+    border-radius: 10px 10px 10px 10px;
+    /*For Firefox (cross browser)*/
+    -moz-border-radius: 10px 10px 10px 10px;
+    
+    /*For safari (cross browser)*/
+    -webkit-border-radius: 10px 10px 10px 10px;
+}
+
+/*carousel start*/
+.full-slider {
+    box-shadow: 0 0 0 5px #143576;
+}
+
+.btn-prev, .btn-next {
+    background: #143576;
+    font-size: 25px;
+    font-family: Arial Black;
+    border-radius: 25%;
+    cursor: pointer;
+    color: white;
+}
+
+.btn-prev:hover, .btn-next:hover {
+    background: white;
+    color: #143576;
+}
+/*carousel end*/

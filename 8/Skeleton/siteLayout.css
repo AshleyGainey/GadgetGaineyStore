@@ -1,137 +1,91 @@
+/*Universal selector, gives all elements in the file no padding and no margin, this is because the background
+(gradient hue is at the top)*/
 * {
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
+
 }
 
-body {
+/*In the body and html element, make everything a maximum width of 1024px for because the res will be 1024 x 768,
+also make the height 100% and fill the screen, this is so that the footer will remain at the bottom,
+even if there isn't enough content. If you don't allow the height for both body and html, the footer won't
+remain at the bottom */
+body, html {
     max-width: 1024px;
-    background-color: rgb(228, 228, 228);
-    margin: 0;
-    padding: 0;
     height: 100%;
-    font-family: Century Gothic;
-
 }
 
-html {
-    margin: 0;
-    padding: 0;
-    height: 100%
-}
+    /* Start: Trusting Banner at the top*/
 
-/* Set the container to min-height to 100% because then the footer will 
-display at the bottom, doesn't matter whether or not it is small or a big page */
-#container {
-    width: 100%;
-    min-height: 100%;
-    position: relative;
-}
-
-/* Start: Trusting Banner at the top*/
-
-#Top-Header, footer {
-    Background-image: url("Images/OnEveryPage/Trust Banner/Background.png");
-}
-
+/*Flex makes main header and trust header items all on one line.
+So the eBay logo with the 98% of customers... but also the free delivery and the order by 3pm, all on one line. Also centers items*/
 .Trust-Header, #Main-Header {
     display: flex;
     align-items: center;
-
 }
 
-.Trust-Header h3 {
-    color: white;
-    font-family: Century Gothic;
-    font-size: 14px;
-}
 
-/* This makes sure that the  that the ebay */
-
-#Trust-eBay img {
-    height: 50px;
-    vertical-align: middle;
-    display: inline-block;
-
-}
-
+/*Space the three sections out according to all of widths put together and how much space is left*/
 #Trust-eBay, #Trust-Fast_Delivery, #Trust-Free_Delivery {
     margin: 0 auto;
 }
 
-
-#Logo, .search-box, .RightButtons {
-    margin: 0 auto;
-}
-
-#Trust-eBay h3, #Trust-Fast_Delivery h3, #Trust-Free_Delivery h3 {
+/*Display the text of all three sections of the trust header inline so the image
+and the text can both be in-line with each other */
+.Trust-Header h3 {
     display: inline;
-    /* Don't know if this needed */
+}
+/*Vertically align Trust Header images with the text*/
+.Trust-Header img {
     vertical-align: middle;
-
 }
 
+/*Make the height of the eBay logo in the trust banner (at the very top) only 50px*/
+#Trust-eBay img {
+    height: 50px;
+}
+/*Make the height of the trucks in the trust banner (at the very top) only 40px*/
 #Trust-Fast_Delivery img, #Trust-Free_Delivery img {
     height: 40px;
-    vertical-align: middle;
 }
 
-/* End: Trusting Banner at the top*/
+    /* End: Trusting Banner at the top*/
 
-/* All links will be white (instead of blue) and no underline until hover */
-a {
-    color: #FFFFFF;
-    text-decoration: none;
-}
-
-/* If hover then allow the link to have an underline under it, 
-this makes it more recognisable that it is a link*/
-a:hover {
-    text-decoration: underline;
-}
 
 /* Separates the trust us Header with the main header with a grey line, 
 making it 75% of the width, a visible but small width. making the margin auto 
-for left and right to position the line in the middle    */
+for left and right to position the line in the middle but also allow padding at the bottom to
+gives space from the line and the Main Header (which contains the logo, search, help and basket*/
 .line {
-    color: rgba(37, 37, 37, 0.041);
     width: 75%;
     height: 1px;
     margin-left: auto;
     margin-right: auto;
-    /* Gives space from the line and the Main Header (which contains the logo, search, help and basket*/
     padding-bottom: 10px;
 }
+
+    /*Main Header Starts*/
 
 /* Logo was too big so I reduced it by 20% */
 #Logo img {
     height: 80px;
 }
 
-/*Start: Search Bar*/
+    /*Start: Search Bar*/
 /* Inline flex because then the search bar and the button are right next to each other without any spacing*/
 .search-box {
     display: inline-flex;
 }
 
 .search-box-input {
-    /* Adding a 3px black border to the searchbar */
-    border: 3px solid #000000;
-    /* Rounding the top left and bottom left corners*/
-    border-radius: 6px 0 0 6px;
     /* Making the padding 8 by 16 to not have the typed input to be up against the border of the searchbar  */
     padding: 8px 16px;
 }
 
 .search-box-button {
-    /* Adding a 3px black border to the search button */
-    border: 3px solid #000000;
-    /* Adding a 3px black border to the search button */
-    /* Rounding the top right and bottom right corners*/
-    border-radius: 0 5px 5px 0;
+
     /* Make the width of the button 10%, so it isn't large */
     width: 10%;
-    /* Add a background colour of black */
-    background-color: #000000;
 
     /* Border left to 0px, you can noticably see the difference if you were to have the default bordering,
      it has more black when on hover, which isn't what I want */
@@ -141,43 +95,14 @@ for left and right to position the line in the middle    */
 
 }
 
-/* On hover change the border color of the search box to grey  */
-.search-box-input:hover,
-.search-box-input:focus {
-    border-color: #a7a7a7;
-}
-
-/* On hover change the background color of the search box to grey, 
-not the border color because it doesn't look right  */
-.search-box-button:hover,
-.search-box-button:focus {
-    background-color: #a7a7a7;
-}
-
 /* Logo was too big so I reduced it by 50% */
 .search-box-button img {
     width: 50%;
 }
 
+    /*End: Search Bar*/
 
-/* To get rid of the X button, isn't neccessary to have it in */
-.search-box-input::-webkit-search-cancel-button {
-    -webkit-appearance: none;
-}
-
-/*End: Search Bar*/
-
-/* Start: Help*/
-
-
-/* TODO: Doesn't work, need to check out */
-.RightButtons {
-    margin: 0 auto;
-    display: inline;
-
-}
-
-/* TODO: Doesn't work as intended, need to check out */
+    /* Start: Help and Basket buttons*/
 
 #Help h3 {
     display: inline;
@@ -186,7 +111,6 @@ not the border color because it doesn't look right  */
 #Basket h3 {
     display: inline;
 }
-
 
 #Help img {
     width: 10%;
@@ -199,6 +123,9 @@ not the border color because it doesn't look right  */
     display: inline-block;
     vertical-align: middle;
 }
+    /* End: Help and Basket buttons*/
+    /*End: Main Header*/
+
 
 /*Start Already here code */
 .menuItem {
@@ -263,10 +190,6 @@ want something up against the Nav (for instance the breadcrumb/the half price Sa
     position: relative;
 }
 
-#thefooter {
-    min-height: 100%;
-}
-
 .container {
     min-height: 100%;
     position: relative;
@@ -275,29 +198,20 @@ want something up against the Nav (for instance the breadcrumb/the half price Sa
 
 footer {
 
-    /* For the background to go the full length */
-    min-height: 200px;
+     /* For the background to go the full length */
+     min-height: 200px;
 
-    position: absolute;
-    left: 0;
-    bottom: 0;
-
-    color: white;
-}
-
-#Main_container h1 {
-    font-family: Century Gothic;
-}
+     position: absolute;
+     left: 0;
+     bottom: 0;
+ }
 
 footer h1 {
-    font-size: 18px;
     padding-top: 10px;
-
     padding-bottom: 20px;
 }
 
 footer h2 {
-    font-size: 16px;
     padding-top: 15px;
     text-align: center;
 
@@ -306,43 +220,26 @@ footer h2 {
 
 footer h4 {
     text-align: center;
-    font-size: 14px;
     display: block;
     padding-bottom: 10px;
 }
 
-#Footer-GadgetGainey {
-    float: left;
-    width: 15%;
-    padding: 10px;
-}
 
-#Footer-TheBoringStuff {
+#Footer-TheBoringStuff, #Footer-Support, #Footer-GadgetGainey {
     width: 15%;
     float: left;
-    text-align: justify;
-    padding: 10px;
-}
-
-#Footer-Support {
-    width: 15%;
-    float: left;
-    text-align: justify;
     padding: 10px;
 }
 
 #Footer-Supported_Payments {
     width: 20%;
-    float: left;
-    text-align: justify;
     padding: 10px;
-    text-align: center;
 }
 
 #Footer-Supported_Payments img {
+
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    /*Reduce size to 100%*/
     width: 100%;
 }
 
@@ -357,88 +254,21 @@ footer h4 {
 
 #Footer-Find-eBay img {
     display: block;
-    padding-top: 0px;
+    /*Make the eBay image in the footer horizontally center*/
     margin-left: auto;
     margin-right: auto;
+    /*Reduce size to 70%*/
     width: 70%;
 }
 
 #Footer-copyright {
-    float: left;
+
     text-align: center;
+    /*Put it underneath every section but in the footer and */
     width: 100%;
     padding-bottom: 5px;
 }
 
-
 #Outside_Body {
     padding-bottom: 250px;
 }
-
-
-#Outside_Body {
-    padding-bottom: 250px;
-}
-
-
-.full-slider {
-    margin: auto;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 0 0 5px #143576;
-    border-radius: 10px 10px 10px 10px;
-    -moz-border-radius: 10px 10px 10px 10px;
-    -webkit-border-radius: 10px 10px 10px 10px;
-}
-
-.slider {
-    display: flex;
-    width: 600%;
-}
-
-.slider__section {
-    width: 100%;
-}
-
-
-.slider__img {
-    display: block;
-    width: 100%;
-    height: 100%;
-}
-
-.btn-prev, .btn-next {
-    width: 50px;
-    height: 40px;
-    background: #143576;
-    color: white;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 25px;
-    text-align: center;
-    border-radius: 25%;
-    font-family: Arial Black;
-    cursor: pointer;
-}
-
-.btn-prev:hover, .btn-next:hover {
-    background: white;
-    color: #143576;
-}
-
-.btn-prev {
-    left: 5px;
-}
-
-.btn-next {
-    right: 5px;
-}
-
-
-#carouselBrandcost {
-    padding-top: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-  
