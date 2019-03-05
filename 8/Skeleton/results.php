@@ -102,7 +102,7 @@
 				<div class="search-box">
 					<input type="search" class="search-box-input" name="searchTerm" autocomplete="off" placeholder="Search Gadget Gainey..." />
 					<button class="search-box-button"> <img src="Images/OnEveryPage/Main Banner/Maginifer Glass - Search.png" alt="Search">
-						</img></button>
+						</button>
 				</div>
 				</form>
 
@@ -133,15 +133,4 @@
                 
                 </div>
 	</div>
-
-
-
-	</div>
-
-
-
-
-
-
-
 </body>
