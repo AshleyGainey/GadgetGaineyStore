@@ -272,7 +272,11 @@
                     console.log("Hit 0");
                     window.location = "https://www.ebay.co.uk/itm/" + indexedeBayLinks;
                 }
-        }, 1000)
+               if (count > 0) {
+                   $('#redirectDiv').children('img').attr('src', 'Images/ProductPage/Redirect/Countdown ' + count + ' eBay logo.png');
+               }
+
+            }, 1000)
         }
     </script>
 </head>
@@ -347,7 +351,7 @@
             <div id="redirectDiv">
                 <h1> Thank you for browsing Gadget Gainey. </h1>
                 <h2 id="redirectText"> Redirecting to eBay in <span id="countDown">5</span> seconds. </h2>
-                    <img src="Images/OnEveryPage/Trust Banner/eBay logo.png">
+                    <img src="Images/ProductPage/Redirect/Countdown 5 eBay logo.png">
             </div>
 
 
