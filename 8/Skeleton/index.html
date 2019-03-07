@@ -51,12 +51,9 @@
             float: right;
         }
 
-        #carouselBrandcost hr {
-            clear: both;
-        }
-
         .full-slider {
             margin: auto;
+            box-shadow: 0 0 0 5px #143576;
             position: relative;
             overflow: hidden;
         }
@@ -81,23 +78,36 @@
             height: 40px;
             position: absolute;
             top: 50%;
-            transform: translateY(-50%);
             text-align: center;
+
+            background: #143576;
+            font-size: 25px;
+            font-family: Arial Black;
+
+            cursor: pointer;
+            color: white;
         }
 
+        .btn-prev:hover, .btn-next:hover {
+            background: white;
+            color: #143576;
+        }
+
+        /*Set the left carousel button to the left and have an offset of 5px*/
         .btn-prev {
             left: 5px;
         }
 
+        /*Set the right carousel button to the right and have an offset of 5px*/
         .btn-next {
             right: 5px;
         }
 
-
+        /*Padding: top 5, right 5, bottom 0, left 5*/
+        /*Margin bottom gives space from the bottom Brand & Cost and the line itself */
         #carouselBrandcost {
-            padding-top: 5px;
-            padding-left: 5px;
-            padding-right: 5px;
+            padding: 5px 5px 0 5px;
+            margin-bottom: 30px;
         }
     </style>
     <script src="jquery-3.3.1.min.js"></script>
@@ -392,15 +402,14 @@
                                                                              class="slider__img">
                                 </a>
                             </div>
-                            <div id="btn-prev" class="btn-prev">&#60;</div>
-                            <div id="btn-next" class="btn-next">&#62;</div>
-
+                            <div id="btn-prev" class="btn-prev curveRadius">&#60;</div>
+                            <div id="btn-next" class="btn-next curveRadius">&#62;</div>
                         </div>
                         <div id="carouselBrandcost">
                             <h2 id="carouselBrand">By: BRAND </h2>
                             <h2 id="carouselCost">£Co.st</h2>
-                            <hr/>
                         </div>
+                        <hr/>
                     </div>
                 </div>
             </div>
@@ -409,13 +418,11 @@
     </div>
 
     <footer>
-        <div id="thefooter">
-
-            <div id="Footer-GadgetGainey">
+            <div id="Footer-GadgetGainey" class="footerTextSection">
                 <a href="index.html">
                     <h1>Gadget Gainey</h1>
                 </a>
-                <a href="About.html">
+                <a href="About.html" >
                     <h4>About Us</h4>
                 </a>
                 <a href="Basket.html">
@@ -428,7 +435,7 @@
                     <h4>Sitemap</h4>
                 </a>
             </div>
-            <div id="Footer-TheBoringStuff">
+            <div id="Footer-TheBoringStuff" class="footerTextSection">
                 <h2>The Boring Stuff</h2>
                 <a href="Delivery&Returns.html">
                     <h4>Shipping & Delivery</h4>
@@ -440,7 +447,7 @@
                     <h4>Terms & Conditions</h4>
                 </a>
             </div>
-            <div id="Footer-Support">
+            <div id="Footer-Support" class="footerTextSection">
                 <h2>Support</h2>
                 <a href="Contact.html">
                     <h4>Contact Us</h4>
@@ -449,7 +456,7 @@
                     <h4>FAQ's</h4>
                 </a>
             </div>
-            <div id="Footer-Supported_Payments">
+            <div id="Footer-Supported_Payments" class="footerTextSection">
                 <h2>Supported Payments </h2>
                 <img src="Images/OnEveryPage/Payment Types.png">
             </div>
@@ -459,14 +466,12 @@
                     <img src="Images/OnEveryPage/Trust Banner/eBay logo.png">
                 </a>
             </div>
-            <div id="Footer-copyright">
+            <div id="Footer-copyright" class="footerTextSection">
                 <h5>
                     © Gadget Gainey 2019. All Rights Reserved
                 </h5>
             </div>
-        </div>
     </footer>
-</div>
 </div>
 </body>
 </html>
