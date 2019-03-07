@@ -1,48 +1,16 @@
-.menuItem, .subMenu {
-    background-color: black;
-    color: white;
-    font-family: Century Gothic;
-    font-size: 15px;
-    width: 200px;
+/*Universal Selector, all text will be Century Gothic unless over-ruled*/
+/*Has a fallback font of Segoe UI*/
+* {
+    font-family: "Century Gothic", "Segoe UI";
 }
-
-.navmenu {
-    background-color: black;
-    width: 100%;
-    text-align: center;
-}
-
-.navmenuItem {
-    background-color: black;
-}
-
-.anchorMenuItem {
-    color: white;
-}
-
-.anchorMenuItem {
-    text-decoration: none;
-}
-
-.chosenItem {
-    background-color: #1B3C7D;
-}
-
-body {
-    font-family: Century Gothic;
-    background-color: rgb(228, 228, 228);
-}
-
 
 /* Start: Trusting Banner at the top*/
-
+/*Background image of the Top Header and the footer to the gradient*/
 #Top-Header, footer {
     Background-image: url("Images/OnEveryPage/Trust Banner/Background.png");
 }
-
+/*In the trust us header at the very top, the h3 tag should have a font size of 14px*/
 .Trust-Header h3 {
-    color: white;
-    font-family: Century Gothic;
     font-size: 14px;
 }
 /* End: Trusting Banner at the top*/
@@ -58,101 +26,104 @@ this makes it more recognisable that it is a link*/
 a:hover {
     text-decoration: underline;
 }
-
-/* Gives the line some colour  */
-.line {
-    color: rgba(37, 37, 37, 0.041);
-}
-
+/*Apply a border of black, the width being 3px to the input box of the search bar and the button*/
 .search-box-input, .search-box-button  {
-    /* Adding a 3px black border to the searchbar & button */
     border: 3px solid #000000;
 }
-
+/*In the input bar, round the top left and bottom left corners 6px and give it a font of Arial,
+with a fall back of Segoe UI (which decreases the search bar)*/
 .search-box-input {
-    /* Rounding the top left and bottom left corners*/
     border-radius: 6px 0 0 6px;
+    font-family: "Arial", "Segoe UI";
 }
-
+/*For the search button, add a black background and round the top right and bottom right corners 6px*/
 .search-box-button {
-    /* Add a background colour of black to the search button */
     background-color: #000000;
-
-    /* Rounding the top right and bottom right corners*/
     border-radius: 0 5px 5px 0;
 }
 
-/* On hover change the border color of the search box to grey  */
+/* On search box hover or on focus change the border color of the search box to grey  */
 .search-box-input:hover,
 .search-box-input:focus {
     border-color: #a7a7a7;
 }
 
-/* On hover change the background color of the search box to grey,
+/* On search box button hover change the background color of the search box to grey,
 not the border color because it doesn't look right  */
 .search-box-button:hover,
 .search-box-button:focus {
     background-color: #a7a7a7;
 }
 
-/* To get rid of the X button, isn't neccessary to have it in */
+/* To get rid of the X button of the search box, the X isn't neccessary because the user can use the keyboard to get
+rid of what they are searching, this would be ideal for long text*/
 .search-box-input::-webkit-search-cancel-button {
     -webkit-appearance: none;
 }
+/*End: Search Bar*/
 
-/*End of Search Bar*/
+/*Start: Nav Bar*/
+/*Some of this code was already in here this CSS applies to the menu items as a whole and the sub menu.
+ the styling of the background colour is set to black, the font size is 15px and the colour of that is white.
+ The width of each menu item is 200px, enough width to fill out the whole of the 1024 x 768 but not going over.*/
+.menuItem, .subMenu {
+    background-color: black;
+    color: white;
+    font-size: 15px;
+    width: 200px;
+}
 
+/*The whole navbar menu itself, background colour is black and it fits all the way width-wise and takes up the screens width,
+with this, center all the items to the middle*/
+.navmenu {
+    background-color: black;
+    width: 100%;
+    text-align: center;
+}
+
+/*If an item on the navbar is highlighted, then change background to dark-blue*/
+.chosenItem {
+    background-color: #1B3C7D;
+}
+/*End: Nav Bar*/
+
+/*Change the whole body's colour to light grey*/
+body {
+    background-color: #E4E4E4;
+}
+
+/*Start: Footer*/
+/*Set all text colour in the footer to white*/
 footer {
     color: white;
 }
 
+/*Set all h1 tags in the footer to a font size of 18px, to show a title*/
 footer h1 {
     font-size: 18px;
 }
 
+/*Set all h2 tags in the footer to a font size of 16px, to show a heading but not more important than the title*/
 footer h2 {
     font-size: 16px;
 }
-
+/*Set all h4 tags in the footer to a font size of 14px, to show a sub menu, that is less important than title and heading*/
 footer h4 {
     font-size: 14px;
 }
-
-#Footer-GadgetGainey {
+/*All sections of the footer that include text should have a float of left*/
+.footerTextSection {
     float: left;
 }
+/*End: Footer*/
 
-
-#Footer-GadgetGainey, #Footer-TheBoringStuff, #Footer-Supported_Payments, #Footer-Find-eBay, #Footer-copyright {
-    float: left;
-}
-
+/*Add a curve onto many elements that have this has a class. 10px curve each side */
 .curveRadius {
+    border-radius: 10px;
 
-    border-radius: 10px 10px 10px 10px;
     /*For Firefox (cross browser)*/
-    -moz-border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px;
     
     /*For safari (cross browser)*/
-    -webkit-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px;
 }
-
-/*carousel start*/
-.full-slider {
-    box-shadow: 0 0 0 5px #143576;
-}
-
-.btn-prev, .btn-next {
-    background: #143576;
-    font-size: 25px;
-    font-family: Arial Black;
-    border-radius: 25%;
-    cursor: pointer;
-    color: white;
-}
-
-.btn-prev:hover, .btn-next:hover {
-    background: white;
-    color: #143576;
-}
-/*carousel end*/
