@@ -34,7 +34,7 @@
         }
 
 
-        #Main_container h1 {
+        #Main_Body h1 {
             font-family: Century Gothic;
             font-size: 40px;
             text-align: center;
@@ -165,7 +165,6 @@
             // Your $(document).ready() event script code goes below here -v
             //Do this function for every product
 
-
             $products.find("product").each(function () {
 
                 //Get the data from the product//
@@ -216,11 +215,10 @@
                     slider.css('margin-left', '-' + 100 + '%');
                 });
                 fadeIn();
-
             }
 
             function fadeOut() {
-                $("#carouselTitleHeader").fadeTo(500, 0)
+                $("#carouselTitleHeader").fadeTo(500, 0);
                 $("#carouselBrand").fadeTo(500, 0);
                 $("#carouselCost").fadeTo(500, 0, function () {
                     updateValues();
@@ -243,9 +241,7 @@
                 $("#carouselTitleHeader").text(carouselTitle[currentSlideID - 1]);
                 $("#carouselBrand").text("By: " + carouselBrand[currentSlideID - 1]);
                 $("#carouselCost").text("£" + carouselCost[currentSlideID - 1]);
-
                 fadeIn();
-
             }
 
             function movePrev() {
@@ -313,7 +309,7 @@
 
 <body>
 <div class="container">
-    <div id="Top-Header">
+    <div id="Header">
         <div class="Trust-Header">
             <div id="Trust-eBay">
                 <a href="https://bit.ly/2to8o1z" target="_blank">
@@ -344,10 +340,10 @@
 
             <form method="get" action="results.html">
 
-                <div class="search-box">
-                    <input type="search" class="search-box-input" name="searchTerm" autocomplete="off"
+                <div class="fullSearchBox">
+                    <input class="searchBox" type="search" name="searchTerm" autocomplete="off"
                            placeholder="Search Gadget Gainey..."/>
-                    <button class="search-box-button"><img
+                    <button class="searchButton"><img
                             src="Images/OnEveryPage/Main Banner/Magnifier Glass - Search.png" alt="Search">
                     </img></button>
                 </div>
@@ -374,7 +370,6 @@
     <div id=Outside_Body>
         <img src="\Images\Home\50 percent off everything in store.gif" alt="50% off across our store!">
         <div id=Main_Body>
-            <div id=Main_container>
                 <div class="carousel">
                     <div class="row visible-md visible-lg">
                         <div id="slider-carouselTitleHeader">
@@ -406,13 +401,12 @@
                             <div id="btn-next" class="btn-next curveRadius">&#62;</div>
                         </div>
                         <div id="carouselBrandcost">
-                            <h2 id="carouselBrand">By: BRAND </h2>
+                            <h2 id="carouselBrand">By: BRAND</h2>
                             <h2 id="carouselCost">£Co.st</h2>
                         </div>
                         <hr/>
                     </div>
                 </div>
-            </div>
         </div>
 
     </div>
@@ -426,10 +420,10 @@
                     <h4>About Us</h4>
                 </a>
                 <a href="Basket.html">
-                    <h4>Basket </h4>
+                    <h4>Basket</h4>
                 </a>
                 <a href="https://bit.ly/2BLLE05" target="_blank">
-                    <h4>eBay Store </h4>
+                    <h4>eBay Store</h4>
                 </a>
                 <a href="404Error.html">
                     <h4>Sitemap</h4>

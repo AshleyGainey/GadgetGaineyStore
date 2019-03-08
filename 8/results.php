@@ -70,7 +70,7 @@
 
 <body>
 	<div class="container">
-		<div id="Top-Header">
+		<div id="Header">
 			<div class="Trust-Header">
 				<div id="Trust-eBay">
 					<a href="https://bit.ly/2to8o1z" target="_self">
@@ -98,9 +98,9 @@
 
 					<form method="get" action="results.html">
 
-				<div class="search-box">
-					<input type="search" class="search-box-input" name="searchTerm" autocomplete="off" placeholder="Search Gadget Gainey..." />
-					<button class="search-box-button"> <img src="Images/OnEveryPage/Main Banner/Maginifer Glass - Search.png" alt="Search">
+				<div class="fullSearchBox">
+					<input class="searchBox" type="search" name="searchTerm" autocomplete="off" placeholder="Search Gadget Gainey..." />
+					<button class="searchButton"> <img src="Images/OnEveryPage/Main Banner/Maginifer Glass - Search.png" alt="Search">
 						</img></button>
 				</div>
 				</form>
@@ -124,13 +124,11 @@
 
 
 		<div id=Main_Body>
-			<div id=Main_container>
                 
                     <h1>You searched for:<i> 
                         <?php echo $_GET['searchTerm']; ?></i></h1></div>
 
-                
-                </div>
+
 	</div>
 
 
