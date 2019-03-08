@@ -6,14 +6,20 @@
 
     <!-- All meta data for SEO-->
     <meta charset="UTF-8"/>
+    <!--Author is Ashley Gainey-->
     <meta name="author" content="Ashley Gainey">
+    <!--Show a Title and Description in the search engine -->
+    <meta property="og:title" content="Gadget Gainey Store - Home of the best kids products!">
     <meta name="description"
           content="Looking for the best kids products with a great price? Browse our amazing collection and get the perfect gift">
-    <meta property="og:title" content="Gadget Gainey Store - Home of the best kids products!">
+    <!--Add keywords to the page for the search engine to be more recognised -->
     <meta name="keywords" content="toys, kids, children, store, go kart, playsets, play, presents, fun, little kids, pedal, pedal go karts, pedal go kart,
-		car, ride on, ride on bike, ride on cars, cars, bike, outdoor, racing">
+		car, ride on, ride on bike, ride on cars, cars, bike, outdoor, racing, drone">
+    <!--Add an icon to the site-->
     <link rel="icon" href="/Images/OnEveryPage/Gadget Gainey icon.png">
+    <!--Change this title of the site when edited-->
     <Title>TEMPLATE - EDIT THIS TITLE - Gadget Gainey</Title>
+    <!--Links to the CSS-->
     <link rel="stylesheet" href="siteLayout.css" type="text/css" media="screen,projection"/>
     <link rel="stylesheet" href="siteTheme.css" type="text/css" media="screen,projection"/>
 
@@ -70,55 +76,82 @@
 </head>
 
 <body>
+<!--In the body, will hold a container, containing every element -->
 <div class="container">
-    <div id="Top-Header">
+    <!--A div that holds all of the header-->
+    <div id="Header">
+        <!--This div holds all of the trust header, that includes why the user should purchase through us-->
         <div class="Trust-Header">
+            <!--This div holds the eBay trust-->
             <div id="Trust-eBay">
+                <!--An anchor tag that goes to Gadget Gainey feedback
+                in a new tab that holds a header3 and the eBay logo image-->
                 <a href="https://bit.ly/2to8o1z" target="_blank">
                     <h3> 98% OF CUSTOMERS LOVE US ON</h3>
                     <img src="Images/OnEveryPage/Trust Banner/eBay logo.png" alt="eBay">
                 </a>
             </div>
+            <!--This div holds the fast delivery part of the trust header-->
             <div id="Trust-Fast_Delivery">
+                <!--An anchor tag that goes to delivery.html
+               in the same tab that holds a header3 and the fast delivery image-->
                 <a href="delivery.html"> <img src="Images/OnEveryPage/Trust Banner/Next Day Delivery.png"
                                               alt="Next Day Delivery">
                     <h3> ORDER BY 3PM FOR NEXT DAY DELIVERY</h3>
                 </a>
             </div>
+            <!--This div holds the free delivery part of the trust header-->
             <div id="Trust-Free_Delivery">
+                <!--An anchor tag that goes to delivery.html
+              in the same tab that holds a header3 and the free delivery image-->
                 <a href="delivery.html"> <img src="Images/OnEveryPage/Trust Banner/Free Delivery.png"
                                               alt="Free Delivery">
                     <h3>FREE DELIVERY ORDERS OVER £100</h3>
                 </a>
             </div>
         </div>
+        <!--Seperates the trust header with the main header-->
         <div class="line">
             <hr/>
         </div>
+        <!--This div holds the main header-->
         <div id="Main-Header">
+            <!--A div for the logo where it holds an anchor tag that goes to index.html
+             in the same tab that holds the logo image-->
             <div id="Logo"><a href="index.html"> <img
                     src="Images/OnEveryPage/Main Banner/Gadget Gainey White Small Logo.png" alt="Logo"> </a>
             </div>
-
+            <!--This is the searchbar, where it has a form to send the results of what the user types into the
+            search and once the button has been pressed then it will go to the results.html tag with the get method-->
             <form method="get" action="results.html">
 
-                <div class="search-box">
-                    <input type="search" class="search-box-input" name="searchTerm" autocomplete="off"
+                <!--div of the full Searchbox -->
+                <div class="fullSearchBox">
+                    <!--Inside the div, we have an input with a class of searchBox and a type of search
+                    and a name of searchTerm to link with the results.html, turning autocomplete off because
+                    it becomes annoying -->
+                    <input class="searchBox" type="search" name="searchTerm" autocomplete="off"
                            placeholder="Search Gadget Gainey..."/>
-                    <button class="search-box-button"><img
+
+                    <!--Add a button, giving the class of searchButton and added the search image onto it-->
+                    <button class="searchButton"><img
                             src="Images/OnEveryPage/Main Banner/Magnifier Glass - Search.png" alt="Search">
-                    </img></button>
+                    </button>
                 </div>
             </form>
 
-
+            <!--div containing the help and basket buttons-->
             <div class="RightButtons">
+                <!--Div containing just the help button, with the header3 of 'Help' and with an
+                anchor tag that goes to help.html in the same tab and that has the image as the Help.png-->
                 <div id="Help"><a href="help.html"> <img src="Images/OnEveryPage/Main Banner/Help.png" alt="Help">
                     <h3>Help</h3>
                 </a>
                 </div>
-                <div id="Basket"><a href="PaymentTypes.html"> <img src="Images/OnEveryPage/Main Banner/Basket.png"
-                                                                   alt="Basket">
+                <!--Div containing just the basket button, with the header3 of 'Basket' and with an
+               anchor tag that goes to Basket.html in the same tab and that has the image as the Basket.png-->
+                <div id="Basket"><a href="Basket.html"> <img src="Images/OnEveryPage/Main Banner/Basket.png"
+                                                             alt="Basket">
                     <h3>Basket</h3>
                 </a>
                 </div>
@@ -126,72 +159,111 @@
         </div>
     </div>
 
-
+    <!--Unordered list, giving it is a class of navmenu -->
     <ul class="navmenu">
     </ul>
+    <!--This is the outside body where banners and the breadcrumb will go,
+    this will have a value of margin:0 in the CSS whereas the main body will have more of a centered outline-->
+
     <div id=Outside_Body>
-        Hello Outside
+        <!--This is the main body now, where most content will lie-->
         <div id=Main_Body>
-            <div id=Main_container>
-                Hello Inside
-            </div>
         </div>
-        Hello Outside
     </div>
-   <footer>
-            <div id="Footer-GadgetGainey" class="footerTextSection">
-                <a href="index.html">
-                    <h1>Gadget Gainey</h1>
-                </a>
-                <a href="About.html" >
-                    <h4>About Us</h4>
-                </a>
-                <a href="Basket.html">
-                    <h4>Basket </h4>
-                </a>
-                <a href="https://bit.ly/2BLLE05" target="_blank">
-                    <h4>eBay Store </h4>
-                </a>
-                <a href="404Error.html">
-                    <h4>Sitemap</h4>
-                </a>
-            </div>
-            <div id="Footer-TheBoringStuff" class="footerTextSection">
-                <h2>The Boring Stuff</h2>
-                <a href="Delivery&Returns.html">
-                    <h4>Shipping & Delivery</h4>
-                </a>
-                <a href="Delivery&Returns.html#Returns">
-                    <h4>Returns & Refunds</h4>
-                </a>
-                <a href="Terms&Conditions.html">
-                    <h4>Terms & Conditions</h4>
-                </a>
-            </div>
-            <div id="Footer-Support" class="footerTextSection">
-                <h2>Support</h2>
-                <a href="Contact.html">
-                    <h4>Contact Us</h4>
-                </a>
-                <a href="FAQ.html">
-                    <h4>FAQ's</h4>
-                </a>
-            </div>
-            <div id="Footer-Supported_Payments" class="footerTextSection">
-                <h2>Supported Payments </h2>
-                <img src="Images/OnEveryPage/Payment Types.png">
-            </div>
-            <div id="Footer-Find-eBay">
-                <h2>Find us on</h2>
-                <a href="https://bit.ly/2BLLE05" target="_blank">
-                    <img src="Images/OnEveryPage/Trust Banner/eBay logo.png">
-                </a>
-            </div>
-            <div id="Footer-copyright" class="footerTextSection">
-                <h5>
-                    © Gadget Gainey 2019. All Rights Reserved
-                </h5>
-            </div>
+    <!--Where all of the footer is-->
+    <footer>
+        <!--Div holding all of the Gadget Gainey section (1st section), that has a class a footerTextSection
+        (because it has text included in the div)-->
+        <div id="Footer-GadgetGainey" class="footerTextSection">
+            <!--Show Gadget Gainey in h1 big text with an anchor tag linking to index.html-->
+            <a href="index.html">
+                <h1>Gadget Gainey</h1>
+            </a>
+            <!--Under the big header, should have mini subjects that are in h4 format linking to About.html-->
+            <a href="About.html">
+                <h4>About Us</h4>
+            </a>
+            <!--Under the other mini subject, should have another mini subjects that are in h4 format linking to
+            Basket.html and displaying Basket-->
+            <a href="Basket.html">
+                <h4>Basket</h4>
+            </a>
+            <!--Under the other mini subject, should have another mini subjects that are in h4 format linking to
+            Gadget Gainey store on eBay and displaying eBay Store-->
+            <a href="https://bit.ly/2BLLE05" target="_blank">
+                <h4>eBay Store</h4>
+            </a>
+            <!--Under the other mini subject, should have another mini subjects that are in h4 format linking to
+            the 404Error.html (because I haven't built the sitemap yet and displaying Sitemap-->
+            <a href="404Error.html">
+                <h4>Sitemap</h4>
+            </a>
+        </div>
+
+        <!--Div holding all of the Boring Stuff section (2nd section), that has a class a footerTextSection-->
+        <div id="Footer-TheBoringStuff" class="footerTextSection">
+            <!--Display a header 2 (which will be smaller than the Gadget Gainey header but bigger than the subjects-->
+            <h2>The Boring Stuff</h2>
+
+            <!--Under the header, should have mini subject that are in link format linking to
+            Delivery&Returns.html and a h4 tag saying what this is linking to-->
+            <a href="Delivery&Returns.html">
+                <h4>Shipping & Delivery</h4>
+            </a>
+
+            <!--Under the other mini subject, should have another mini subject that are in link format linking to
+            Delivery&Returns.html but going to the Returns section-->
+            <a href="Delivery&Returns.html#Returns">
+                <h4>Returns & Refunds</h4>
+            </a>
+
+            <!--Under the other mini subject, should have another mini subject that are in link format linking to
+            Terms&Conditions.html and a h4 tag saying Terms & conditions-->
+            <a href="Terms&Conditions.html">
+                <h4>Terms & Conditions</h4>
+            </a>
+        </div>
+
+        <!--Div holding all of the Support section (3rd section), that has a class a footerTextSection-->
+        <div id="Footer-Support" class="footerTextSection">
+            <!--Display a header 2 that says Support-->
+            <h2>Support</h2>
+
+            <!--Under the header, should have mini subject that are in link format linking to
+           Contact.html and a h4 tag saying what this is linking to-->
+            <a href="Contact.html">
+                <h4>Contact Us</h4>
+            </a>
+            <!--Under the header, should have mini subject that are in link format linking to
+               FAQ.html and a h4 tag saying what this is linking to-->
+            <a href="FAQ.html">
+                <h4>FAQ's</h4>
+            </a>
+        </div>
+
+        <!--Div holding all of the Support section (4th section), that has a class a footerTextSection-->
+        <div id="Footer-Supported_Payments" class="footerTextSection">
+            <!--Hold the header of Supported Payments and an image-->
+            <h2>Supported Payments </h2>
+            <img src="Images/OnEveryPage/Payment Types.png" alt="Mastercard, Maestro, American Express, Visa and PayPal">
+        </div>
+
+        <!--Div holding all of the Support section (Last section)-->
+        <div id="Footer-Find-eBay">
+            <h2>Find us on</h2>
+            <!--An anchor tag that goes to Gadget Gainey store
+               in a new tab that holds the eBay logo image-->
+            <a href="https://bit.ly/2BLLE05" target="_blank">
+                <img src="Images/OnEveryPage/Trust Banner/eBay logo.png" alt="eBay">
+            </a>
+        </div>
+        <!--Copyright section at the very bottom with a class of footerTextSection that
+        holds the copyright information in header5 format-->
+        <div id="Footer-copyright" class="footerTextSection">
+            <h5>
+                © Gadget Gainey 2019. All Rights Reserved
+            </h5>
+        </div>
     </footer>
 </div>
 </body>

@@ -69,27 +69,27 @@ gives space from the line and the Main Header (which contains the logo, search, 
 /*Start: Search Bar*/
 /* Inline flex for whole of the search box (box and button) because then the search bar and the button are
 right next to each other without any spacing*/
-.search-box {
+.fullSearchBox {
     display: inline-flex;
 }
 
 /* For the search box, making the padding top: 8px by right: 16px, to not have the typed input to be up
 against the border of the search bar  */
-.search-box-input {
+.searchBox {
     padding: 8px 16px;
 }
 
 /*For the search box button,  Make the width of the button 10%, so it isn't large. A Border left to 0px,
 if left out, by default it will have more black when on hover. Change the cursor to a pointer to show
      that this is a button and the user can click it */
-.search-box-button {
+.searchButton {
     width: 10%;
     border-left: 0;
     cursor: pointer;
 }
 
 /* Logo was too big so I reduced it by 50% */
-.search-box-button img {
+.searchButton img {
     width: 50%;
 }
 
@@ -156,7 +156,7 @@ not 100% so it doesn't go off the screen for the third menu item*/
 
 /* Add a margin to the main_container that is inside the main body, this is because we 
 want something up against the Nav (for instance the breadcrumb/the half price Sale)*/
-#Main_container {
+#Main_Body {
     margin: 30px 50px 0 50px;
 }
 

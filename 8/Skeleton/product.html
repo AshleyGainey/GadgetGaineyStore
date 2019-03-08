@@ -134,6 +134,21 @@
             color: white;
             text-decoration: underline;
         }
+
+
+
+        .transition {
+            -webkit-transform: scale(1.1);
+            -moz-transform: scale(1.1);
+            -o-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+
+        #productImage{
+            -webkit-transition: all .4s ease-in-out;
+            -moz-transition: all .4s ease-in-out;
+            -o-transition: all .4s ease-in-out;
+        }
     </style>
     <script src="jquery-3.3.1.min.js"></script>
     <script src='Shop.js'></script>
@@ -186,6 +201,16 @@
             // Your $(document).ready() event script code goes below here -v
 
             console.log(vars['id']);
+
+            $('#productImage').hover(function() {
+                $("#productImage").addClass('transition');
+
+            }, function() {
+                $("#productImage").removeClass('transition');
+            });
+
+
+
 
 
             $products.find("product").each(function () {
@@ -278,12 +303,15 @@
 
             }, 1000)
         }
+
+
+
     </script>
 </head>
 
 <body>
 <div class="container">
-    <div id="Top-Header">
+    <div id="Header">
         <div class="Trust-Header">
             <div id="Trust-eBay">
                 <a href="https://bit.ly/2to8o1z" target="_blank">
@@ -313,10 +341,10 @@
 
             <form method="get" action="results.html">
 
-                <div class="search-box">
-                    <input type="search" class="search-box-input" name="searchTerm" autocomplete="off"
+                <div class="fullSearchBox">
+                    <input class="searchBox" type="search" name="searchTerm" autocomplete="off"
                            placeholder="Search Gadget Gainey..."/>
-                    <button class="search-box-button"><img
+                    <button class="searchButton"><img
                             src="Images/OnEveryPage/Main Banner/Magnifier Glass - Search.png" alt="Search">
                     </img></button>
                 </div>
@@ -357,7 +385,6 @@
 
 
 
-            <div id=Main_container>
                 <div class="productInformation">
                     <div id="upperTopProduct">
                         <h1 class="productTitle">TITLE</h1>
@@ -383,7 +410,6 @@
                     </div>
                     <p id="productDescription"> By </p>
                 </div>
-            </div>
         </div>
     </div>
    <footer>
@@ -395,10 +421,10 @@
                     <h4>About Us</h4>
                 </a>
                 <a href="Basket.html">
-                    <h4>Basket </h4>
+                    <h4>Basket</h4>
                 </a>
                 <a href="https://bit.ly/2BLLE05" target="_blank">
-                    <h4>eBay Store </h4>
+                    <h4>eBay Store</h4>
                 </a>
                 <a href="404Error.html">
                     <h4>Sitemap</h4>

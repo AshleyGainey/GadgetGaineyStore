@@ -6,7 +6,7 @@
 
 /* Start: Trusting Banner at the top*/
 /*Background image of the Top Header and the footer to the gradient*/
-#Top-Header, footer {
+#Header, footer {
     Background-image: url("Images/OnEveryPage/Trust Banner/Background.png");
 }
 /*In the trust us header at the very top, the h3 tag should have a font size of 14px*/
@@ -27,37 +27,37 @@ a:hover {
     text-decoration: underline;
 }
 /*Apply a border of black, the width being 3px to the input box of the search bar and the button*/
-.search-box-input, .search-box-button  {
+.searchBox, .searchButton  {
     border: 3px solid #000000;
 }
 /*In the input bar, round the top left and bottom left corners 6px and give it a font of Arial,
 with a fall back of Segoe UI (which decreases the search bar)*/
-.search-box-input {
+.searchBox {
     border-radius: 6px 0 0 6px;
     font-family: "Arial", "Segoe UI";
 }
 /*For the search button, add a black background and round the top right and bottom right corners 6px*/
-.search-box-button {
+.searchButton {
     background-color: #000000;
     border-radius: 0 5px 5px 0;
 }
 
 /* On search box hover or on focus change the border color of the search box to grey  */
-.search-box-input:hover,
-.search-box-input:focus {
+.searchBox:hover,
+.searchBox:focus {
     border-color: #a7a7a7;
 }
 
 /* On search box button hover change the background color of the search box to grey,
 not the border color because it doesn't look right  */
-.search-box-button:hover,
-.search-box-button:focus {
+.searchButton:hover,
+.searchButton:focus {
     background-color: #a7a7a7;
 }
 
 /* To get rid of the X button of the search box, the X isn't neccessary because the user can use the keyboard to get
 rid of what they are searching, this would be ideal for long text*/
-.search-box-input::-webkit-search-cancel-button {
+.searchBox::-webkit-search-cancel-button {
     -webkit-appearance: none;
 }
 /*End: Search Bar*/
