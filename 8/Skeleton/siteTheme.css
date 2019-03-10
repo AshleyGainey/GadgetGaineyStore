@@ -127,3 +127,7 @@ footer h4 {
     /*For safari (cross browser)*/
     -webkit-border-radius: 10px;
 }
+
+#Main_Body a {
+    color: #143576;
+}

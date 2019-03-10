@@ -13,15 +13,85 @@
     <meta name="keywords" content="toys, kids, children, store, go kart, playsets, play, presents, fun, little kids, pedal, pedal go karts, pedal go kart,
 		car, ride on, ride on bike, ride on cars, cars, bike, outdoor, racing">
     <link rel="icon" href="/Images/OnEveryPage/Gadget Gainey icon.png">
-    <!--Carl, please look here too-->
-    <!--TODO: Fix the php get request -->
-    <Title>Results for <?php echo $_GET['searchTerm']; ?> - Gadget Gainey Store</Title>
+
+    <Title>Gadget Gainey Store</Title>
     <link rel="stylesheet" href="siteLayout.css" type="text/css" media="screen,projection"/>
     <link rel="stylesheet" href="siteTheme.css" type="text/css" media="screen,projection"/>
 
     <!-- <base href="/images/" target = "_blank"> -->
     <style>
-        /* This is an internal style sheet */
+
+
+        #tableFormat {
+            width: 100%;
+            text-align: center;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+
+        #searchedFor {
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+
+        }
+
+
+        #Main_Body td a {
+            color: #000000;
+        }
+
+        tr {
+            cursor: pointer;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        .div-to-display {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border: 1px solid red;
+            background-color: #eee;
+            z-index: 10;
+        }
+
+        .div-to-display img {
+            width: 500px;
+
+        }
+        td {
+            position: relative;
+        }
+        td:hover > .div-to-display {
+            display: block;
+        }
     </style>
     <script src="jquery-3.3.1.min.js"></script>
     <script src='Shop.js'></script>
@@ -43,10 +113,18 @@
             // set a timed function call to wait for product xml to load
             timer = window.setInterval(function () {
 
+
+                var removePlus = vars['searchTerm'];
+                removePlus = removePlus.replace(/\+/g, ' ');
+                document.title = "Results for " + removePlus + " - Gadget Gainey Store";
+                $("#searchedFor").text("You've searched for: " + removePlus);
+
                 // Check if products have loaded
-                if ($products === null) {
+                if (($products === null) || ($sResults === null))
+                {
                     // They haven't loaded
                     return;
+
                 } else {
                     // They have loaded
 
@@ -56,8 +134,98 @@
                     // Populate the nav bar
                     populateNav("navmenu");
 
-                    // Your $(document).ready() event script code goes below here -v
 
+                    // Your $(document).ready() event script code goes below here -v
+                    // Add the search term back into the search bar
+                    $("#searchTerm").attr("value", vars['searchTerm']);
+
+                    if ($sResults.find("product").length > 0)
+                    {
+
+                    }
+                    else
+                    {
+                        // We don't have any results
+                        // Hide the table
+                        $("#tableFormat").hide();
+                        $("#Main_Body").append("<h1>There are no search results. </h1>");
+                        return;
+                    }
+
+
+                    $sResults.find('product').each(function () {
+
+                        var $product = $(this);
+
+                        id = $product.find('id').text();
+                        var title = $product.find('title').text();
+                        var brand = $product.find('brand').text();
+                        var price = $product.find('price').text();
+
+                        $('td').append('<div class="div-to-display"><img id="ToDisplay" + src=""></div>');
+                        $('ToDisplay').attr('src', "Images/Home/Loading.png");
+
+
+
+                        $('tbody').append("<tr>"
+                            + "<td>" + "<a href=" + "'product.html?id=" + id + "&searchTerm=" + vars['searchTerm'] + "'" + "</a>" + title + "</td>"
+                            + "<td>" + "<a href=" + "'product.html?id=" + id + "&searchTerm=" + vars['searchTerm'] + "'" + "</a>" + brand + "</td>"
+                            + "<td>" + "<a href=" + "'product.html?id=" + id + "&searchTerm=" + vars['searchTerm'] + "'" + "</a>" + "£" +  price + "</td>"
+                            + "</tr>");
+
+
+
+
+
+
+                        //I have built up the URL for the product 'link' which retains the original search terms
+
+                        //The below are css attributes assigned when hovering over an element
+
+                        $('tbody tr').mouseenter(function() {
+                            $(this).css("background-color", "#6185C7");
+
+                            $(this).children('img')
+                        })
+
+                        $('tbody tr').mouseleave(function() {
+                            $(this).css("background-color", "");
+
+                        })
+
+
+
+
+                        //The below code sorts data into alphabetical or ascending (numeric values) order depending on the selected column header which has been clicked
+
+                        var thIndex = 0,
+                            curThIndex = null;
+
+                        $(function(){
+                            $('table thead tr th').click(function(){
+                                thIndex = $(this).index();
+                                if(thIndex != curThIndex){
+                                    curThIndex = thIndex;
+                                    sorting = [];
+                                    tbodyHtml = null;
+                                    $('table tbody tr').each(function(){
+                                        sorting.push($(this).children('td').eq(curThIndex).html() + ', ' + $(this).index());
+                                    });
+
+                                    sorting = sorting.sort();
+                                    sortIt();
+                                }
+                            });
+                        })
+
+                        function sortIt(){
+                            for(var sortingIndex = 0; sortingIndex < sorting.length; sortingIndex++){
+                                rowId = parseInt(sorting[sortingIndex].split(', ')[1]);
+                                tbodyHtml = tbodyHtml + $('table tbody tr').eq(rowId)[0].outerHTML;
+                            }
+                            $('table tbody').html(tbodyHtml);
+                        }
+                    });
 
                     // Your $(document).ready() event script code goes above here -^
                 }
@@ -132,19 +300,33 @@
     <ul class="navmenu">
     </ul>
     <div id=Outside_Body>
-        Hello Outside
-        <div id=Main_Body>
-                <!--<h1>You searched for: <?php echo $_GET["searchTerm"]; ?></h1>-->
+        <div class="div-to-display"><img src="Images\Home\Loading.png"/></div>
 
-                    <!--Carl, please look here-->
-                <!--TODO: Fix the php get request -->
-                <h1>You searched for:<i>
-                    "<?php echo $_GET['searchTerm']; ?>"</i></h1>
-                Hello Inside
+        <h2 id="searchedFor"></h2>
+        <div id=Main_Body>
+            <table id = "tableFormat">
+                <colgroup>
+                    <col id= "col1">
+                    <col id= "col2">
+                    <col id= "col3">
+                    <col id= "col4">
+                </colgroup>
+                <thead>
+                <tr id="">
+                    <th>Title</th>
+                    <div><th>Brand</th></div>
+                    <div><th>Price</th></div>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                </tr>
+                </tbody>
+            </table>
         </div>
-        Hello Outside
-    </div>
-    <footer>
+
+
+        <footer>
         <div id="Footer-GadgetGainey" class="footerTextSection">
             <a href="index.html">
                 <h1>Gadget Gainey</h1>
@@ -170,7 +352,7 @@
             <a href="Returns.html">
                 <h4>Returns & Refunds</h4>
             </a>
-            <a href="Terms&Conditions.html">
+            <a href="TermsConditions.html">
                 <h4>Terms & Conditions</h4>
             </a>
         </div>
@@ -199,6 +381,7 @@
             </h5>
         </div>
     </footer>
+</div>
 </div>
 </body>
 </html>

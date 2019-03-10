@@ -173,7 +173,7 @@
             <a href="Returns.html">
                 <h4>Returns & Refunds</h4>
             </a>
-            <a href="Terms&Conditions.html">
+            <a href="TermsConditions.html">
                 <h4>Terms & Conditions</h4>
             </a>
         </div>
