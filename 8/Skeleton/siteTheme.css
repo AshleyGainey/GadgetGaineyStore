@@ -127,7 +127,12 @@ footer h4 {
     /*For safari (cross browser)*/
     -webkit-border-radius: 10px;
 }
-
+/*If the id is Main_Body have the color of #143576 for any anchor tags.*/
 #Main_Body a {
     color: #143576;
+}
+
+/*White Box is a class that holds a background color of white*/
+.whiteBox {
+    background-color: #FFFFFF;
 }

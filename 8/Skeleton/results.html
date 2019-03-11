@@ -53,12 +53,15 @@
             display: none;
             position: absolute;
             top: 50%;
-            left: 50%;
+            left: -425px;
+            float: left;
             z-index: 10;
+
         }
 
         .div-to-display img {
             width: 400px;
+            float: left;
 
         }
 
@@ -143,7 +146,6 @@
                             + "</tr>");
 
 
-
                         //I have built up the URL for the product 'link' which retains the original search terms
 
                         //The below are css attributes assigned when hovering over an element
@@ -179,13 +181,10 @@
                                     sortIt();
                                 }
                             });
-                        })
-
-
+                        });
                         $('td').hover(function () {
                                 // Get the first td
                                 var idOfRow = $(this).closest('tr').children('td:eq(0)').text();
-
 
                                 $('.ToDisplay').attr('src', "/Images/ProductImages/" + idOfRow + ".png");
 
@@ -208,6 +207,7 @@
                         }
                         $('table tbody').html(tbodyHtml);
                     }
+
                     // Your $(document).ready() event script code goes above here -^
                 }
             }, 100);
@@ -252,7 +252,6 @@
             </div>
 
             <form method="get" action="results.html">
-
                 <div class="fullSearchBox">
                     <input class="searchBox" type="search" name="searchTerm" autocomplete="off"
                            placeholder="Search Gadget Gainey..."/>
@@ -264,11 +263,11 @@
 
 
             <div class="RightButtons">
-                <div id="Help"><a href="help.html"> <img src="Images/OnEveryPage/Main Banner/Help.png" alt="Help">
+                <div id="Help"><a href="404Error.html"> <img src="Images/OnEveryPage/Main Banner/Help.png" alt="Help">
                     <h3>Help</h3>
                 </a>
                 </div>
-                <div id="Basket"><a href="PaymentTypes.html"> <img src="Images/OnEveryPage/Main Banner/Basket.png"
+                <div id="Basket"><a href="404Error.html"> <img src="Images/OnEveryPage/Main Banner/Basket.png"
                                                                    alt="Basket">
                     <h3>Basket</h3>
                 </a>
@@ -339,10 +338,10 @@
             </div>
             <div id="Footer-Support" class="footerTextSection">
                 <h2>Support</h2>
-                <a href="Contact.html">
+                <a href="404Error.html">
                     <h4>Contact Us</h4>
                 </a>
-                <a href="FAQ.html">
+                <a href="404Error.html">
                     <h4>FAQ's</h4>
                 </a>
             </div>
