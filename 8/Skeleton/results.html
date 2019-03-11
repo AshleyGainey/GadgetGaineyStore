@@ -49,43 +49,23 @@
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         .div-to-display {
             display: none;
             position: absolute;
             top: 50%;
             left: 50%;
-            border: 1px solid red;
-            background-color: #eee;
             z-index: 10;
         }
 
         .div-to-display img {
-            width: 500px;
+            width: 400px;
 
         }
+
         td {
             position: relative;
         }
+
         td:hover > .div-to-display {
             display: block;
         }
@@ -93,7 +73,6 @@
     <script src="jquery-3.3.1.min.js"></script>
     <script src='Shop.js'></script>
     <script>
-
         var timer;
 
         // Your global variables should be declared below here -v
@@ -117,8 +96,7 @@
                 $("#searchedFor").text("You've searched for: " + removePlus);
 
                 // Check if products have loaded
-                if (($products === null) || ($sResults === null))
-                {
+                if (($products === null) || ($sResults === null)) {
                     // They haven't loaded
                     return;
 
@@ -136,12 +114,9 @@
                     // Add the search term back into the search bar
                     $("#searchTerm").attr("value", vars['searchTerm']);
 
-                    if ($sResults.find("product").length > 0)
-                    {
+                    if ($sResults.find("product").length > 0) {
 
-                    }
-                    else
-                    {
+                    } else {
                         // We don't have any results
                         // Hide the table
                         $("#tableFormat").hide();
@@ -159,21 +134,13 @@
                         var brand = $product.find('brand').text();
                         var price = $product.find('price').text();
 
-                        $('td').append('<div class="div-to-display"><img class="ToDisplay" + src=""></div>');
-
-
-
 
                         $('tbody').append("<tr>"
                             + "<td>" + "<a href=" + "'product.html?id=" + id + "&searchTerm=" + vars['searchTerm'] + "'" + "</a>" + id + "</td>"
                             + "<td>" + "<a href=" + "'product.html?id=" + id + "&searchTerm=" + vars['searchTerm'] + "'" + "</a>" + title + "</td>"
                             + "<td>" + "<a href=" + "'product.html?id=" + id + "&searchTerm=" + vars['searchTerm'] + "'" + "</a>" + brand + "</td>"
-                            + "<td>" + "<a href=" + "'product.html?id=" + id + "&searchTerm=" + vars['searchTerm'] + "'" + "</a>" + "£" +  price + "</td>"
+                            + "<td>" + "<a href=" + "'product.html?id=" + id + "&searchTerm=" + vars['searchTerm'] + "'" + "</a>" + "£" + price + "</td>"
                             + "</tr>");
-
-                        $('td:nth-child(1)').hide();
-
-
 
 
 
@@ -181,17 +148,15 @@
 
                         //The below are css attributes assigned when hovering over an element
 
-                        $('tbody tr').mouseenter(function() {
+                        $('tbody tr').mouseenter(function () {
                             $(this).css("background-color", "#6185C7");
 
                         })
 
-                        $('tbody tr').mouseleave(function() {
+                        $('tbody tr').mouseleave(function () {
                             $(this).css("background-color", "");
 
                         })
-
-
 
 
                         //The below code sorts data into alphabetical or ascending (numeric values) order depending on the selected column header which has been clicked
@@ -199,14 +164,14 @@
                         var thIndex = 0,
                             curThIndex = null;
 
-                        $(function(){
-                            $('table thead tr th').click(function(){
+                        $(function () {
+                            $('table thead tr th').click(function () {
                                 thIndex = $(this).index();
-                                if(thIndex != curThIndex){
+                                if (thIndex != curThIndex) {
                                     curThIndex = thIndex;
                                     sorting = [];
                                     tbodyHtml = null;
-                                    $('table tbody tr').each(function(){
+                                    $('table tbody tr').each(function () {
                                         sorting.push($(this).children('td').eq(curThIndex).html() + ', ' + $(this).index());
                                     });
 
@@ -216,28 +181,33 @@
                             });
                         })
 
-                        function sortIt(){
-                            for(var sortingIndex = 0; sortingIndex < sorting.length; sortingIndex++){
-                                rowId = parseInt(sorting[sortingIndex].split(', ')[1]);
-                                tbodyHtml = tbodyHtml + $('table tbody tr').eq(rowId)[0].outerHTML;
-                            }
-                            $('table tbody').html(tbodyHtml);
-                        }
+
                         $('td').hover(function () {
                                 // Get the first td
-                                var periodStart = $(this).closest('tr').children('td:eq(0)').text();
+                                var idOfRow = $(this).closest('tr').children('td:eq(0)').text();
 
-                                // alert('periodStart:  ' + periodStart)
 
-                                $('.ToDisplay').attr('src', "/Images/ProductImages/" + periodStart + ".png");
-                        },
-                            function() {
-                            $("td").removeClass('ToDisplay');
-                        });
+                                $('.ToDisplay').attr('src', "/Images/ProductImages/" + idOfRow + ".png");
+
+                            },
+                            function () {
+                                $("td").removeClass('ToDisplay');
+                            });
 
 
                     });
 
+                    $('td:nth-child(1)').hide();
+
+                    $('td').append('<div class="div-to-display"><img class="ToDisplay" + src=""</div>');
+
+                    function sortIt() {
+                        for (var sortingIndex = 0; sortingIndex < sorting.length; sortingIndex++) {
+                            rowId = parseInt(sorting[sortingIndex].split(', ')[1]);
+                            tbodyHtml = tbodyHtml + $('table tbody tr').eq(rowId)[0].outerHTML;
+                        }
+                        $('table tbody').html(tbodyHtml);
+                    }
                     // Your $(document).ready() event script code goes above here -^
                 }
             }, 100);
@@ -268,7 +238,7 @@
             </div>
             <div id="Trust-Free_Delivery">
                 <a href="Returns.html"> <img src="Images/OnEveryPage/Trust Banner/Returns.png"
-                                              alt="Returns">
+                                             alt="Returns">
                     <h3>FREE 28 DAY RETURN ON EVERYTHING</h3>
                 </a>
             </div>
@@ -315,12 +285,12 @@
 
         <h2 id="searchedFor"></h2>
         <div id=Main_Body>
-            <table id = "tableFormat">
+            <table id="tableFormat">
                 <colgroup>
-                    <col id= "col1">
-                    <col id= "col2">
-                    <col id= "col3">
-                    <col id= "col4">
+                    <col id="col1">
+                    <col id="col2">
+                    <col id="col3">
+                    <col id="col4">
                 </colgroup>
                 <thead>
                 <tr>
@@ -338,61 +308,61 @@
 
 
         <footer>
-        <div id="Footer-GadgetGainey" class="footerTextSection">
-            <a href="index.html">
-                <h1>Gadget Gainey</h1>
-            </a>
-            <a href="About.html" >
-                <h4>About Us</h4>
-            </a>
-            <a href="Basket.html">
-                <h4>Basket</h4>
-            </a>
-            <a href="https://bit.ly/2BLLE05" target="_blank">
-                <h4>eBay Store</h4>
-            </a>
-            <a href="404Error.html">
-                <h4>Sitemap</h4>
-            </a>
-        </div>
-        <div id="Footer-TheBoringStuff" class="footerTextSection">
-            <h2>The Boring Stuff</h2>
-            <a href="Delivery.html">
-                <h4>Shipping & Delivery</h4>
-            </a>
-            <a href="Returns.html">
-                <h4>Returns & Refunds</h4>
-            </a>
-            <a href="TermsConditions.html">
-                <h4>Terms & Conditions</h4>
-            </a>
-        </div>
-        <div id="Footer-Support" class="footerTextSection">
-            <h2>Support</h2>
-            <a href="Contact.html">
-                <h4>Contact Us</h4>
-            </a>
-            <a href="FAQ.html">
-                <h4>FAQ's</h4>
-            </a>
-        </div>
-        <div id="Footer-Supported_Payments" class="footerTextSection">
-            <h2>Supported Payments </h2>
-            <img src="Images/OnEveryPage/Payment Types.png">
-        </div>
-        <div id="Footer-Find-eBay">
-            <h2>Find us on</h2>
-            <a href="https://bit.ly/2BLLE05" target="_blank">
-                <img src="Images/OnEveryPage/Trust Banner/eBay logo.png">
-            </a>
-        </div>
-        <div id="Footer-copyright" class="footerTextSection">
-            <h5>
-                © Gadget Gainey 2019. All Rights Reserved
-            </h5>
-        </div>
-    </footer>
-</div>
+            <div id="Footer-GadgetGainey" class="footerTextSection">
+                <a href="index.html">
+                    <h1>Gadget Gainey</h1>
+                </a>
+                <a href="About.html">
+                    <h4>About Us</h4>
+                </a>
+                <a href="Basket.html">
+                    <h4>Basket</h4>
+                </a>
+                <a href="https://bit.ly/2BLLE05" target="_blank">
+                    <h4>eBay Store</h4>
+                </a>
+                <a href="404Error.html">
+                    <h4>Sitemap</h4>
+                </a>
+            </div>
+            <div id="Footer-TheBoringStuff" class="footerTextSection">
+                <h2>The Boring Stuff</h2>
+                <a href="Delivery.html">
+                    <h4>Shipping & Delivery</h4>
+                </a>
+                <a href="Returns.html">
+                    <h4>Returns & Refunds</h4>
+                </a>
+                <a href="TermsConditions.html">
+                    <h4>Terms & Conditions</h4>
+                </a>
+            </div>
+            <div id="Footer-Support" class="footerTextSection">
+                <h2>Support</h2>
+                <a href="Contact.html">
+                    <h4>Contact Us</h4>
+                </a>
+                <a href="FAQ.html">
+                    <h4>FAQ's</h4>
+                </a>
+            </div>
+            <div id="Footer-Supported_Payments" class="footerTextSection">
+                <h2>Supported Payments </h2>
+                <img src="Images/OnEveryPage/Payment Types.png">
+            </div>
+            <div id="Footer-Find-eBay">
+                <h2>Find us on</h2>
+                <a href="https://bit.ly/2BLLE05" target="_blank">
+                    <img src="Images/OnEveryPage/Trust Banner/eBay logo.png">
+                </a>
+            </div>
+            <div id="Footer-copyright" class="footerTextSection">
+                <h5>
+                    © Gadget Gainey 2019. All Rights Reserved
+                </h5>
+            </div>
+        </footer>
+    </div>
 </div>
 </body>
 </html>
