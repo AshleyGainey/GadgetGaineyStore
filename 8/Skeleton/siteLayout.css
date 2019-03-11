@@ -16,7 +16,8 @@ body, html {
 
 /* Start: Trusting Banner at the top*/
 /*Flex makes main header and trust header items all on one line.
-So the eBay logo with the 98% of customers... but also the free delivery and the order by 3pm, all on one line. Also centers items*/
+So the eBay logo with the 98% of customers... but also the free delivery and the order by 3pm, all on one line.
+Also centers items*/
 .Trust-Header, #Main-Header {
     display: flex;
     align-items: center;
@@ -157,7 +158,7 @@ not 100% so it doesn't go off the screen for the third menu item*/
 /* Add a margin to the main_container that is inside the main body, this is because we 
 want something up against the Nav (for instance the breadcrumb/the half price Sale)*/
 #Main_Body {
-    margin: 30px 50px 0 50px;
+    padding: 20px;
 }
 
 /*Add a minimum height for the container of 100% and relative position, this is for the footer
@@ -167,7 +168,8 @@ so if content is less than 100% height then it will still go to the bottom*/
     position: relative;
 }
 
-/*Keep the footer at the position all the time by using absolute, have bottom to be position 0, so it stays that way, all text centered*/
+/*Keep the footer at the position all the time by using absolute, have bottom to be position 0, so it stays that way,
+all text centered*/
 footer {
     position: absolute;
     bottom: 0;
@@ -237,4 +239,28 @@ doesn't stop right after the copyright section*/
 this is for the footer to not overlap with the last parts of the page*/
 #Outside_Body {
     padding-bottom: 250px;
+}
+
+
+.productInformation {
+    -webkit-box-shadow: 10px 10px 40px 0px rgba(0, 0, 0, 0.27);
+    -moz-box-shadow: 10px 10px 40px 0px rgba(0, 0, 0, 0.27);
+    box-shadow: 10px 10px 40px 0px rgba(0, 0, 0, 0.27);
+
+
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+
+    background-color: #FFFFFF;
+
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.productInformation h1 {
+    font-size: 30px;
+}
+.productInformation h4 {
+    font-size: 15px;
 }

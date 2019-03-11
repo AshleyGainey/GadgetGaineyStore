@@ -80,12 +80,12 @@
 				</div>
 				<div id="Trust-Fast_Delivery">
 					<a href="delivery.html"> <img src="Images/OnEveryPage/Trust Banner/Next Day Delivery.png" alt="Next Day Delivery">
-						<h3> ORDER BY 3PM FOR NEXT DAY DELIVERY</h3>
+						<h3> ORDER BY 3PM FOR NEXT DAY FREE DELIVERY</h3>
 					</a>
 				</div>
 				<div id="Trust-Free_Delivery">
-					<a href="delivery.html"> <img src="Images/OnEveryPage/Trust Banner/Free Delivery.png" alt="Free Delivery">
-						<h3>FREE DELIVERY ORDERS OVER £100<h3>
+					<a href="delivery.html"> <img src="Images/OnEveryPage/Trust Banner/Returns.png" alt="Returns">
+						<h3>FREE 28 DAY RETURN ON EVERYTHING<h3>
 				</div></a>
 			</div>
 			<div class="hr">
