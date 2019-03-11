@@ -69,9 +69,6 @@
 
 
 
-
-
-
         .div-to-display {
             display: none;
             position: absolute;
@@ -162,17 +159,19 @@
                         var brand = $product.find('brand').text();
                         var price = $product.find('price').text();
 
-                        $('td').append('<div class="div-to-display"><img id="ToDisplay" + src=""></div>');
-                        $('ToDisplay').attr('src', "Images/Home/Loading.png");
+                        $('td').append('<div class="div-to-display"><img class="ToDisplay" + src=""></div>');
+
 
 
 
                         $('tbody').append("<tr>"
+                            + "<td>" + "<a href=" + "'product.html?id=" + id + "&searchTerm=" + vars['searchTerm'] + "'" + "</a>" + id + "</td>"
                             + "<td>" + "<a href=" + "'product.html?id=" + id + "&searchTerm=" + vars['searchTerm'] + "'" + "</a>" + title + "</td>"
                             + "<td>" + "<a href=" + "'product.html?id=" + id + "&searchTerm=" + vars['searchTerm'] + "'" + "</a>" + brand + "</td>"
                             + "<td>" + "<a href=" + "'product.html?id=" + id + "&searchTerm=" + vars['searchTerm'] + "'" + "</a>" + "£" +  price + "</td>"
                             + "</tr>");
 
+                        $('td:nth-child(1)').hide();
 
 
 
@@ -185,7 +184,6 @@
                         $('tbody tr').mouseenter(function() {
                             $(this).css("background-color", "#6185C7");
 
-                            $(this).children('img')
                         })
 
                         $('tbody tr').mouseleave(function() {
@@ -225,6 +223,19 @@
                             }
                             $('table tbody').html(tbodyHtml);
                         }
+                        $('td').hover(function () {
+                                // Get the first td
+                                var periodStart = $(this).closest('tr').children('td:eq(0)').text();
+
+                                // alert('periodStart:  ' + periodStart)
+
+                                $('.ToDisplay').attr('src', "/Images/ProductImages/" + periodStart + ".png");
+                        },
+                            function() {
+                            $("td").removeClass('ToDisplay');
+                        });
+
+
                     });
 
                     // Your $(document).ready() event script code goes above here -^
@@ -312,10 +323,10 @@
                     <col id= "col4">
                 </colgroup>
                 <thead>
-                <tr id="">
+                <tr>
                     <th>Title</th>
-                    <div><th>Brand</th></div>
-                    <div><th>Price</th></div>
+                    <th>Brand</th>
+                    <th>Price</th>
                 </tr>
                 </thead>
                 <tbody>
