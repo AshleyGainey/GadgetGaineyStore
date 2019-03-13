@@ -9,7 +9,7 @@
     <meta property="og:title" content="Gadget Gainey Store - Home of the best kids products!">
     <meta name="keywords" content="toys, kids, children, store, go kart, playsets, play, presents, fun, little kids, pedal, pedal go karts, pedal go kart,
 		car, ride on, ride on bike, ride on cars, cars, bike, outdoor, racing">
-    <link rel="icon" href="/Images/OnEveryPage/Gadget Gainey icon.png">
+    <link rel="icon" href="Images/OnEveryPage/Gadget Gainey icon.png">
     <Title>Gadget Gainey Store - Home of the best kids products!</Title>
 
     <!--links to the CSS-->
@@ -40,6 +40,9 @@
             overflow: hidden;
         }
 
+        .sliderContents {
+            width: 100%;
+        }
         /*All anchor tags (including the image itself) of the slider are put into one line no matter the
         width of the container, the width is 600% (for 6 pictures)*/
         .carouselSlide {
@@ -130,6 +133,125 @@
         // Your global variables should be declared above here -^
         // Any user defined functions should be declared below here -v
 
+        function loadedCorrectly() {
+            // set a timed function call to wait for $homepage to load
+            timerHomePage = window.setInterval(function () {
+
+                // Check if the homepage have loaded
+                if ($homepage === null) {
+                    // They haven't loaded
+
+                } else {
+                    //They have and go to load the images that use the vars[prod]
+                    carouselImages();
+                    window.clearInterval(timerHomePage);
+                }
+            }, 100);
+        }
+
+        function carouselImages() {
+            //Start slideNo at 1 for the Slider Number and is less than 7 then
+            for (slideNo = 1; slideNo < 7; slideNo++) {
+
+                //Add the image source to whatever the slide number is and the product id of what ever slide number is
+                $('#slider' + slideNo).children('img').attr('src', "/Images/ProductImages/" + vars['prod' + slideNo] + ".png");
+
+                // Add a link to the product to the slider of whatever the slide number is and add the href of prod
+                $('#slider' + slideNo).attr('href', '/product.html?id=' + vars['prod' + slideNo]);
+
+                //Convert the Slide Number into an integer for later use (for updateValues)
+                var convertedSlideNo = parseInt(vars['prod' + slideNo]);
+                //Put it into the sliderID array.
+                sliderID.push(convertedSlideNo);
+            }
+            //Go to the updateValues method after all images have been imported, in which will update the text
+            updateValues();
+        }
+
+        //Runs moveNext, every 5 seconds//
+        function autoplay() {
+            intervalMove = setInterval(function () {
+                moveNext();
+            }, 5000);
+        }
+
+        function movePrev() {
+            //If the current slide Number is 1 then reset to 7
+            if (currentSlideNum == 1) {
+                currentSlideNum = 7;
+            }
+
+            //Whether it went into the if statement or not then add 1 (resulting 0 to be 1, 2 to be 3 etc.).
+            currentSlideNum = currentSlideNum - 1;
+
+            //Call the fadeOut method which will fade out the properties of the product
+            fadeOut();
+
+            //Move the carousel image to margin left 0% that lasts 1 second, after that put the last image
+            // to the front of the line and reset the margin to -100%
+            $(slider).animate({marginLeft: 0}, 1000, function () {
+                $('#slider .sliderContents:last').insertBefore('#slider .sliderContents:first');
+                $(slider).css('margin-left', '-' + 100 + '%');
+            });
+        }
+
+        function moveNext() {
+            //If the current slide Number is 6 then reset to 0
+            if (currentSlideNum == 6) {
+                currentSlideNum = 0;
+            }
+
+            //Whether it went into the if statement or not then add 1 (resulting 0 to be 1, 2 to be 3 etc.).
+            currentSlideNum = currentSlideNum + 1;
+
+            //Call the fadeOut method which will fade out the properties of the product
+            fadeOut();
+
+            //Move the carousel image to margin left -200% that lasts 1 second, after that put the first image
+            // to the back of the line and reset the margin to -100%
+            $(slider).animate({marginLeft: '-' + 200 + '%'}, 1000, function () {
+                $('#slider .sliderContents:first').insertAfter('#slider .sliderContents:last');
+                $(slider).css('margin-left', '-' + 100 + '%');
+            });
+        }
+
+        function fadeOut() {
+            // Fade the updatedValues out using the fadeTo feature, I have used this instead of fadeOut
+            // because fadeOut removes the element and then the carousel moves up, which doesn't look great
+            $("#carouselTitleHeader").fadeTo(500, 0);
+            $("#carouselBrand").fadeTo(500, 0);
+
+            //At the end of the cost fading out then go to the updateValues function where it will change the values while faded
+            $("#carouselCost").fadeTo(500, 0, function () {
+                updateValues();
+            });
+        }
+
+        function updateValues() {
+            console.log("In UpdateValues");
+            //Get the current Slide ID from the array (which starts at 0 so subtract 1 to get the correct ID out of the array)
+            var currentSlideID = sliderID[currentSlideNum - 1];
+
+
+            // set the text of the title to the current ID index - 1 (to get the correct title from the array)
+            $("#carouselTitleHeader").text(carouselTitle[currentSlideID - 1]);
+
+            // set the text of the brand to the current ID index - 1 (to get the correct brand from the array)
+            $("#carouselBrand").text("By: " + carouselBrand[currentSlideID - 1]);
+
+            // set the text of the cost to the pound symbol and then to the current ID index - 1 (to get the correct cost from the array)
+            $("#carouselCost").text("£" + carouselCost[currentSlideID - 1]);
+
+            //When values have changed then go to the fadeIn function
+            fadeIn();
+        }
+
+        function fadeIn() {
+            // Fade the updatedValues to full opacity
+            $("#carouselTitleHeader").fadeTo(500, 1);
+            $("#carouselBrand").fadeTo(500, 1);
+            $("#carouselCost").fadeTo(500, 1);
+        }
 
         // Any user defined functions should be declared above here -^
 
@@ -182,37 +304,13 @@
                 carouselBrand.push(imgBrand);
                 carouselCost.push(imgCost);
             });
-            // Call the carouselImages where it will add the images to the carousel
-            carouselImages();
+            // Call the loadedCorrectly function where it will wait until the $homepage has loaded correctly
+            loadedCorrectly();
 
-            function carouselImages() {
-                //Start slideNo at 1 for the Slider Number and is less than 7 then
-                for (slideNo = 1; slideNo < 7; slideNo++) {
-
-                    //Add the image source to whatever the slide number is and the product id of what ever slide number is
-                    $('#slider' + slideNo).children('img').attr('src', "/Images/ProductImages/" + vars['prod' + slideNo] + ".png");
-
-                    // Add a link to the product to the slider of whatever the slide number is and add the href of prod
-                    $('#slider' + slideNo).attr('href', '/product.html?id=' + vars['prod' + slideNo]);
-
-                    //Convert the Slide Number into an integer for later use (for updateValues)
-                    var convertedSlideNo = parseInt(vars['prod' + slideNo]);
-                    //Put it into the sliderID array.
-                    sliderID.push(convertedSlideNo);
-                }
-                //Go to the updateValues method after all images have been imported, in which will update the text
-                updateValues();
-            }
 
             //Run autoPlay (for the first time)
             autoplay();
 
-            //Runs moveNext, every 5 seconds//
-            function autoplay() {
-                intervalMove = setInterval(function () {
-                    moveNext();
-                }, 5000);
-            }
 
             //When the user clicks the Previous (<) button
             $('#carouselPrevious').on('click', function () {
@@ -222,25 +320,6 @@
                 autoplay();
             });
 
-            function movePrev() {
-                //If the current slide Number is 1 then reset to 7
-                if (currentSlideNum == 1) {
-                    currentSlideNum = 7;
-                }
-
-                //Whether it went into the if statement or not then add 1 (resulting 0 to be 1, 2 to be 3 etc.).
-                currentSlideNum = currentSlideNum - 1;
-
-                //Call the fadeOut method which will fade out the properties of the product
-                fadeOut();
-
-                //Move the carousel image to margin left 0% that lasts 1 second, after that put the last image
-                // to the front of the line and reset the margin to -100%
-                slider.animate({marginLeft: 0}, 1000, function () {
-                    $('#slider .sliderContents:last').insertBefore('#slider .sliderContents:first');
-                    slider.css('margin-left', '-' + 100 + '%');
-                });
-            }
 
             //When the user clicks the Next (>) button
             $('#carouselNext').on('click', function () {
@@ -250,62 +329,6 @@
                 autoplay();
             });
 
-            function moveNext() {
-                //If the current slide Number is 6 then reset to 0
-                if (currentSlideNum == 6) {
-                    currentSlideNum = 0;
-                }
-
-                //Whether it went into the if statement or not then add 1 (resulting 0 to be 1, 2 to be 3 etc.).
-                currentSlideNum = currentSlideNum + 1;
-
-                //Call the fadeOut method which will fade out the properties of the product
-                fadeOut();
-
-                //Move the carousel image to margin left -200% that lasts 1 second, after that put the first image
-                // to the back of the line and reset the margin to -100%
-                slider.animate({marginLeft: '-' + 200 + '%'}, 1000, function () {
-                    $('#slider .sliderContents:first').insertAfter('#slider .sliderContents:last');
-                    slider.css('margin-left', '-' + 100 + '%');
-                });
-            }
-
-            function fadeOut() {
-                // Fade the updatedValues out using the fadeTo feature, I have used this instead of fadeOut
-                // because fadeOut removes the element and then the carousel moves up, which doesn't look great
-                $("#carouselTitleHeader").fadeTo(500, 0);
-                $("#carouselBrand").fadeTo(500, 0);
-
-                //At the end of the cost fading out then go to the updateValues function where it will change the values while faded
-                $("#carouselCost").fadeTo(500, 0, function () {
-                    updateValues();
-                });
-            }
-
-            function updateValues() {
-                //Get the current Slide ID from the array (which starts at 0 so subtract 1 to get the correct ID out of the array)
-                var currentSlideID = sliderID[currentSlideNum - 1];
-
-
-                // set the text of the title to the current ID index - 1 (to get the correct title from the array)
-                $("#carouselTitleHeader").text(carouselTitle[currentSlideID - 1]);
-
-                // set the text of the brand to the current ID index - 1 (to get the correct brand from the array)
-                $("#carouselBrand").text("By: " + carouselBrand[currentSlideID - 1]);
-
-                // set the text of the cost to the pound symbol and then to the current ID index - 1 (to get the correct cost from the array)
-                $("#carouselCost").text("£" + carouselCost[currentSlideID - 1]);
-
-                //When values have changed then go to the fadeIn function
-                fadeIn();
-            }
-
-            function fadeIn() {
-                // Fade the updatedValues to full opacity
-                $("#carouselTitleHeader").fadeTo(500, 1);
-                $("#carouselBrand").fadeTo(500, 1);
-                $("#carouselCost").fadeTo(500, 1);
-            }
 
             //When the user's mouse enters the carousel, reset the timer
             $('#slider').mouseenter(function () {
@@ -334,7 +357,7 @@
                 </a>
             </div>
             <div id="Trust-Fast_Delivery">
-                <a href="delivery.html#NextDay"> <img src="Images/OnEveryPage/Trust Banner/Next Day Delivery.png"
+                <a href="Delivery.html#NextDay"> <img src="Images/OnEveryPage/Trust Banner/Next Day Delivery.png"
                                                       alt="Next Day Delivery">
                     <h3> ORDER BY 3PM FOR NEXT DAY FREE DELIVERY</h3>
                 </a>
@@ -361,7 +384,7 @@
                            placeholder="Search Gadget Gainey..."/>
                     <button class="searchButton"><img
                             src="Images/OnEveryPage/Main Banner/Magnifier Glass - Search.png" alt="Search">
-                    </img></button>
+                    </button>
                 </div>
             </form>
 
@@ -384,7 +407,7 @@
     <ul class="navmenu">
     </ul>
     <div id=Outside_Body>
-        <img src="\Images\Home\50 percent off everything in store.gif" alt="50% off across our store!">
+        <img src="Images/Home/50 percent off everything in store.gif" alt="50% off across our store!">
         <div id=Main_Body>
             <!--Holds full carousel-->
             <!--Add a header 1 which will hold title of product -->
@@ -398,23 +421,27 @@
 
                     <!--Add anchor tags (for the links), inside that add an image with a source,
                     the placeholder at the moment is Loading.png but will be replaced when injected-->
-                    <a id="slider1" class="sliderContents" href=""><img src="Images\Home\Loading.png"
+                    <a id="slider1" class="sliderContents" href=""><img src="Images/Home/Loading.png"
+                                                                        alt="Product 1"
                     >
                     </a>
-                    <a id="slider2" class="sliderContents" href=""><img src="Images\Home\Loading.png"
+                    <a id="slider2" class="sliderContents" href=""><img src="Images/Home/Loading.png"
+                                                                        alt="Product 2"
                     >
                     </a>
-                    <a id="slider3" class="sliderContents" href=""><img src="Images\Home\Loading.png"
+                    <a id="slider3" class="sliderContents" href=""><img src="Images/Home/Loading.png"
+                                                                        alt="Product 3"
                     >
                     </a>
-                    <a id="slider4" class="sliderContents" href=""><img src="Images\Home\Loading.png"
-                    >
+                    <a id="slider4" class="sliderContents" href=""><img src="Images/Home/Loading.png"
+                                                                        alt="Product 4">
                     </a>
-                    <a id="slider5" class="sliderContents" href=""><img src="Images\Home\Loading.png"
-                    >
+                    <a id="slider5" class="sliderContents" href=""><img src="Images/Home/Loading.png"
+                                                                        alt="Product 5">
                     </a>
-                    <a id="slider6" class="sliderContents"><img src="Images\Home\Loading.png"
-                    >
+                    <a id="slider6" class="sliderContents" href=""><img src="Images/Home/Loading.png"
+                                                                        alt="Product 6">
+                        >
                     </a>
                 </div>
 
@@ -477,12 +504,13 @@
         </div>
         <div id="Footer-Supported_Payments" class="footerTextSection">
             <h2>Supported Payments </h2>
-            <img src="Images/OnEveryPage/Payment Types.png">
+            <img src="Images/OnEveryPage/Payment Types.png"
+                 alt="Mastercard, Maestro, American Express, Visa and PayPal">
         </div>
         <div id="Footer-Find-eBay">
             <h2>Find us on</h2>
             <a href="https://bit.ly/2BLLE05" target="_blank">
-                <img src="Images/OnEveryPage/Trust Banner/eBay logo.png">
+                <img src="Images/OnEveryPage/Trust Banner/eBay logo.png" alt="eBay">
             </a>
         </div>
         <div id="Footer-copyright" class="footerTextSection">

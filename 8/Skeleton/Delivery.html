@@ -10,22 +10,15 @@
     <meta charset="UTF-8"/>
     <!--Author is Ashley Gainey-->
     <meta name="author" content="Ashley Gainey">
-    <!--Show a Title and Description in the search engine -->
     <meta property="og:title" content="Gadget Gainey Store - Home of the best kids products!">
     <meta name="description"
           content="Looking for the best kids products with a great price? Browse our amazing collection and get the perfect gift">
-    <!--Add keywords to the page for the search engine to be more recognised -->
     <meta name="keywords" content="toys, kids, children, store, go kart, playsets, play, presents, fun, little kids, pedal, pedal go karts, pedal go kart,
 		car, ride on, ride on bike, ride on cars, cars, bike, outdoor, racing, drone">
-    <!--Add an icon to the site-->
-    <link rel="icon" href="/Images/OnEveryPage/Gadget Gainey icon.png">
-    <!--Change this title of the site when edited-->
-    <Title>Delivery - Gadget Gainey</Title>
-    <!--Links to the CSS-->
+    <link rel="icon" href="Images/OnEveryPage/Gadget Gainey icon.png">
+    <Title>Delivery - Gadget Gainey Store</Title>
     <link rel="stylesheet" href="siteLayout.css" type="text/css" media="screen,projection"/>
     <link rel="stylesheet" href="siteTheme.css" type="text/css" media="screen,projection"/>
-
-    <!-- <base href="/images/" target = "_blank"> -->
     <style>
 
         p {
@@ -136,82 +129,52 @@
 </head>
 
 <body>
-<!--In the body, will hold a container, containing every element -->
 <div class="container">
-    <!--A div that holds all of the header-->
     <div id="Header">
-        <!--This div holds all of the trust header, that includes why the user should purchase through us-->
         <div class="Trust-Header">
-            <!--This div holds the eBay trust-->
             <div id="Trust-eBay">
-                <!--An anchor tag that goes to Gadget Gainey feedback
-                in a new tab that holds a header3 and the eBay logo image-->
                 <a href="https://bit.ly/2to8o1z" target="_blank">
                     <h3> 98% OF CUSTOMERS LOVE US ON</h3>
                     <img src="Images/OnEveryPage/Trust Banner/eBay logo.png" alt="eBay">
                 </a>
             </div>
-            <!--This div holds the fast delivery part of the trust header-->
             <div id="Trust-Fast_Delivery">
-                <!--An anchor tag that goes to delivery.html
-               in the same tab that holds a header3 and the fast delivery image-->
-                <a href="delivery.html"> <img src="Images/OnEveryPage/Trust Banner/Next Day Delivery.png"
+                <a href="Delivery.html"> <img src="Images/OnEveryPage/Trust Banner/Next Day Delivery.png"
                                               alt="Next Day Delivery">
                     <h3> ORDER BY 3PM FOR NEXT DAY FREE DELIVERY</h3>
                 </a>
             </div>
-            <!--This div holds the free delivery part of the trust header-->
             <div id="Trust-Free_Delivery">
-                <!--An anchor tag that goes to delivery.html
-              in the same tab that holds a header3 and the free delivery image-->
                 <a href="Returns.html"> <img src="Images/OnEveryPage/Trust Banner/Returns.png"
-                                              alt="Returns">
+                                             alt="Returns">
                     <h3>FREE 28 DAY RETURN ON EVERYTHING</h3>
                 </a>
             </div>
         </div>
-        <!--Seperates the trust header with the main header-->
         <div class="line">
             <hr/>
         </div>
-        <!--This div holds the main header-->
         <div id="Main-Header">
-            <!--A div for the logo where it holds an anchor tag that goes to index.html
-             in the same tab that holds the logo image-->
             <div id="Logo"><a href="index.html"> <img
                     src="Images/OnEveryPage/Main Banner/Gadget Gainey White Small Logo.png" alt="Logo"> </a>
             </div>
-            <!--This is the searchbar, where it has a form to send the results of what the user types into the
-            search and once the button has been pressed then it will go to the results.html tag with the get method-->
             <form method="get" action="results.html">
-
-                <!--div of the full Searchbox -->
                 <div class="fullSearchBox">
-                    <!--Inside the div, we have an input with a class of searchBox and a type of search
-                    and a name of searchTerm to link with the results.html, turning autocomplete off because
-                    it becomes annoying -->
                     <input class="searchBox" type="search" name="searchTerm" autocomplete="off"
                            placeholder="Search Gadget Gainey..."/>
-
-                    <!--Add a button, giving the class of searchButton and added the search image onto it-->
                     <button class="searchButton"><img
                             src="Images/OnEveryPage/Main Banner/Magnifier Glass - Search.png" alt="Search">
                     </button>
                 </div>
             </form>
 
-            <!--div containing the help and basket buttons-->
             <div class="RightButtons">
-                <!--Div containing just the help button, with the header3 of 'Help' and with an
-                anchor tag that goes to 404Error.html in the same tab and that has the image as the Help.png-->
                 <div id="Help"><a href="404Error.html"> <img src="Images/OnEveryPage/Main Banner/Help.png" alt="Help">
                     <h3>Help</h3>
                 </a>
                 </div>
-                <!--Div containing just the basket button, with the header3 of 'Basket' and with an
-               anchor tag that goes to 404Error.html in the same tab and that has the image as the Basket.png-->
                 <div id="Basket"><a href="404Error.html"> <img src="Images/OnEveryPage/Main Banner/Basket.png"
-                                                             alt="Basket">
+                                                               alt="Basket">
                     <h3>Basket</h3>
                 </a>
                 </div>
@@ -219,119 +182,144 @@
         </div>
     </div>
 
-    <!--Unordered list, giving it is a class of navmenu -->
     <ul class="navmenu">
     </ul>
-    <!--This is the outside body where banners and the breadcrumb will go,
-    this will have a value of margin:0 in the CSS whereas the main body will have more of a centered outline-->
-
     <div id=Outside_Body>
-        <!--This is the main body now, where most content will lie-->
+
         <div id=Main_Body>
+            <!--Delivery is a header and is the title of the page so apply a id of Title
+            (no other component will be using the title id so it isn't a class), with every header on this page add a
+            whiteBox and curveRadius class and the text as Delivery -->
             <h1 id="Title" class="whiteBox curveRadius">Delivery</h1>
 
+            <!--Since this is a long page, I have added navigation through the pages to easily
+            jump to a certain point in the html document-->
             <ul class="navigationThroughPage">
-                <a href="#Overview">
-                    <li>Overview</li>
-                </a>
-                <a href="#FullDelivery">
-                    <li>Delivery - The full rundown</li>
-                </a>
-                <ul>
-                    <a href="#NextDay">
-                        <li>Our 3pm Next Day Delivery Policy</li>
-                    </a>
-                    <a href="#ChangeAddress">
-                        <li>Change of Delivery Address</li>
-                    </a>
-                    <a href="#FailedDelivery">
-                        <li>Failed Deliveries</li>
-                    </a>
-                    <a href="#CollectionReturns">
-                        <li>Collections and Returns (Failed Collections)</li>
-                    </a>
-                    <a href="#CancellingOrders">
-                        <li>Cancelling orders</li>
-                    </a>
-                    <a href="#DeliveryExcess">
-                        <li>Delivery Excess</li>
-                    </a>
-                    <a href="#ContactDelivery">
-                        <li>Contacting about Delivery</li>
-                    </a>
-                </ul>
+                <li>
+                    <a href="#Overview">Overview</a>
+                </li>
 
+                <li>
+                    <a href="#FullDelivery">Delivery - The full rundown</a>
+                </li>
+                <ul>
+                    <li>
+                        <a href="#NextDay">Our 3pm Next Day Delivery Policy</a>
+                    </li>
+
+                    <li>
+                        <a href="#ChangeAddress">Change of Delivery Address</a>
+                    </li>
+
+                    <li>
+                        <a href="#FailedDelivery">Failed Deliveries</a>
+                    </li>
+
+                    <li>
+                        <a href="#CollectionReturns">Collections and Returns (Failed Collections)</a>
+                    </li>
+
+                    <li>
+                        <a href="#CancellingOrders">Cancelling orders</a>
+                    </li>
+
+                    <li>
+                        <a href="#DeliveryExcess">Delivery Excess</a>
+                    </li>
+
+                    <li>
+                        <a href="#ContactDelivery">Contacting about Delivery</a>
+                    </li>
+                </ul>
             </ul>
 
-
+            <!--If selected at the navigation at the top then it will skip to the Overview
+            part where it will have a whiteBox class and a curveRadius applied to it-->
             <a name="Overview"><h2 class="whiteBox curveRadius">Overview</h2></a>
+            <!--Explanation of Overview-->
             <p>1. *Standard delivery is free of charge on orders of more than £100 to all UK postcodes, excluding orders
                 that require 2 people to deliver the item(s). Details on whether your delivery is a 2 man job will be in
                 the basket area or while you are going through the order confirmation process. Excludes also apply for
                 some Scottish Mainland postcodes, the Scottish Highlands, Northern Ireland, Isle of Wight & Any Other
                 Off Shore Locations. Sadly we cannot ship to the&nbsp;Channel Islands or the Isle of Man at present.</p>
+
             <p>2. *Most stock items are delivered by Parcel Force,&nbsp;APC or Royal Mail and are usually despatched
                 within 24h of your order, again, except for 2 delivery people that can take up to 3 working days to
                 dispatch due to how big the item is and the process needed to delivery it to you. Please note we do not
                 despatch orders on weekends or bank holidays and during busy periods such as Black Friday, Christmas
                 etc. dispatch may be 48h. </p>
+
             <p><strong>PLEASE NOTE</strong>: Larger items, for example Quads, Climbing frames etc. are delivered by
                 Pallet Service and will take extra time to deliver (48h+) as the courier will need to contact you to
                 arrange a delivery time (please make sure that you have provided us with an up to date phone number as
                 the courier will need this in order to contact you to arrange delivery, failure to do so may delay
                 delivery.</p>
+
             <p>Items that we Dropship directly from the manufactures (BERG, Plum, Quickplay, Kidkraft, Samba, Little
                 Tikes, TP Toys &amp; Smoby) will have delivery times set by the relevant manufacturers and your expected
                 delivery date will be stated on the product page when you place your order (this is generally between 7
                 - 10 working days from your order date)</p>
-            <p>3.&nbsp; You will receive a shipping notification email on the day that we dispatch your order and any
+
+            <p>3. You will receive a shipping notification email on the day that we dispatch your order and any
                 items being delivered by courier should also result in you receiving tracking emails as the items pass
                 through each stage of the delivery process.</p>
-            <p>4. If there is an issue with your order we will notify you as soon as possbile, please ensure you have
+
+            <p>4. If there is an issue with your order we will notify you as soon as possible, please ensure you have
                 provided a correct phone number and email address. If the item you have ordered is out of stock we will
                 phone and then email, if there is no response, to discuss your order and offer alternatives if possible.
                 If we have not heard a response from yourself within 48hours we will refund your order in full back to
                 the payment method (this may take between 3 - 7 days due to banks procedures)</p>
+
             <p>5. Like every other internet or mail order retailer, we have no control over problems that occur in
                 transit that lead to delays in delivery of your order. Whilst we completely understand the frustration
                 that delays cause, we cannot be held responsible for any delays caused by 3rd party couriers and
                 therefore cannot offer discounts or compensation for delays in delivery.</p>
-            <p>6. Please make sure that you are able to be at home for a delivery if a day/date has been confirmed, as
+
+            <p>6. Please make sure that you are able to be at home for delivery if a day/date has been confirmed, as
                 some failed deliveries are liable to redelivery costs at a rate of 50% of our original delivery
                 charges.</p>
+
             <p>7. Please do not reject a delivery if the box is damaged. We do our best to ensure that all of our
                 products are adequately protected during transit, so a damaged box will very rarely result in a damaged
                 product. In the event that your item is damaged, we operate a 48 hour spare parts service and carry
                 thousands of brand new spare parts in stock for immediate dispatch. Where possible, we will ALWAYS
                 replace parts before accepting returns where items arrive damaged or develop a fault that can be fixed
                 with a replacement part.</p>
+
             <p>8.&nbsp;If we are arranging collection of a faulty item from you, someone from customer service will
                 discuss the details with you over the phone to arrange a suitable day.&nbsp;Once the collection request
                 has been made with the courier you will receive an email from us confirming the details of the
                 collections including the date, courier etc. if you are unavailable on the arranged date contact us as
-                soon as possible, if the collection fails we will have to charge for arranging a second collection.</p>
+                soon as possible if the collection fails we will have to charge for arranging a second collection.</p>
+
             <p>You will also receive the Returns Form which you will need to attach to the items packaging as well as
                 details of how the item needs to be packaged for the courier to except it, items that have not been
                 properly repackaged may be refused by the courier and we will have to charge if a second collection
                 needs to be arranged.</p>
 
+            <!--This is the Full Delivery contract, and so it is less important than the header but more important than the sub-headers
+            so give a h2 header-->
             <a name="FullDelivery"><h2 class="whiteBox curveRadius">Delivery - The full rundown:</h2></a>
 
+            <!--Sub-header so h3 calling it NextDay so contents navigation at the top would be able jump to this point of the page-->
             <a name="NextDay"><h3 class="whiteBox curveRadius">Our 3pm Next Day Delivery Policy</h3></a>
             <p>We aim to despatch all orders within 24/48 hours of us receiving your order and the vast majority are
                 delivered within 48h (this applies to orders placed before 2pm,&nbsp;we cannot be held responsible for
                 any delays caused by 3rd party couriers and therefore cannot offer discounts or compensation for delays
                 in delivery).</p>
+
             <p>Deliveries generally take place between the hours of 8am and 6pm Monday to Friday (we are closed weekends
                 and Bank Holidays and therefore do not deliver on those days, orders where Next Day Delivery has been
                 selected but are placed either after 2pm or on a weekend or Bank Holiday will be despatched the next
                 working day) a calling card will be left if there is no-one at home to sign for your order.</p>
             <p>The majority of our orders are sent via APC or Royal Mail, but larger items can also be delivered via a
-                specialist heavy goods carrier PALLEX.&nbsp;</p>
+                specialist heavy goods carrier PALLEX.</p>
+
             <p>It is your responsibility to check your delivery on receipt of your order and notify us as soon as
                 possible if there is any missing parts or damage.&nbsp;</p>
 
-
+            <!--Sub-header so h3 calling it ChangeAddress so contents navigation at the top would be able jump
+            to this point of the page and so on until the end-->
             <a name="ChangeAddress"><h3 class="whiteBox curveRadius">Change of Delivery Address</h3></a>
             <p>We are unable to change a delivery address once an order has been placed, if you have an issue entering a
                 different delivery address when placing your order please contact customer service who will be happy to
@@ -344,7 +332,8 @@
                 ourselves as undelivered, we are happy to refund or resend the order, however there will be a charge to
                 cover the attempted deliveries, return delivery and admin costs.</p>
 
-            <a name="CollectionReturns"><h3 class="whiteBox curveRadius">Collections and Returns (Failed Collections)</h3></a>
+            <a name="CollectionReturns"><h3 class="whiteBox curveRadius">Collections and Returns (Failed
+                Collections)</h3></a>
 
             <p>If you are returning an item, no matter the reason the item must be boxed, a courier will refuse to
                 collect the item if it is not properly boxed and we will charge for failed collections. It is your
@@ -359,6 +348,7 @@
 
             <p>If you wish to cancel an order that has NOT been dispatched you must contact us immediately, if we are
                 able to stop the orders dispatch you will be refunded in full.</p>
+
             <p>Should you wish to cancel goods that have left our Warehouse, orders will be subject to a returns charge
                 plus an admin charge. Returns charges can vary depending on the size of the product and are determined
                 by our courier company, you will be informed of this charge once we have confirmation that the item is
@@ -366,6 +356,7 @@
 
 
             <a name="DeliveryExcess"><h3 class="whiteBox curveRadius">Delivery Excess:</h3></a>
+
             <p>Certain shipments to parts of Mainland Scotland, the Scottish Highlands, Northern Ireland, Republic of
                 Ireland, Europe and other remote or offshore locations in the United Kingdom can take an extra day or
                 two and are subject to an additional 'Excess' delivery charge that is imposed on us by our couriers -
@@ -373,44 +364,68 @@
                 postcodes in the following list, but there are others than can apply depending on the courier company
                 used to delivery your order. Please get in touch with us prior to placing your order if you live in an
                 area that usually requires an extra delivery cost.</p>
+
             <p><strong>PLEASE NOTE</strong>: We cannot provide our Trampoline Home Installation Service for the
                 following postcodes (other restrictions may apply please contact customer service for more information).
             </p>
-            <p><strong>BERG Products:</strong>&nbsp;Please note that BERG products are dispatched directly from the
+
+            <p><strong>BERG Products:</strong>Please note that BERG products are dispatched directly from the
                 manufacturer and there are some restrictions on delivery outside of Mainland UK meaning that it may not
                 be possible to deliver to certain postcodes&nbsp;(even if your order goes through at checkout this does
                 not mean that we are able to deliver to your postcode or that the delivery you have paid is accurate,
                 our checkout is an automated service and as such we are unable to adjust it for individual
                 manufacturers). If we can arrange delivery for these postcodes there may be an extra delivery charge,
                 please contact customer service for a quote on delivery before placing your order.</p>
+
             <h2>Scottish Mainland</h2>
+
             <p>AB10 - AB29, AB31 - AB32, AB39, DD, DG, EH1 - EH55, FK1 - FK18, G, KA1 - KA26, KA29 - 30, KY, ML, PA1 -
                 PA19, PH1 - PH14, TD&nbsp;</p>
+
             <p><em>Please note, an extra day for delivery needs to be added to the following postcodes(s):</em></p>
+
             <p>AB30, DD8 - DD9&nbsp;</p>
+
             <h4>Scottish Highlands</h4>
+
             <p>AB41, AB46 - AB51, FK19 - 21, IV1 - 20, IV25, IV30 - 37, IV63, PA21 - 35, PA37 - 39, PH15 - 26, PH32,
                 PH49, PH50&nbsp;</p>
+
             <p><em>Please note, an extra day for delivery needs to be added to the following postcodes(s):</em></p>
+
             <p>AB33 - 38, AB42 - AB45, AB52 - AB56, IV21 - 24, IV26 - 28, IV40, IV52 - 54, KW1 - 14, PA36, PA40, PH30,
                 PH31, PH33 - 41&nbsp;</p>
+
             <h4>Scottish Offshore</h4>
+
             <p><em>Please note, the following postcode(s) are two &ndash; five day services:</em></p>
+
             <p>HS1 - 9, IV41 - 51, IV55 - 56, KA27 - 28, KW15 - 17, PA20, PA41 - 49, PA60 - 78, PH42 - 44, ZE1 -
                 3&nbsp;</p>
+
             <h4>Northern Ireland</h4>
+
             <p>BT1 - 17, BT18 - 46, BT47+&nbsp;</p>
+
             <h4>Eire, Dub 1 &ndash; 24 &amp; County</h4>
+
             <p>Eire, Dublin 1 &ndash; 24 and including Dublin County&nbsp;</p>
+
             <h4>Isle Of Man</h4>
+
             <p>WE ARE UNABLE TO DELIVER TO THESE POSTCODES</p>
+
             <h4>Isle Of Wight</h4>
+
             <p>PO30 &ndash; 41&nbsp;</p>
+
             <h4>Channel Isles</h4>
+
             <p>WE ARE UNABLE TO DELIVER TO THESE POSTCODES</p>
+
             <h4>Alderney, Herm, Sark</h4>
+
             <p>WE ARE UNABLE TO DELIVER TO THESE POSTCODES</p>
-            <p>&nbsp;</p>
 
             <a name="ContactDelivery"><h3 class="whiteBox curveRadius">Contacting about Delivery</h3></a>
 
@@ -419,102 +434,76 @@
                 unavailable for delivery to certain offshore or remote locations in the UK. This also applies to certain
                 Items that come direct from our suppliers, which may also include an additional delivery surcharge - you
                 will be notified of this as soon as possible following receipt of your order.</p>
+
             <p>Goods will be dispatched to the postal address you have given in your order. Please note we will not
                 dispatch to PO Box addresses. We will make the necessary arrangements for dispatching and delivering the
                 goods to you. Should there be no-one at the address to take delivery, our courier will leave a card,
                 giving full instructions for you to re-arrange a more convenient time of delivery.</p>
         </div>
 
-        <!--Where all of the footer is-->
         <footer>
-            <!--Div holding all of the Gadget Gainey section (1st section), that has a class a footerTextSection
-            (because it has text included in the div)-->
+
             <div id="Footer-GadgetGainey" class="footerTextSection">
-                <!--Show Gadget Gainey in h1 big text with an anchor tag linking to index.html-->
                 <a href="index.html">
                     <h1>Gadget Gainey</h1>
                 </a>
-                <!--Under the big header, should have mini subjects that are in h4 format linking to About.html-->
                 <a href="About.html">
                     <h4>About Us</h4>
                 </a>
-                <!--Under the other mini subject, should have another mini subjects that are in h4 format linking to
-                404Error.html and displaying Basket-->
                 <a href="404Error.html">
                     <h4>Basket</h4>
                 </a>
-                <!--Under the other mini subject, should have another mini subjects that are in h4 format linking to
-                Gadget Gainey store on eBay and displaying eBay Store-->
                 <a href="https://bit.ly/2BLLE05" target="_blank">
                     <h4>eBay Store</h4>
                 </a>
-                <!--Under the other mini subject, should have another mini subjects that are in h4 format linking to
-                the 404Error.html (because I haven't built the sitemap yet and displaying Sitemap-->
                 <a href="404Error.html">
                     <h4>Sitemap</h4>
                 </a>
             </div>
 
-            <!--Div holding all of the Boring Stuff section (2nd section), that has a class a footerTextSection-->
             <div id="Footer-TheBoringStuff" class="footerTextSection">
-                <!--Display a header 2 (which will be smaller than the Gadget Gainey header but bigger than the subjects-->
                 <h2>The Boring Stuff</h2>
 
-                <!--Under the header, should have mini subject that are in link format linking to
-                Delivery&Returns.html and a h4 tag saying what this is linking to-->
                 <a href="Delivery.html">
                     <h4>Shipping & Delivery</h4>
                 </a>
 
-                <!--Under the other mini subject, should have another mini subject that are in link format linking to
-                Delivery&Returns.html but going to the Returns section-->
                 <a href="Returns.html">
                     <h4>Returns & Refunds</h4>
                 </a>
 
-                <!--Under the other mini subject, should have another mini subject that are in link format linking to
-                TermsConditions.html and a h4 tag saying Terms & conditions-->
                 <a href="TermsConditions.html">
                     <h4>Terms & Conditions</h4>
                 </a>
             </div>
 
-            <!--Div holding all of the Support section (3rd section), that has a class a footerTextSection-->
             <div id="Footer-Support" class="footerTextSection">
-                <!--Display a header 2 that says Support-->
                 <h2>Support</h2>
 
-                <!--Under the header, should have mini subject that are in link format linking to
-               404Error.html and a h4 tag saying what this is linking to-->
                 <a href="404Error.html">
                     <h4>Contact Us</h4>
                 </a>
-                <!--Under the header, should have mini subject that are in link format linking to
-                   404Error.html and a h4 tag saying what this is linking to-->
+
                 <a href="404Error.html">
                     <h4>FAQ's</h4>
                 </a>
             </div>
 
-            <!--Div holding all of the Support section (4th section), that has a class a footerTextSection-->
             <div id="Footer-Supported_Payments" class="footerTextSection">
-                <!--Hold the header of Supported Payments and an image-->
+
                 <h2>Supported Payments </h2>
                 <img src="Images/OnEveryPage/Payment Types.png"
                      alt="Mastercard, Maestro, American Express, Visa and PayPal">
             </div>
 
-            <!--Div holding all of the Support section (Last section)-->
             <div id="Footer-Find-eBay">
                 <h2>Find us on</h2>
-                <!--An anchor tag that goes to Gadget Gainey store
-                   in a new tab that holds the eBay logo image-->
+
                 <a href="https://bit.ly/2BLLE05" target="_blank">
                     <img src="Images/OnEveryPage/Trust Banner/eBay logo.png" alt="eBay">
                 </a>
             </div>
-            <!--Copyright section at the very bottom with a class of footerTextSection that
-            holds the copyright information in header5 format-->
+
             <div id="Footer-copyright" class="footerTextSection">
                 <h5>
                     © Gadget Gainey 2019. All Rights Reserved

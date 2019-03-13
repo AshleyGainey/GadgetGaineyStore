@@ -1,64 +1,49 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <!-- This is a comment tag -->
-
-    <!-- All meta data for SEO-->
     <meta charset="UTF-8"/>
-    <!--Author is Ashley Gainey-->
     <meta name="author" content="Ashley Gainey">
-    <!--Show a Title and Description in the search engine -->
     <meta property="og:title" content="Gadget Gainey Store - Home of the best kids products!">
     <meta name="description"
           content="Looking for the best kids products with a great price? Browse our amazing collection and get the perfect gift">
-    <!--Add keywords to the page for the search engine to be more recognised -->
     <meta name="keywords" content="toys, kids, children, store, go kart, playsets, play, presents, fun, little kids, pedal, pedal go karts, pedal go kart,
 		car, ride on, ride on bike, ride on cars, cars, bike, outdoor, racing, drone">
-    <!--Add an icon to the site-->
-    <link rel="icon" href="/Images/OnEveryPage/Gadget Gainey icon.png">
-    <!--Change this title of the site when edited-->
-    <Title>About Us - Gadget Gainey</Title>
-    <!--Links to the CSS-->
+    <link rel="icon" href="Images/OnEveryPage/Gadget Gainey icon.png">
+    <Title>About Us - Gadget Gainey Store</Title>
     <link rel="stylesheet" href="siteLayout.css" type="text/css" media="screen,projection"/>
     <link rel="stylesheet" href="siteTheme.css" type="text/css" media="screen,projection"/>
-
-    <!-- <base href="/images/" target = "_blank"> -->
     <style>
 
+        /*Reduce the size of the image to 50%, due to it being too big, add the block display to
+        make sure no elements are on the same line as it, margin left and right to auto to make it in the middle and
+        apply a padding of 20px to the bottom to give the picture and the heading some room  */
         #Main_Body img {
             width: 50%;
-
-
             display: block;
             margin-left: auto;
             margin-right: auto;
-            width: 50%;
-            padding: 10px;
+
+            padding-bottom: 20px;
         }
 
-
-        p {
-            padding: 10px;
-        }
-
-        h2 {
-            padding: 10px
-        }
-
-        #Main_Body h3 {
-            color: black;
-        }
-
-        #Main_Body h2 {
-            color: black;
-        }
-
+        /*Title should be big and text should be centered*/
         #Title {
             font-size: 100px;
             text-align: center;
         }
 
+        /*Allow each paragraph in the Main Body to have 10px top, left bottom and right so show that it is a new paragraph*/
+        #Main_Body p {
+            padding: 10px;
+        }
+
+        /*Allow each h2 header in the Main Body to have a 10px padding to keep them in line with the paragraph tag,
+        make the h2 tag colour black, instead of the default white*/
+        #Main_Body h2 {
+            padding: 10px;
+
+            color: black;
+        }
     </style>
     <script src="jquery-3.3.1.min.js"></script>
     <script src='Shop.js'></script>
@@ -109,82 +94,59 @@
 </head>
 
 <body>
-<!--In the body, will hold a container, containing every element -->
 <div class="container">
-    <!--A div that holds all of the header-->
     <div id="Header">
-        <!--This div holds all of the trust header, that includes why the user should purchase through us-->
         <div class="Trust-Header">
-            <!--This div holds the eBay trust-->
             <div id="Trust-eBay">
-                <!--An anchor tag that goes to Gadget Gainey feedback
-                in a new tab that holds a header3 and the eBay logo image-->
+
                 <a href="https://bit.ly/2to8o1z" target="_blank">
                     <h3> 98% OF CUSTOMERS LOVE US ON</h3>
                     <img src="Images/OnEveryPage/Trust Banner/eBay logo.png" alt="eBay">
                 </a>
             </div>
-            <!--This div holds the fast delivery part of the trust header-->
             <div id="Trust-Fast_Delivery">
-                <!--An anchor tag that goes to delivery.html
-               in the same tab that holds a header3 and the fast delivery image-->
-                <a href="delivery.html"> <img src="Images/OnEveryPage/Trust Banner/Next Day Delivery.png"
+                <a href="Delivery.html"> <img src="Images/OnEveryPage/Trust Banner/Next Day Delivery.png"
                                               alt="Next Day Delivery">
                     <h3> ORDER BY 3PM FOR NEXT DAY FREE DELIVERY</h3>
                 </a>
             </div>
-            <!--This div holds the free delivery part of the trust header-->
             <div id="Trust-Free_Delivery">
-                <!--An anchor tag that goes to delivery.html
-              in the same tab that holds a header3 and the free delivery image-->
                 <a href="Returns.html"> <img src="Images/OnEveryPage/Trust Banner/Returns.png"
                                              alt="Returns">
                     <h3>FREE 28 DAY RETURN ON EVERYTHING</h3>
                 </a>
             </div>
         </div>
-        <!--Seperates the trust header with the main header-->
         <div class="line">
             <hr/>
         </div>
-        <!--This div holds the main header-->
         <div id="Main-Header">
-            <!--A div for the logo where it holds an anchor tag that goes to index.html
-             in the same tab that holds the logo image-->
+
             <div id="Logo"><a href="index.html"> <img
                     src="Images/OnEveryPage/Main Banner/Gadget Gainey White Small Logo.png" alt="Logo"> </a>
             </div>
-            <!--This is the searchbar, where it has a form to send the results of what the user types into the
-            search and once the button has been pressed then it will go to the results.html tag with the get method-->
             <form method="get" action="results.html">
 
-                <!--div of the full Searchbox -->
                 <div class="fullSearchBox">
-                    <!--Inside the div, we have an input with a class of searchBox and a type of search
-                    and a name of searchTerm to link with the results.html, turning autocomplete off because
-                    it becomes annoying -->
+
                     <input class="searchBox" type="search" name="searchTerm" autocomplete="off"
                            placeholder="Search Gadget Gainey..."/>
 
-                    <!--Add a button, giving the class of searchButton and added the search image onto it-->
                     <button class="searchButton"><img
                             src="Images/OnEveryPage/Main Banner/Magnifier Glass - Search.png" alt="Search">
                     </button>
                 </div>
             </form>
 
-            <!--div containing the help and basket buttons-->
+
             <div class="RightButtons">
-                <!--Div containing just the help button, with the header3 of 'Help' and with an
-                anchor tag that goes to 404Error.html in the same tab and that has the image as the Help.png-->
                 <div id="Help"><a href="404Error.html"> <img src="Images/OnEveryPage/Main Banner/Help.png" alt="Help">
                     <h3>Help</h3>
                 </a>
                 </div>
-                <!--Div containing just the basket button, with the header3 of 'Basket' and with an
-               anchor tag that goes to 404Error.html in the same tab and that has the image as the Basket.png-->
+
                 <div id="Basket"><a href="404Error.html"> <img src="Images/OnEveryPage/Main Banner/Basket.png"
-                                                             alt="Basket">
+                                                               alt="Basket">
                     <h3>Basket</h3>
                 </a>
                 </div>
@@ -192,18 +154,23 @@
         </div>
     </div>
 
-    <!--Unordered list, giving it is a class of navmenu -->
+
     <ul class="navmenu">
     </ul>
-    <!--This is the outside body where banners and the breadcrumb will go,
-    this will have a value of margin:0 in the CSS whereas the main body will have more of a centered outline-->
 
     <div id=Outside_Body>
-        <!--This is the main body now, where most content will lie-->
         <div id=Main_Body>
+
             <img src="Images/AboutPage/About Gadget Gainey.png" alt="About Us">
-            <h1 id="Title" class="whiteBox curveRadius">About Us </h1>
+            <!--About Us is a header and is the title of the page so apply a id of Title
+            (no other component will be using the title id so it isn't a class), have a curve on it by calling the
+            class of curveRadius and the text as About Us-->
+            <h1 id="Title" class="whiteBox curveRadius">About Us</h1>
+
+            <!--Heading 2 to give a brief explanation to our business-->
             <h2>We have always been about Customer Experience!</h2>
+
+            <!--Description about the company-->
             <p>Gadget Gainey was established by Ashley Gainey, who was really interested in a service that no other
                 company focuses on... the customer service side. This is a true pet peeve to Ashley if you didn't have a
                 great experience then why would you ever want to go back to that service ever again? Ashley always liked
@@ -211,6 +178,7 @@
                 have said he was fine but he explained a little bit about his day and got chatting to someone that was
                 their very first day at this big online store, they said that they hope to have someone that shared an
                 interest in their job and in what they do every day! </p>
+
             <p>His goal was to just Dropship items. Which is what we still do now, our motto is that we are Providing
                 you with the best products with a great price! We care for our customers and for that, that is key to
                 success. To this day, Ashley does everything, orders the items, social media ads, listings items on this
@@ -223,83 +191,54 @@
                 are trying to get ready for Phase 2 of Gadget Gainey which is to have a store that we can sell our
                 products on, instead of redirecting to eBay!</p>
 
+            <!--Conclusion in Header 2 -->
             <h2>So watch this space! There is a lot in store soon!</h2>
-
-
         </div>
     </div>
-    <!--Where all of the footer is-->
     <footer>
-        <!--Div holding all of the Gadget Gainey section (1st section), that has a class a footerTextSection
-        (because it has text included in the div)-->
         <div id="Footer-GadgetGainey" class="footerTextSection">
-            <!--Show Gadget Gainey in h1 big text with an anchor tag linking to index.html-->
+
             <a href="index.html">
                 <h1>Gadget Gainey</h1>
             </a>
-            <!--Under the big header, should have mini subjects that are in h4 format linking to About.html-->
             <a href="About.html">
                 <h4>About Us</h4>
             </a>
-            <!--Under the other mini subject, should have another mini subjects that are in h4 format linking to
-            404Error.html and displaying Basket-->
             <a href="404Error.html">
                 <h4>Basket</h4>
             </a>
-            <!--Under the other mini subject, should have another mini subjects that are in h4 format linking to
-            Gadget Gainey store on eBay and displaying eBay Store-->
             <a href="https://bit.ly/2BLLE05" target="_blank">
                 <h4>eBay Store</h4>
             </a>
-            <!--Under the other mini subject, should have another mini subjects that are in h4 format linking to
-            the 404Error.html (because I haven't built the sitemap yet and displaying Sitemap-->
             <a href="404Error.html">
                 <h4>Sitemap</h4>
             </a>
         </div>
 
-        <!--Div holding all of the Boring Stuff section (2nd section), that has a class a footerTextSection-->
         <div id="Footer-TheBoringStuff" class="footerTextSection">
-            <!--Display a header 2 (which will be smaller than the Gadget Gainey header but bigger than the subjects-->
             <h2>The Boring Stuff</h2>
-
-            <!--Under the header, should have mini subject that are in link format linking to
-            Delivery&Returns.html and a h4 tag saying what this is linking to-->
             <a href="Delivery.html">
                 <h4>Shipping & Delivery</h4>
             </a>
-
-            <!--Under the other mini subject, should have another mini subject that are in link format linking to
-            Delivery&Returns.html but going to the Returns section-->
             <a href="Returns.html">
                 <h4>Returns & Refunds</h4>
             </a>
-
-            <!--Under the other mini subject, should have another mini subject that are in link format linking to
-            TermsConditions.html and a h4 tag saying Terms & conditions-->
             <a href="TermsConditions.html">
                 <h4>Terms & Conditions</h4>
             </a>
         </div>
 
-        <!--Div holding all of the Support section (3rd section), that has a class a footerTextSection-->
-        <div id="Footer-Support" class="footerTextSection">
-            <!--Display a header 2 that says Support-->
-            <h2>Support</h2>
 
-            <!--Under the header, should have mini subject that are in link format linking to
-           404Error.html and a h4 tag saying what this is linking to-->
+        <div id="Footer-Support" class="footerTextSection">
+            <h2>Support</h2>
             <a href="404Error.html">
                 <h4>Contact Us</h4>
             </a>
-            <!--Under the header, should have mini subject that are in link format linking to
-               404Error.html and a h4 tag saying what this is linking to-->
             <a href="404Error.html">
                 <h4>FAQ's</h4>
             </a>
         </div>
 
-        <!--Div holding all of the Support section (4th section), that has a class a footerTextSection-->
         <div id="Footer-Supported_Payments" class="footerTextSection">
             <!--Hold the header of Supported Payments and an image-->
             <h2>Supported Payments </h2>
@@ -307,17 +246,12 @@
                  alt="Mastercard, Maestro, American Express, Visa and PayPal">
         </div>
 
-        <!--Div holding all of the Support section (Last section)-->
         <div id="Footer-Find-eBay">
             <h2>Find us on</h2>
-            <!--An anchor tag that goes to Gadget Gainey store
-               in a new tab that holds the eBay logo image-->
             <a href="https://bit.ly/2BLLE05" target="_blank">
                 <img src="Images/OnEveryPage/Trust Banner/eBay logo.png" alt="eBay">
             </a>
         </div>
-        <!--Copyright section at the very bottom with a class of footerTextSection that
-        holds the copyright information in header5 format-->
         <div id="Footer-copyright" class="footerTextSection">
             <h5>
                 © Gadget Gainey 2019. All Rights Reserved
