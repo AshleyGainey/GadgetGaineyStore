@@ -4,11 +4,7 @@
 <html>
 
 <head>
-    <!-- This is a comment tag -->
-
-    <!-- All meta data for SEO-->
     <meta charset="UTF-8"/>
-    <!--Author is Ashley Gainey-->
     <meta name="author" content="Ashley Gainey">
     <meta property="og:title" content="Gadget Gainey Store - Home of the best kids products!">
     <meta name="description"
@@ -20,65 +16,56 @@
     <link rel="stylesheet" href="siteLayout.css" type="text/css" media="screen,projection"/>
     <link rel="stylesheet" href="siteTheme.css" type="text/css" media="screen,projection"/>
     <style>
-
-        p {
-            padding: 10px;
-        }
-
-        h2 {
-            padding: 10px
-        }
-
-        #Main_Body h3 {
-           color: black;
-        }
-        #Main_Body h2 {
-            color: black;
-        }
-        .navigationThroughPage li {
-            color: black;
-            text-decoration: none;
-        }
-
-        .navigationThroughPage a h3:hover {
-            text-decoration: none;
-        }
-
-
-        .navigationThroughPage li {
-            margin-bottom: 10px;
-
-        }
-
-        .navigationThroughPage {
-            font-size: 20px;
-            margin-left: 50px;
-        }
-
-        .navigationThroughPage ul {
-            font-size: 15px;
-            margin-left: 15px;
-        }
-
-        .navigationThroughPage ul:first-child {
-            padding-top: 50px;
-
-        }
-
-
-        .navigationThroughPage ul:last-child {
-            padding-bottom: 50px;
-
-        }
-
-
+        /*Make the title size 100px to make sure it is big and center that text */
         #Title {
             font-size: 100px;
             text-align: center;
         }
 
+        /*Each paragraph sets the padding of all four directions to be 10px for spacing
+         between other paragraphs/headers*/
+        p {
+            padding: 10px;
+        }
 
+        /*Every h2 tag in Main Body will have a padding of all four directions to be 10px for spacing
+         between other paragraphs/headers*/
+        #Main_Body h2 {
+            padding: 10px
+        }
 
+        /*Display the colour black instead of dark blue for the header of 2 and 3 of Main Body*/
+        #Main_Body h3, #Main_Body h2 {
+            color: black;
+        }
+
+        /*All items in the navigation Through Page class should have a font-size of 20px and they should all
+        start off with margin-left 50px so it isn't on the edge of the Main Body*/
+        .navigationThroughPage {
+            font-size: 20px;
+
+            margin-left: 50px;
+        }
+
+        /*There are a lot of items in the 'Delivery - The full rundown' list, therefore space out the
+        bottom by padding 10px  */
+        .navigationThroughPage li {
+            padding-bottom: 10px;
+        }
+
+        /*The individual items should have another 15px of padding to the left applied to it to show
+        that it is a sub-menu and they should also have a smaller font size */
+        .navigationThroughPage ul {
+            Padding-left: 15px;
+
+            font-size: 15px;
+        }
+
+        /*Apply 50px padding to the bottom of the last child in the 'Delivery - The full rundown' list to allow spacing
+        from the last element and the first header*/
+        .navigationThroughPage ul:last-child {
+            padding-bottom: 50px;
+        }
     </style>
     <script src="jquery-3.3.1.min.js"></script>
     <script src='Shop.js'></script>
@@ -245,7 +232,7 @@
 
             <p>2. *Most stock items are delivered by Parcel Force,&nbsp;APC or Royal Mail and are usually despatched
                 within 24h of your order, again, except for 2 delivery people that can take up to 3 working days to
-                dispatch due to how big the item is and the process needed to delivery it to you. Please note we do not
+                dispatch due to how big the item is and the process needed to deliver it to you. Please note we do not
                 despatch orders on weekends or bank holidays and during busy periods such as Black Friday, Christmas
                 etc. dispatch may be 48h. </p>
 
@@ -281,7 +268,7 @@
 
             <p>7. Please do not reject a delivery if the box is damaged. We do our best to ensure that all of our
                 products are adequately protected during transit, so a damaged box will very rarely result in a damaged
-                product. In the event that your item is damaged, we operate a 48 hour spare parts service and carry
+                product. In the event that your item is damaged, we operate a 48-hour spare parts service and carry
                 thousands of brand new spare parts in stock for immediate dispatch. Where possible, we will ALWAYS
                 replace parts before accepting returns where items arrive damaged or develop a fault that can be fixed
                 with a replacement part.</p>
@@ -309,8 +296,8 @@
                 in delivery).</p>
 
             <p>Deliveries generally take place between the hours of 8am and 6pm Monday to Friday (we are closed weekends
-                and Bank Holidays and therefore do not deliver on those days, orders where Next Day Delivery has been
-                selected but are placed either after 2pm or on a weekend or Bank Holiday will be despatched the next
+                and Bank Holidays and therefore do not deliver on those days, orders, where Next Day Delivery has been
+                selected but are placed either after 2pm or on a weekend or Bank Holiday, will be dispatched the next
                 working day) a calling card will be left if there is no-one at home to sign for your order.</p>
             <p>The majority of our orders are sent via APC or Royal Mail, but larger items can also be delivered via a
                 specialist heavy goods carrier PALLEX.</p>
@@ -329,7 +316,7 @@
             <a name="FailedDelivery"><h3 class="whiteBox curveRadius">Failed Deliveries</h3></a>
 
             <p>If a customer misses multiple attempted deliveries of their order and the item is returned back to
-                ourselves as undelivered, we are happy to refund or resend the order, however there will be a charge to
+                ourselves as undelivered, we are happy to refund or resend the order, however, there will be a charge to
                 cover the attempted deliveries, return delivery and admin costs.</p>
 
             <a name="CollectionReturns"><h3 class="whiteBox curveRadius">Collections and Returns (Failed
@@ -339,12 +326,11 @@
                 collect the item if it is not properly boxed and we will charge for failed collections. It is your
                 <span>responsibility</span>&nbsp;to ensure the item is correctly boxed and we will need your
                 confirmation that this is the case prior to a collection being arranged by ourselves.</p>
-            <p>We strongly advise that you keep the box the item arrived in in case you need to return it for any reason
+            <p>We strongly advise that you keep the box the item arrived in case you need to return it for any reason
                 or you will need to source a box before we will arrange a collection.</p>
 
 
-            <a name="CancellingOrders"><h3 class="whiteBox curveRadius">Cancelling orders</h3>
-            </a>
+            <a name="CancellingOrders"><h3 class="whiteBox curveRadius">Cancelling orders</h3></a>
 
             <p>If you wish to cancel an order that has NOT been dispatched you must contact us immediately, if we are
                 able to stop the orders dispatch you will be refunded in full.</p>
@@ -361,8 +347,8 @@
                 Ireland, Europe and other remote or offshore locations in the United Kingdom can take an extra day or
                 two and are subject to an additional 'Excess' delivery charge that is imposed on us by our couriers -
                 you will be contacted prior to dispatch to advise you of this charge. We do try to include all affected
-                postcodes in the following list, but there are others than can apply depending on the courier company
-                used to delivery your order. Please get in touch with us prior to placing your order if you live in an
+                postcodes in the following list, but there are others that can apply depending on the courier company
+                used to deliver your order. Please get in touch with us prior to placing your order if you live in an
                 area that usually requires an extra delivery cost.</p>
 
             <p><strong>PLEASE NOTE</strong>: We cannot provide our Trampoline Home Installation Service for the
@@ -430,9 +416,11 @@
             <a name="ContactDelivery"><h3 class="whiteBox curveRadius">Contacting about Delivery</h3></a>
 
             <p>We will contact you as soon as possible following receipt of your order if there is any additional excess
-                payment to make towards delivery of your order. Please also note that some of our larger items are also
+                payment to make towards the delivery of your order. Please also note that some of our larger items are
+                also
                 unavailable for delivery to certain offshore or remote locations in the UK. This also applies to certain
-                Items that come direct from our suppliers, which may also include an additional delivery surcharge - you
+                Items that come directly from our suppliers, which may also include an additional delivery surcharge -
+                you
                 will be notified of this as soon as possible following receipt of your order.</p>
 
             <p>Goods will be dispatched to the postal address you have given in your order. Please note we will not

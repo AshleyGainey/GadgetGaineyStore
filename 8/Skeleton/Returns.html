@@ -4,86 +4,70 @@
 <html>
 
 <head>
-    <!-- This is a comment tag -->
 
-    <!-- All meta data for SEO-->
     <meta charset="UTF-8"/>
-    <!--Author is Ashley Gainey-->
     <meta name="author" content="Ashley Gainey">
-    <!--Show a Title and Description in the search engine -->
     <meta property="og:title" content="Gadget Gainey Store - Home of the best kids products!">
     <meta name="description"
           content="Looking for the best kids products with a great price? Browse our amazing collection and get the perfect gift">
-    <!--Add keywords to the page for the search engine to be more recognised -->
     <meta name="keywords" content="toys, kids, children, store, go kart, playsets, play, presents, fun, little kids, pedal, pedal go karts, pedal go kart,
 		car, ride on, ride on bike, ride on cars, cars, bike, outdoor, racing, drone">
-    <!--Add an icon to the site-->
-    <link rel="icon" href="/Images/OnEveryPage/Gadget Gainey icon.png">
-    <!--Change this title of the site when edited-->
-    <Title>Returns - Gadget Gainey</Title>
-    <!--Links to the CSS-->
+    <link rel="icon" href="Images/OnEveryPage/Gadget Gainey icon.png">
+    <Title>Returns - Gadget Gainey Store</Title>
     <link rel="stylesheet" href="siteLayout.css" type="text/css" media="screen,projection"/>
     <link rel="stylesheet" href="siteTheme.css" type="text/css" media="screen,projection"/>
 
-    <!-- <base href="/images/" target = "_blank"> -->
     <style>
-
-        p {
-            padding: 10px;
-        }
-
-        h2 {
-            padding: 10px
-        }
-
-        #Main_Body h3 {
-           color: black;
-        }
-        #Main_Body h2 {
-            color: black;
-        }
-        .navigationThroughPage li {
-            color: black;
-            text-decoration: none;
-        }
-
-        .navigationThroughPage a h3:hover {
-            text-decoration: none;
-        }
-
-
-        .navigationThroughPage li {
-            margin-bottom: 10px;
-
-        }
-
-        .navigationThroughPage {
-            font-size: 20px;
-            margin-left: 50px;
-        }
-
-        .navigationThroughPage ul {
-            font-size: 15px;
-            margin-left: 15px;
-        }
-
-        .navigationThroughPage ul:first-child {
-            padding-top: 50px;
-
-        }
-
-
-        .navigationThroughPage ul:last-child {
-            padding-bottom: 50px;
-
-        }
-
-
+        /*Make the title size 100px to make sure it is big and center that text */
         #Title {
             font-size: 100px;
             text-align: center;
         }
 
+        /*Each paragraph sets the padding of all four directions to be 10px for spacing
+         between other paragraphs/headers*/
+        p {
+            padding: 10px;
+        }
+
+        /*Every h2 tag in Main Body will have a padding of all four directions to be 10px for spacing
+         between other paragraphs/headers*/
+        #Main_Body h2 {
+            padding: 10px
+        }
+
+        /*Display the colour black instead of dark blue for the header of 2 and 3 of Main Body*/
+        #Main_Body h3, #Main_Body h2 {
+            color: black;
+        }
+
+        /*All items in the navigation Through Page class should have a font-size of 20px and they should all
+        start off with margin-left 50px so it isn't on the edge of the Main Body*/
+        .navigationThroughPage {
+            font-size: 20px;
+
+            margin-left: 50px;
+        }
+
+        /*There are several items in the 'Returns & Refunds' list, therefore space out the
+        bottom by padding 10px  */
+        .navigationThroughPage li {
+            padding-bottom: 10px;
+        }
+
+        /*The individual items should have another 15px of padding to the left applied to it to show
+        that it is a sub-menu and they should also have a smaller font size */
+        .navigationThroughPage ul {
+            Padding-left: 15px;
+
+            font-size: 15px;
+        }
+
+        /*Apply 50px padding to the bottom of the last child in the 'Returns & Refunds' list to allow spacing
+        from the last element and the first header*/
+        .navigationThroughPage ul:last-child {
+            padding-bottom: 50px;
+        }
     </style>
     <script src="jquery-3.3.1.min.js"></script>
     <script src='Shop.js'></script>
@@ -134,32 +118,24 @@
 </head>
 
 <body>
-<!--In the body, will hold a container, containing every element -->
 <div class="container">
-    <!--A div that holds all of the header-->
     <div id="Header">
-        <!--This div holds all of the trust header, that includes why the user should purchase through us-->
         <div class="Trust-Header">
-            <!--This div holds the eBay trust-->
             <div id="Trust-eBay">
-                <!--An anchor tag that goes to Gadget Gainey feedback
-                in a new tab that holds a header3 and the eBay logo image-->
                 <a href="https://bit.ly/2to8o1z" target="_blank">
                     <h3> 98% OF CUSTOMERS LOVE US ON</h3>
                     <img src="Images/OnEveryPage/Trust Banner/eBay logo.png" alt="eBay">
                 </a>
             </div>
-            <!--This div holds the fast delivery part of the trust header-->
             <div id="Trust-Fast_Delivery">
                 <a href="Delivery.html"> <img src="Images/OnEveryPage/Trust Banner/Next Day Delivery.png"
                                               alt="Next Day Delivery">
                     <h3> ORDER BY 3PM FOR NEXT DAY FREE DELIVERY</h3>
                 </a>
             </div>
-            <!--This div holds the free delivery part of the trust header-->
             <div id="Trust-Free_Delivery">
                 <a href="Returns.html"> <img src="Images/OnEveryPage/Trust Banner/Returns.png"
-                                              alt="Returns">
+                                             alt="Returns">
                     <h3>FREE 28 DAY RETURN ON EVERYTHING</h3>
                 </a>
             </div>
@@ -167,44 +143,29 @@
         <div class="line">
             <hr/>
         </div>
-        <!--This div holds the main header-->
         <div id="Main-Header">
-            <!--A div for the logo where it holds an anchor tag that goes to index.html
-             in the same tab that holds the logo image-->
             <div id="Logo"><a href="index.html"> <img
                     src="Images/OnEveryPage/Main Banner/Gadget Gainey White Small Logo.png" alt="Logo"> </a>
             </div>
-            <!--This is the searchbar, where it has a form to send the results of what the user types into the
-            search and once the button has been pressed then it will go to the results.html tag with the get method-->
             <form method="get" action="results.html">
 
-                <!--div of the full Searchbox -->
                 <div class="fullSearchBox">
-                    <!--Inside the div, we have an input with a class of searchBox and a type of search
-                    and a name of searchTerm to link with the results.html, turning autocomplete off because
-                    it becomes annoying -->
                     <input class="searchBox" type="search" name="searchTerm" autocomplete="off"
                            placeholder="Search Gadget Gainey..."/>
 
-                    <!--Add a button, giving the class of searchButton and added the search image onto it-->
                     <button class="searchButton"><img
                             src="Images/OnEveryPage/Main Banner/Magnifier Glass - Search.png" alt="Search">
                     </button>
                 </div>
             </form>
 
-            <!--div containing the help and basket buttons-->
             <div class="RightButtons">
-                <!--Div containing just the help button, with the header3 of 'Help' and with an
-                anchor tag that goes to 404Error.html in the same tab and that has the image as the Help.png-->
                 <div id="Help"><a href="404Error.html"> <img src="Images/OnEveryPage/Main Banner/Help.png" alt="Help">
                     <h3>Help</h3>
                 </a>
                 </div>
-                <!--Div containing just the basket button, with the header3 of 'Basket' and with an
-               anchor tag that goes to 404Error.html in the same tab and that has the image as the Basket.png-->
                 <div id="Basket"><a href="404Error.html"> <img src="Images/OnEveryPage/Main Banner/Basket.png"
-                                                             alt="Basket">
+                                                               alt="Basket">
                     <h3>Basket</h3>
                 </a>
                 </div>
@@ -212,144 +173,146 @@
         </div>
     </div>
 
-    <!--Unordered list, giving it is a class of navmenu -->
     <ul class="navmenu">
     </ul>
-    <!--This is the outside body where banners and the breadcrumb will go,
-    this will have a value of margin:0 in the CSS whereas the main body will have more of a centered outline-->
-
     <div id=Outside_Body>
-        <!--This is the main body now, where most content will lie-->
         <div id=Main_Body>
             <h1 id="Title" class="whiteBox curveRadius">Returns</h1>
 
             <ul class="navigationThroughPage">
-                <a href="#Returns">
-                    <li>Returns &amp; Refunds</li>
-                </a>
+
+                <li><a href="#Returns">Returns &amp; Refunds</a></li>
+
                 <ul>
-                    <a href="#SaleItems">
-                        <li>Sale items</li>
-                    </a>
-                    <a href="#Exchanges">
-                        <li>Exchanges</li>
-                    </a>
-                    <a href="#Gifts">
-                        <li>Gifts</li>
-                    </a>
-                    <a href="#Shipping">
-                        <li>Shipping</li>
-                    </a>
+                    <li><a href="#SaleItems">Sale items</a></li>
+
+                    <li><a href="#Exchanges">Exchanges</a></li>
+
+                    <li><a href="#Gifts">Gifts</a></li>
+
+                    <li><a href="#Shipping">Shipping</a></li>
+
                 </ul>
             </ul>
-
-            <a name ="Returns"><h2 class="whiteBox curveRadius">Returns &amp; Refunds</h2></a>
-
-            <p>Our returns policy lasts 28 days, meaning you have 28 days from receiving your goods to contact us if you wish to return the items. If 28 days have gone by since your purchase, unfortunately we can&rsquo;t offer you a refund or exchange.</p>
-            <p>To be eligible for a return, your item must be unused and in the same condition that you received it. It must also be in the original packaging.</p>
-            <p>If the returned item has been USED, DAMAGED or is not in its ORIGINAL PACKAGING we are unable to offer a full refund and there will be a 20% charge of the original purchase price to cover the fact we will no longer be able to resell the item for its full value.</p>
-            <p>Before returning your item, we suggest that you take photographs of the item and its packaging as a visual record of its condition. In the event of any damage caused in transit having a visual record of the condition of the item before it was sent will speed up the returns process and stop a returned item being refused due to damage.</p>
-            <p>We do not accept products that are hazardous materials, or contain flammable liquids or gases, please ensure that any products that require petrol have the tanks drained and the battery wire is disconnected in the case of battery powered items.</p>
+            <!--If selected at the navigation at the top then it will skip to the Returns part
+                                where it will have a whiteBox class and a curveRadius applied to it and so on-->
+            <a name="Returns"><h2 class="whiteBox curveRadius">Returns &amp; Refunds</h2></a>
+            <!--Explanation of Returns-->
+            <p>Our returns policy lasts 28 days, meaning you have 28 days from receiving your goods to contact us if you
+                wish to return the items. If 28 days have gone by since your purchase, unfortunately we can&rsquo;t
+                offer you a refund or exchange.</p>
+            <p>To be eligible for a return, your item must be unused and in the same condition that you received it. It
+                must also be in the original packaging.</p>
+            <p>If the returned item has been USED, DAMAGED or is not in its ORIGINAL PACKAGING we are unable to offer a
+                full refund and there will be a 20% charge of the original purchase price to cover the fact we will no
+                longer be able to resell the item for its full value.</p>
+            <p>Before returning your item, we suggest that you take photographs of the item and its packaging as a
+                visual record of its condition. In the event of any damage caused in transit having a visual record of
+                the condition of the item before it was sent will speed up the returns process and stop a returned item
+                being refused due to damage.</p>
+            <p>We do not accept products that are hazardous materials, or contain flammable liquids or gases, please
+                ensure that any products that require petrol have the tanks drained and the battery wire is disconnected
+                in the case of battery powered items.</p>
             <p>To complete your return, we require a receipt or proof of purchase.</p>
             <p>Please do not send your purchase back to the manufacturer.</p>
-            <p>Please contact customer service before returning your item so that we are aware of the return, failure to do so may result in a delay in processing your refund.</p>
-            <p>If we are arranging the return we will advise you of any charges that you may be liable for before arranging the collection with the courier. We will arrange a suitable day with you but are unable to provide a specific time for the courier to collect. If you miss the collection we will have to charge for this as we are charged for missed collection, if you believe you will not be in for the collection please notify us as soon as possible and we will try to cancel the collection though if this is not possible we will have to charge for the missed collection.</p>
-            <p>If you are arranging the return yourself we recommend using a trackable service as we cannot be held responsible for returns that are lost in transit. If we arrange the return there will be a charge that will cover the cost of the courier as well as an admin charge, this will be deducted from your refund, customer service will advise you of this charge before the return is arranged.</p>
-            <p>Please remember the product remains yours until successfully received and signed for by a member of our warehouse staff.</p>
-            <p>Once your return is received and inspected, we will send you an email to notify you that we have received your returned item. We will also notify you of the approval or rejection of your refund</p>
-            <p>If you are approved, we aim to process your refund within 5 working days, a credit will automatically be applied to your credit card or original method of payment within 3-7 working days, depending on your payment method.</p>
-            <p>If you haven&rsquo;t received a refund yet, first check your bank account again. Then contact your credit card company, it may take some time before your refund is officially posted.</p>
-            <p>Next contact your bank. There is often some processing time before a refund is posted. If you&rsquo;ve done all of this and you still have not received your refund yet, please contact us at&nbsp;<a href="mailto:gadgetboy.ag@gmail.com">gadgetboy.ag@gmail.com</a>.</p>
+            <p>Please contact customer service before returning your item so that we are aware of the return, failure to
+                do so may result in a delay in processing your refund.</p>
+            <p>If we are arranging the return we will advise you of any charges that you may be liable for before
+                arranging the collection with the courier. We will arrange a suitable day with you but are unable to
+                provide a specific time for the courier to collect. If you miss the collection we will have to charge
+                for this as we are charged for missed collection, if you believe you will not be in for the collection
+                please notify us as soon as possible and we will try to cancel the collection though if this is not
+                possible we will have to charge for the missed collection.</p>
+            <p>If you are arranging the return yourself we recommend using a trackable service as we cannot be held
+                responsible for returns that are lost in transit. If we arrange the return there will be a charge that
+                will cover the cost of the courier as well as an admin charge, this will be deducted from your refund,
+                customer service will advise you of this charge before the return is arranged.</p>
+            <p>Please remember the product remains yours until successfully received and signed for by a member of our
+                warehouse staff.</p>
+            <p>Once your return is received and inspected, we will send you an email to notify you that we have received
+                your returned item. We will also notify you of the approval or rejection of your refund</p>
+            <p>If you are approved, we aim to process your refund within 5 working days, a credit will automatically be
+                applied to your credit card or original method of payment within 3-7 working days, depending on your
+                payment method.</p>
+            <p>If you haven&rsquo;t received a refund yet, first check your bank account again. Then contact your credit
+                card company, it may take some time before your refund is officially posted.</p>
+            <p>Next contact your bank. There is often some processing time before a refund is posted. If you&rsquo;ve
+                done all of this and you still have not received your refund yet, please contact us at&nbsp;<a
+                        href="mailto:gadgetboy.ag@gmail.com">gadgetboy.ag@gmail.com</a>.</p>
 
-            <a name ="SaleItems"><h2 class="whiteBox curveRadius">Sale items</h2></a>
+            <a name="SaleItems"><h2 class="whiteBox curveRadius">Sale items</h2></a>
             <p>Only regular priced items may be refunded, unfortunately sale items cannot be refunded.</p>
 
-            <a name ="Exchanges"><h2 class="whiteBox curveRadius">Exchanges</h2></a>
-            <p>We only replace items if they are defective or damaged. If you need to exchange it for the same item, send us an email at&nbsp;<a href="mailto:gadgetboy.ag@gmail.com">gadgetboy.ag@gmail.com</a></p>
+            <a name="Exchanges"><h2 class="whiteBox curveRadius">Exchanges</h2></a>
+            <p>We only replace items if they are defective or damaged. If you need to exchange it for the same item,
+                send us an email at&nbsp;<a href="mailto:gadgetboy.ag@gmail.com">gadgetboy.ag@gmail.com</a></p>
 
-            <a name ="Gifts"><h2 class="whiteBox curveRadius">Gifts</h2></a>
-            <p>If the item was marked as a gift when purchased and shipped directly to you, you&rsquo;ll receive a gift credit for the value of your return. Once the returned item is received, a gift certificate will be mailed to you.</p>
-            <p>If the item wasn&rsquo;t marked as a gift when purchased, or the gift giver had the order shipped to themselves to give to you later, we will send a refund to the gift giver and he will find out about your return.</p>
+            <a name="Gifts"><h2 class="whiteBox curveRadius">Gifts</h2></a>
+            <p>If the item was marked as a gift when purchased and shipped directly to you, you&rsquo;ll receive a gift
+                credit for the value of your return. Once the returned item is received, a gift certificate will be
+                mailed to you.</p>
+            <p>If the item wasn&rsquo;t marked as a gift when purchased, or the gift giver had the order shipped to
+                themselves to give to you later, we will send a refund to the gift giver and he will find out about your
+                return.</p>
 
-            <a name ="Shipping"><h2 class="whiteBox curveRadius">Shipping</h2></a>
-            <p>To return your product, you should contact Customer Service first, this is because different products require different mailing addresses.</p>
-            <p>You will be responsible for paying for your own shipping costs for returning your item. Shipping costs are non-refundable. If you receive a refund, the cost of return shipping will be deducted from your refund.</p>
+            <a name="Shipping"><h2 class="whiteBox curveRadius">Shipping</h2></a>
+            <p>To return your product, you should contact Customer Service first, this is because different products
+                require different mailing addresses.</p>
+            <p>You will be responsible for paying for your own shipping costs for returning your item. Shipping costs
+                are non-refundable. If you receive a refund, the cost of return shipping will be deducted from your
+                refund.</p>
             <p>Depending on where you live, the time it may take for your exchanged product to reach you, may vary.</p>
-            <p>If you are shipping an item over &pound;50, you should consider using a trackable shipping service or purchasing shipping insurance. We don&rsquo;t guarantee that we will receive your returned item.</p>
+            <p>If you are shipping an item over &pound;50, you should consider using a trackable shipping service or
+                purchasing shipping insurance. We don&rsquo;t guarantee that we will receive your returned item.</p>
         </div>
 
-        <!--Where all of the footer is-->
         <footer>
-            <!--Div holding all of the Gadget Gainey section (1st section), that has a class a footerTextSection
-            (because it has text included in the div)-->
             <div id="Footer-GadgetGainey" class="footerTextSection">
-                <!--Show Gadget Gainey in h1 big text with an anchor tag linking to index.html-->
                 <a href="index.html">
                     <h1>Gadget Gainey</h1>
                 </a>
-                <!--Under the big header, should have mini subjects that are in h4 format linking to About.html-->
                 <a href="About.html">
                     <h4>About Us</h4>
                 </a>
-                <!--Under the other mini subject, should have another mini subjects that are in h4 format linking to
-                404Error.html and displaying Basket-->
                 <a href="404Error.html">
                     <h4>Basket</h4>
                 </a>
-                <!--Under the other mini subject, should have another mini subjects that are in h4 format linking to
-                Gadget Gainey store on eBay and displaying eBay Store-->
                 <a href="https://bit.ly/2BLLE05" target="_blank">
                     <h4>eBay Store</h4>
                 </a>
-                <!--Under the other mini subject, should have another mini subjects that are in h4 format linking to
-                the 404Error.html (because I haven't built the sitemap yet and displaying Sitemap-->
                 <a href="404Error.html">
                     <h4>Sitemap</h4>
                 </a>
             </div>
 
-            <!--Div holding all of the Boring Stuff section (2nd section), that has a class a footerTextSection-->
             <div id="Footer-TheBoringStuff" class="footerTextSection">
-                <!--Display a header 2 (which will be smaller than the Gadget Gainey header but bigger than the subjects-->
                 <h2>The Boring Stuff</h2>
 
-                <!--Under the header, should have mini subject that are in link format linking to
-                Delivery&Returns.html and a h4 tag saying what this is linking to-->
                 <a href="Delivery.html">
                     <h4>Shipping & Delivery</h4>
                 </a>
 
-                <!--Under the other mini subject, should have another mini subject that are in link format linking to
-                Delivery&Returns.html but going to the Returns section-->
                 <a href="Returns.html">
                     <h4>Returns & Refunds</h4>
                 </a>
 
-                <!--Under the other mini subject, should have another mini subject that are in link format linking to
-                TermsConditions.html and a h4 tag saying Terms & conditions-->
                 <a href="TermsConditions.html">
                     <h4>Terms & Conditions</h4>
                 </a>
             </div>
 
-            <!--Div holding all of the Support section (3rd section), that has a class a footerTextSection-->
             <div id="Footer-Support" class="footerTextSection">
-                <!--Display a header 2 that says Support-->
                 <h2>Support</h2>
 
-                <!--Under the header, should have mini subject that are in link format linking to
-               404Error.html and a h4 tag saying what this is linking to-->
                 <a href="404Error.html">
                     <h4>Contact Us</h4>
                 </a>
-                <!--Under the header, should have mini subject that are in link format linking to
-                   404Error.html and a h4 tag saying what this is linking to-->
+
                 <a href="404Error.html">
                     <h4>FAQ's</h4>
                 </a>
             </div>
 
-            <!--Div holding all of the Support section (4th section), that has a class a footerTextSection-->
             <div id="Footer-Supported_Payments" class="footerTextSection">
                 <!--Hold the header of Supported Payments and an image-->
                 <h2>Supported Payments </h2>
@@ -357,17 +320,14 @@
                      alt="Mastercard, Maestro, American Express, Visa and PayPal">
             </div>
 
-            <!--Div holding all of the Support section (Last section)-->
             <div id="Footer-Find-eBay">
                 <h2>Find us on</h2>
-                <!--An anchor tag that goes to Gadget Gainey store
-                   in a new tab that holds the eBay logo image-->
+
                 <a href="https://bit.ly/2BLLE05" target="_blank">
                     <img src="Images/OnEveryPage/Trust Banner/eBay logo.png" alt="eBay">
                 </a>
             </div>
-            <!--Copyright section at the very bottom with a class of footerTextSection that
-            holds the copyright information in header5 format-->
+
             <div id="Footer-copyright" class="footerTextSection">
                 <h5>
                     © Gadget Gainey 2019. All Rights Reserved

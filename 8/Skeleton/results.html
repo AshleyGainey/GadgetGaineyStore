@@ -21,57 +21,69 @@
     <!-- <base href="/images/" target = "_blank"> -->
     <style>
 
+        /*Fill the width of 100% to center the text, give some space between the nav menu
+        and the results table with a padding of 20px*/
+        #searchedFor {
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+        }
 
+        /*Fill all of the table with 100% width and then center the text*/
         #tableFormat {
             width: 100%;
             text-align: center;
         }
 
+        /*Give some space from other results*/
         td {
             padding: 10px;
         }
 
-
-        #searchedFor {
-            width: 100%;
-            text-align: center;
-            padding: 20px;
-
-        }
-
-
+        /*Convert the colour of the results to black*/
         #Main_Body td a {
             color: #000000;
         }
 
+        /*Show the cursor for the results as a pointer to show that there is a link*/
         tr {
             cursor: pointer;
         }
 
+        /*Cursor was the selector over the headers of the results so I wanted to change it to the default*/
+        th {
+            cursor: default;
+        }
 
-        .div-to-display {
+        /*Give the floating div a display of none (so it is not shown),
+        a position of absolute so it is not in the table itself, it is above it,
+        a top of 50% so you can still see the text of the row,
+        left of -425px so that the div won't show for the title but it will show for the brand
+        and price and make sure it is on top with a z-index of 1*/
+        .floatingImageDiv {
             display: none;
             position: absolute;
             top: 50%;
             left: -425px;
-            float: left;
-            z-index: 10;
-
+            z-index: 1;
         }
 
-        .div-to-display img {
+        /*Width of the floating image to be 400px so it isn't too big */
+        .floatingImageDiv img {
             width: 400px;
-            float: left;
-
         }
 
+        /*Make the results row relative, so that is it positioned relative to it's normal position,
+        meaning the floating image is able to be seen*/
         td {
             position: relative;
         }
 
-        td:hover > .div-to-display {
+        /*To all floatingImageDiv children, make the display block on hover (showing the div)*/
+        td:hover > .floatingImageDiv {
             display: block;
         }
+
     </style>
     <script src="jquery-3.3.1.min.js"></script>
     <script src='Shop.js'></script>
@@ -80,22 +92,66 @@
 
         // Your global variables should be declared below here -v
 
-
         // Your global variables should be declared above here -^
         // Any user defined functions should be declared below here -v
 
+        //This function should load the products into the results table
+        function loadProducts() {
+            //Find all of the products within sResults
+            $sResults.find('product').each(function () {
+
+                // Get all product information
+                var $product = $(this);
+                var id = $product.find('id').text();
+                var title = $product.find('title').text();
+                var brand = $product.find('brand').text();
+                var price = $product.find('price').text();
+
+                //Add all of the information to the tbody with a link to the product with the searchTerm in the URL
+                $('tbody').append("<tr>"
+                    + "<td>" + "<a href=" + "'product.html?id=" + id + "&searchTerm=" + vars['searchTerm'] + "'" + "</a>" + id + "</td>"
+                    + "<td>" + "<a href=" + "'product.html?id=" + id + "&searchTerm=" + vars['searchTerm'] + "'" + "</a>" + title + "</td>"
+                    + "<td>" + "<a href=" + "'product.html?id=" + id + "&searchTerm=" + vars['searchTerm'] + "'" + "</a>" + brand + "</td>"
+                    + "<td>" + "<a href=" + "'product.html?id=" + id + "&searchTerm=" + vars['searchTerm'] + "'" + "</a>" + "£" + price + "</td>"
+                    + "</tr>");
+
+                //When mouse is on the row then change the back colour to the colour scheme of dark blue
+                $('tbody tr').mouseenter(function () {
+                    $(this).css("background-color", "#6185C7");
+                });
+
+                //When mouse leaves the row then change the back colour back to default
+                $('tbody tr').mouseleave(function () {
+                    $(this).css("background-color", "");
+                });
+
+                //When on hover of a row then
+                $('tbody tr').hover(function () {
+                    // Get the first column which is id (id is hidden)
+                    var idOfRow = $(this).closest('tr').children('td:eq(0)').text();
+
+                    //Add the link of the product to the floatingImage
+                    $('.floatingImage').attr('src', "/Images/ProductImages/" + idOfRow + ".png");
+                },);
+            });
+        }
 
         // Any user defined functions should be declared above here -^
 
+        // Your $(document).ready() event script code goes below here -v
         $(document).ready(function () {
 
             // set a timed function call to wait for product xml to load
             timer = window.setInterval(function () {
 
-
+                //If more than one word than remove the plus' and replace with a space
                 var removePlus = vars['searchTerm'];
                 removePlus = removePlus.replace(/\+/g, ' ');
+
+                //Change the title of the html document
                 document.title = "Results for " + removePlus + " - Gadget Gainey Store";
+
+                //And add the removed plus' value to the searchedFor text
                 $("#searchedFor").text("You've searched for: " + removePlus);
 
                 // Check if products have loaded
@@ -113,101 +169,30 @@
                     populateNav("navmenu");
 
 
-                    // Your $(document).ready() event script code goes below here -v
                     // Add the search term back into the search bar
                     $("#searchTerm").attr("value", vars['searchTerm']);
 
+                    //If there are results
                     if ($sResults.find("product").length > 0) {
 
+                        //Go to the loadProducts
+                        loadProducts();
+
+                        //Hide the id column
+                        $('td:nth-child(1)').hide();
+
+                        //Add floatingImageDiv to each of the rows/columns (to then show later on)
+                        $('td').append('<div class="floatingImageDiv"><img class="floatingImage" src=""</div>');
                     } else {
                         // We don't have any results
                         // Hide the table
                         $("#tableFormat").hide();
+
+                        //Show there are no results
                         $("#Main_Body").append("<h1>There are no search results. </h1>");
+
                         return;
                     }
-
-
-                    $sResults.find('product').each(function () {
-
-                        var $product = $(this);
-
-                        id = $product.find('id').text();
-                        var title = $product.find('title').text();
-                        var brand = $product.find('brand').text();
-                        var price = $product.find('price').text();
-
-
-                        $('tbody').append("<tr>"
-                            + "<td>" + "<a href=" + "'product.html?id=" + id + "&searchTerm=" + vars['searchTerm'] + "'" + "</a>" + id + "</td>"
-                            + "<td>" + "<a href=" + "'product.html?id=" + id + "&searchTerm=" + vars['searchTerm'] + "'" + "</a>" + title + "</td>"
-                            + "<td>" + "<a href=" + "'product.html?id=" + id + "&searchTerm=" + vars['searchTerm'] + "'" + "</a>" + brand + "</td>"
-                            + "<td>" + "<a href=" + "'product.html?id=" + id + "&searchTerm=" + vars['searchTerm'] + "'" + "</a>" + "£" + price + "</td>"
-                            + "</tr>");
-
-
-                        //I have built up the URL for the product 'link' which retains the original search terms
-
-                        //The below are css attributes assigned when hovering over an element
-
-                        $('tbody tr').mouseenter(function () {
-                            $(this).css("background-color", "#6185C7");
-
-                        })
-
-                        $('tbody tr').mouseleave(function () {
-                            $(this).css("background-color", "");
-
-                        })
-
-
-                        //The below code sorts data into alphabetical or ascending (numeric values) order depending on the selected column header which has been clicked
-
-                        var thIndex = 0,
-                            curThIndex = null;
-
-                        $(function () {
-                            $('table thead tr th').click(function () {
-                                thIndex = $(this).index();
-                                if (thIndex != curThIndex) {
-                                    curThIndex = thIndex;
-                                    sorting = [];
-                                    tbodyHtml = null;
-                                    $('table tbody tr').each(function () {
-                                        sorting.push($(this).children('td').eq(curThIndex).html() + ', ' + $(this).index());
-                                    });
-
-                                    sorting = sorting.sort();
-                                    sortIt();
-                                }
-                            });
-                        });
-                        $('td').hover(function () {
-                                // Get the first td
-                                var idOfRow = $(this).closest('tr').children('td:eq(0)').text();
-
-                                $('.ToDisplay').attr('src', "/Images/ProductImages/" + idOfRow + ".png");
-
-                            },
-                            function () {
-                                $("td").removeClass('ToDisplay');
-                            });
-
-
-                    });
-
-                    $('td:nth-child(1)').hide();
-
-                    $('td').append('<div class="div-to-display"><img class="ToDisplay" + src=""</div>');
-
-                    function sortIt() {
-                        for (var sortingIndex = 0; sortingIndex < sorting.length; sortingIndex++) {
-                            rowId = parseInt(sorting[sortingIndex].split(', ')[1]);
-                            tbodyHtml = tbodyHtml + $('table tbody tr').eq(rowId)[0].outerHTML;
-                        }
-                        $('table tbody').html(tbodyHtml);
-                    }
-
                     // Your $(document).ready() event script code goes above here -^
                 }
             }, 100);
@@ -216,7 +201,8 @@
 
 
             // Your $(document).ready() event script code goes above here -^
-        });
+        })
+        ;
     </script>
 </head>
 
@@ -268,7 +254,7 @@
                 </a>
                 </div>
                 <div id="Basket"><a href="404Error.html"> <img src="Images/OnEveryPage/Main Banner/Basket.png"
-                                                                   alt="Basket">
+                                                               alt="Basket">
                     <h3>Basket</h3>
                 </a>
                 </div>
@@ -280,31 +266,29 @@
     <ul class="navmenu">
     </ul>
     <div id=Outside_Body>
-        <div class="div-to-display"><img src="Images\Home\Loading.png"/></div>
+        <!--A div that will show an Image when hovered over the Brand and Price on the table-->
+        <div class="floatingImageDiv"><img src="Images/Home/Loading.png" alt="Product"/></div>
 
-        <h2 id="searchedFor"></h2>
+        <!--header 2 to show that what the user has searched for with a id of searchedFor so that I can add
+        the searchTerm to the h2, add this h2 before the Main_Body so it can be up against the nav bar -->
+        <h2 id="searchedFor">You've Searched for:</h2>
         <div id=Main_Body>
+            <!--All of the table, with tableFormat id to style it.-->
             <table id="tableFormat">
-                <colgroup>
-                    <col id="col1">
-                    <col id="col2">
-                    <col id="col3">
-                    <col id="col4">
-                </colgroup>
+                <!--Header content-->
                 <thead>
                 <tr>
+                    <!--Headers of Title, Brand and Price-->
                     <th>Title</th>
                     <th>Brand</th>
                     <th>Price</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                </tr>
+                <!--This is where it will auto populate the tr tags and results-->
                 </tbody>
             </table>
         </div>
-
 
         <footer>
             <div id="Footer-GadgetGainey" class="footerTextSection">
@@ -347,7 +331,8 @@
             </div>
             <div id="Footer-Supported_Payments" class="footerTextSection">
                 <h2>Supported Payments </h2>
-                <img src="Images/OnEveryPage/Payment Types.png" alt="Mastercard, Maestro, American Express, Visa and PayPal">
+                <img src="Images/OnEveryPage/Payment Types.png"
+                     alt="Mastercard, Maestro, American Express, Visa and PayPal">
             </div>
             <div id="Footer-Find-eBay">
                 <h2>Find us on</h2>
