@@ -12,33 +12,34 @@
     <meta property="og:title" content="Gadget Gainey Store - Home of the best kids products!">
     <meta name="keywords" content="toys, kids, children, store, go kart, playsets, play, presents, fun, little kids, pedal, pedal go karts, pedal go kart,
 		car, ride on, ride on bike, ride on cars, cars, bike, outdoor, racing">
-    <link rel="icon" href="/Images/OnEveryPage/Gadget Gainey icon.png">
+    <link rel="icon" href="Images/OnEveryPage/Gadget Gainey icon.png">
     <Title>404 Error - Gadget Gainey Store</Title>
     <link rel="stylesheet" href="siteLayout.css" type="text/css" media="screen,projection"/>
     <link rel="stylesheet" href="siteTheme.css" type="text/css" media="screen,projection"/>
 
     <!-- <base href="/images/" target = "_blank"> -->
     <style>
+        /*Width is 30%, meaning that the rest (text) is 70%, give padding to the right
+       to give space from the text and image. Float to the left to get the text and image to be on the same line
+       and use inline-block for the text to go around the image*/
         #img404 {
             width: 30%;
-            float:left;
-            height:150px;
-            margin:5px;
+            float: left;
 
+            padding-right: 20px;
 
-
-
-            display:inline-block;
+            display: inline-block;
         }
+
+        /*Set the colour to the dark blue (colour scheme) that are in an anchor and in the Main Body*/
         #Main_body a {
             color: #143576;
         }
 
-        #text {
-            isplay:inline-block;vertical-align: middle;
+        /*The id of previousButton will display like a button*/
+        #previousButton {
+            cursor: pointer;
         }
-
-
     </style>
     <script src="jquery-3.3.1.min.js"></script>
     <script src='Shop.js'></script>
@@ -81,14 +82,15 @@
             }, 100);
 
             // Your $(document).ready() event script code goes below here -v
-
+            //When the function goBack() is called then use the history to go back.
+            function goBack() {
+                window.history.back();
+            }
 
             // Your $(document).ready() event script code goes above here -^
         });
 
-        function goBack() {
-            window.history.back();
-        }
+
     </script>
 </head>
 
@@ -98,19 +100,19 @@
         <div class="Trust-Header">
             <div id="Trust-eBay">
                 <a href="https://bit.ly/2to8o1z" target="_blank">
-                    <h3> 98% OF CUSTOMERS LOVE US ON</h3>
+                    <h3>98% OF CUSTOMERS LOVE US ON</h3>
                     <img src="Images/OnEveryPage/Trust Banner/eBay logo.png" alt="eBay">
                 </a>
             </div>
             <div id="Trust-Fast_Delivery">
-                <a href="delivery.html"> <img src="Images/OnEveryPage/Trust Banner/Next Day Delivery.png"
+                <a href="Delivery.html"> <img src="Images/OnEveryPage/Trust Banner/Next Day Delivery.png"
                                               alt="Next Day Delivery">
-                    <h3> ORDER BY 3PM FOR NEXT DAY FREE DELIVERY</h3>
+                    <h3>ORDER BY 3PM FOR NEXT DAY FREE DELIVERY</h3>
                 </a>
             </div>
             <div id="Trust-Free_Delivery">
                 <a href="Returns.html"> <img src="Images/OnEveryPage/Trust Banner/Returns.png"
-                                              alt="Returns">
+                                             alt="Returns">
                     <h3>FREE 28 DAY RETURN ON EVERYTHING</h3>
                 </a>
             </div>
@@ -134,14 +136,13 @@
                 </div>
             </form>
 
-
             <div class="RightButtons">
                 <div id="Help"><a href="404Error.html"> <img src="Images/OnEveryPage/Main Banner/Help.png" alt="Help">
                     <h3>Help</h3>
                 </a>
                 </div>
                 <div id="Basket"><a href="404Error.html"> <img src="Images/OnEveryPage/Main Banner/Basket.png"
-                                                                   alt="Basket">
+                                                               alt="Basket">
                     <h3>Basket</h3>
                 </a>
                 </div>
@@ -149,82 +150,88 @@
         </div>
     </div>
 
-
     <ul class="navmenu">
     </ul>
     <div id=Outside_Body>
         <div id=Main_Body>
-                <img id="img404" src="Images/PageNotFound/ill-car.png"/>
-                <div id="text">
+
+            <!--Show image of the 404 Error picture-->
+            <img id="img404" src="Images/PageNotFound/ill-car.png"/>
+
             <h1>OOPS! Nothing to see here!</h1>
-                <p>Sorry, we couldn't find that page you were looking for. It might be an old link or it has moved.</p>
-                <p>Try one of the pages below instead! </p>
-                <a href="index.html">
-                    <h3>Home Page</h3>
-                </a>
-                <a href="404Error.html">
-                    <h3>Contact Us</h3>
-                </a>
-                    <a onclick="goBack()">
-                        <h3>Go back to previous page</h3>
-                    </a>
-            </div>
-            </div>
+            <p>Sorry, we couldn't find that page you were looking for. It might be an old link or it has been moved.</p>
+            <h3>Try one of the pages below instead!</h3>
+
+            <!--Link to the Home page-->
+            <a href="index.html">
+                <h3>Home Page</h3>
+            </a>
+
+            <!--Link to the About Us page-->
+            <a href="About.html">
+                <h3>About Us</h3>
+            </a>
+
+            <!--When previous heading has been clicked then go to the goBack function-->
+            <a id="previousButton" onclick="goBack()">
+                <h3>Go back to previous page</h3>
+            </a>
+        </div>
     </div>
-   <footer>
-            <div id="Footer-GadgetGainey" class="footerTextSection">
-                <a href="index.html">
-                    <h1>Gadget Gainey</h1>
-                </a>
-                <a href="About.html" >
-                    <h4>About Us</h4>
-                </a>
-                <a href="Basket.html">
-                    <h4>Basket</h4>
-                </a>
-                <a href="https://bit.ly/2BLLE05" target="_blank">
-                    <h4>eBay Store</h4>
-                </a>
-                <a href="404Error.html">
-                    <h4>Sitemap</h4>
-                </a>
-            </div>
-            <div id="Footer-TheBoringStuff" class="footerTextSection">
-                <h2>The Boring Stuff</h2>
-                <a href="Delivery.html">
-                    <h4>Shipping & Delivery</h4>
-                </a>
-                <a href="Returns.html">
-                    <h4>Returns & Refunds</h4>
-                </a>
-                <a href="TermsConditions.html">
-                    <h4>Terms & Conditions</h4>
-                </a>
-            </div>
-            <div id="Footer-Support" class="footerTextSection">
-                <h2>Support</h2>
-                <a href="404Error.html">
-                    <h4>Contact Us</h4>
-                </a>
-                <a href="404Error.html">
-                    <h4>FAQ's</h4>
-                </a>
-            </div>
-            <div id="Footer-Supported_Payments" class="footerTextSection">
-                <h2>Supported Payments </h2>
-                <img src="Images/OnEveryPage/Payment Types.png">
-            </div>
-            <div id="Footer-Find-eBay">
-                <h2>Find us on</h2>
-                <a href="https://bit.ly/2BLLE05" target="_blank">
-                    <img src="Images/OnEveryPage/Trust Banner/eBay logo.png">
-                </a>
-            </div>
-            <div id="Footer-copyright" class="footerTextSection">
-                <h5>
-                    © Gadget Gainey 2019. All Rights Reserved
-                </h5>
-            </div>
+    <footer>
+        <div id="Footer-GadgetGainey" class="footerTextSection">
+            <a href="index.html">
+                <h1>Gadget Gainey</h1>
+            </a>
+            <a href="About.html">
+                <h4>About Us</h4>
+            </a>
+            <a href="404Error.html">
+                <h4>Basket</h4>
+            </a>
+            <a href="https://bit.ly/2BLLE05" target="_blank">
+                <h4>eBay Store</h4>
+            </a>
+            <a href="404Error.html">
+                <h4>Sitemap</h4>
+            </a>
+        </div>
+        <div id="Footer-TheBoringStuff" class="footerTextSection">
+            <h2>The Boring Stuff</h2>
+            <a href="Delivery.html">
+                <h4>Shipping & Delivery</h4>
+            </a>
+            <a href="Returns.html">
+                <h4>Returns & Refunds</h4>
+            </a>
+            <a href="TermsConditions.html">
+                <h4>Terms & Conditions</h4>
+            </a>
+        </div>
+        <div id="Footer-Support" class="footerTextSection">
+            <h2>Support</h2>
+            <a href="404Error.html">
+                <h4>Contact Us</h4>
+            </a>
+            <a href="404Error.html">
+                <h4>FAQ's</h4>
+            </a>
+        </div>
+        <div id="Footer-Supported_Payments" class="footerTextSection">
+            <h2>Supported Payments</h2>
+            <img src="Images/OnEveryPage/Payment Types.png" alt="Mastercard, Maestro, American Express, Visa and PayPal">
+        </div>
+        <div id="Footer-Find-eBay">
+            <h2>Find us on</h2>
+            <a href="https://bit.ly/2BLLE05" target="_blank">
+                <img src="Images/OnEveryPage/Trust Banner/eBay logo.png" alt="eBay">
+            </a>
+        </div>
+        <div id="Footer-copyright" class="footerTextSection">
+            <h5>
+                © Gadget Gainey 2019. All Rights Reserved
+            </h5>
+        </div>
     </footer>
 </div>
 </body>

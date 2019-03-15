@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <!-- This is a comment tag -->
-
     <!-- All meta data for SEO-->
     <meta charset="UTF-8"/>
     <meta name="author" content="Ashley Gainey">
@@ -12,102 +9,109 @@
     <meta property="og:title" content="Gadget Gainey Store - Home of the best kids products!">
     <meta name="keywords" content="toys, kids, children, store, go kart, playsets, play, presents, fun, little kids, pedal, pedal go karts, pedal go kart,
 		car, ride on, ride on bike, ride on cars, cars, bike, outdoor, racing">
-    <link rel="icon" href="/Images/OnEveryPage/Gadget Gainey icon.png">
+    <link rel="icon" href="Images/OnEveryPage/Gadget Gainey icon.png">
     <Title>Gadget Gainey Store - Home of the best kids products!</Title>
 
     <!--links to the CSS-->
     <link rel="stylesheet" href="siteLayout.css" type="text/css" media="screen,projection"/>
     <link rel="stylesheet" href="siteTheme.css" type="text/css" media="screen,projection"/>
-
-    <!-- <base href="/images/" target = "_blank"> -->
     <style>
 
-
+        /*If the title is one liner than align it to the bottom so it is more near the carousel itself,
+        also have 15px space at the bottom of the Title. The font size will be 40px and center the text for if
+        the title is more than one line*/
         #carouselTitleHeader {
             min-height: 120px;
-
-            /*If the title is one liner than align it to the bottom so it is more near the carousel itself*/
             display: flex;
             justify-content: center;
             align-items: flex-end;
             padding-bottom: 15px;
-        }
 
-
-        #Main_Body h1 {
-            font-family: Century Gothic;
             font-size: 40px;
             text-align: center;
         }
 
-
-        #carouselBrand {
-            text-align: left;
-            float: left;
-        }
-
-        #carouselCost {
-            text-align: right;
-            float: right;
-        }
-
-        .full-slider {
-            margin: auto;
+        /*Put the slider in relative position so that other components on it (like the buttons)
+        can be inside it, hide any content (slider1 is present so slider2, 3, 4, 5, 6 are not)
+        that is not in the width and height of the carousel*/
+        .fullCarousel {
             box-shadow: 0 0 0 5px #143576;
             position: relative;
             overflow: hidden;
         }
+        /*Keep the slider at a 100% width, had to make the width 100% because it didn't resize to 100%,
+        leaving some of the next image on screen*/
+        .sliderContents {
+            width: 100%;
+        }
 
-        .slider {
+        .sliderContents {
+            width: 100%;
+        }
+        /*All anchor tags (including the image itself) of the slider are put into one line no matter the
+        width of the container, the width is 600% (for 6 pictures)*/
+        .carouselSlide {
             display: flex;
             width: 600%;
         }
 
-        .slider__section {
-            width: 100%;
-        }
-
-        .slider__img {
-            display: block;
+        /*All images (doesn't apply to anchor tags) on the carousel, will be 100% the width and height*/
+        .carouselSlide img {
             width: 100%;
             height: 100%;
         }
 
-        .btn-prev, .btn-next {
+        /*The previous and next buttons on the carousel should have a width of 50px and a height of 40px.
+        They should be absolute, meaning it is positioned relative to the carousel itself and the top 50%,
+        puts it in the center of the carousel. The background colour will a dark blue to fit with the colour scheme*/
+        /*Set the font to Arial because the default font, doesn't look right for the arrow <>, with a fallback font of Segoe UI
+        and center the text. */
+        /*Make the whole div look like it is a button with the cursor as the pointer*/
+        #carouselPrevious, #carouselNext {
             width: 50px;
             height: 40px;
-            position: absolute;
             top: 50%;
+            position: absolute;
+            background: #143576;
+
+            color: white;
+            font-size: 25px;
+            font-family: "Arial Black", "Segoe UI";
             text-align: center;
 
-            background: #143576;
-            font-size: 25px;
-            font-family: Arial Black;
-
             cursor: pointer;
-            color: white;
         }
 
-        .btn-prev:hover, .btn-next:hover {
+        /*On hover, revert the colours*/
+        #carouselPrevious:hover, #carouselNext:hover {
             background: white;
             color: #143576;
         }
 
         /*Set the left carousel button to the left and have an offset of 5px*/
-        .btn-prev {
+        #carouselPrevious {
             left: 5px;
         }
 
         /*Set the right carousel button to the right and have an offset of 5px*/
-        .btn-next {
+        #carouselNext {
             right: 5px;
         }
 
-        /*Padding: top 5, right 5, bottom 0, left 5*/
+        /*Padding: top 5, right 5, bottom 0, left 5 (so they aren't directly on either side and allows space for) */
         /*Margin bottom gives space from the bottom Brand & Cost and the line itself */
         #carouselBrandcost {
-            padding: 5px 5px 0 5px;
-            margin-bottom: 30px;
+            padding: 5px 5px 30px 5px;
+        }
+
+        /*Have the product brand be to the left*/
+        #carouselBrand {
+            float: left;
+        }
+
+        /*Have the product cost be to the right*/
+        #carouselCost {
+            float: right;
         }
     </style>
     <script src="jquery-3.3.1.min.js"></script>
@@ -120,20 +124,138 @@
 
         // Your global variables should be declared below here -v
 
-        var slideNum = 1;
+        //Integer to tell me what Slide it is on
+        var currentSlideNum = 1;
+        //Array to tell me what the id of that slide is
         var sliderID = [];
 
-        var carouselImage = [];
+        //Empty Arrays to hold all of the product information (title/brand/cost) in
         var carouselTitle = [];
         var carouselBrand = [];
-
         var carouselCost = [];
-        var carouselID = [];
 
 
         // Your global variables should be declared above here -^
         // Any user defined functions should be declared below here -v
 
+        function loadedCorrectly() {
+            // set a timed function call to wait for $homepage to load
+            timerHomePage = window.setInterval(function () {
+
+                // Check if the homepage have loaded
+                if ($homepage === null) {
+                    // They haven't loaded
+
+                } else {
+                    //They have and go to load the images that use the vars[prod]
+                    carouselImages();
+                    window.clearInterval(timerHomePage);
+                }
+            }, 100);
+        }
+
+        function carouselImages() {
+            //Start slideNo at 1 for the Slider Number and is less than 7 then
+            for (slideNo = 1; slideNo < 7; slideNo++) {
+
+                //Add the image source to whatever the slide number is and the product id of what ever slide number is
+                $('#slider' + slideNo).children('img').attr('src', "/Images/ProductImages/" + vars['prod' + slideNo] + ".png");
+
+                // Add a link to the product to the slider of whatever the slide number is and add the href of prod
+                $('#slider' + slideNo).attr('href', '/product.html?id=' + vars['prod' + slideNo]);
+
+                //Convert the Slide Number into an integer for later use (for updateValues)
+                var convertedSlideNo = parseInt(vars['prod' + slideNo]);
+                //Put it into the sliderID array.
+                sliderID.push(convertedSlideNo);
+            }
+            //Go to the updateValues method after all images have been imported, in which will update the text
+            updateValues();
+        }
+
+        //Runs moveNext, every 5 seconds//
+        function autoplay() {
+            intervalMove = setInterval(function () {
+                moveNext();
+            }, 5000);
+        }
+
+        function movePrev() {
+            //If the current slide Number is 1 then reset to 7
+            if (currentSlideNum == 1) {
+                currentSlideNum = 7;
+            }
+
+            //Whether it went into the if statement or not then add 1 (resulting 0 to be 1, 2 to be 3 etc.).
+            currentSlideNum = currentSlideNum - 1;
+
+            //Call the fadeOut method which will fade out the properties of the product
+            fadeOut();
+
+            //Move the carousel image to margin left 0% that lasts 1 second, after that put the last image
+            // to the front of the line and reset the margin to -100%
+            $(slider).animate({marginLeft: 0}, 1000, function () {
+                $('#slider .sliderContents:last').insertBefore('#slider .sliderContents:first');
+                $(slider).css('margin-left', '-' + 100 + '%');
+            });
+        }
+
+        function moveNext() {
+            //If the current slide Number is 6 then reset to 0
+            if (currentSlideNum == 6) {
+                currentSlideNum = 0;
+            }
+
+            //Whether it went into the if statement or not then add 1 (resulting 0 to be 1, 2 to be 3 etc.).
+            currentSlideNum = currentSlideNum + 1;
+
+            //Call the fadeOut method which will fade out the properties of the product
+            fadeOut();
+
+            //Move the carousel image to margin left -200% that lasts 1 second, after that put the first image
+            // to the back of the line and reset the margin to -100%
+            $(slider).animate({marginLeft: '-' + 200 + '%'}, 1000, function () {
+                $('#slider .sliderContents:first').insertAfter('#slider .sliderContents:last');
+                $(slider).css('margin-left', '-' + 100 + '%');
+            });
+        }
+
+        function fadeOut() {
+            // Fade the updatedValues out using the fadeTo feature, I have used this instead of fadeOut
+            // because fadeOut removes the element and then the carousel moves up, which doesn't look great
+            $("#carouselTitleHeader").fadeTo(500, 0);
+            $("#carouselBrand").fadeTo(500, 0);
+
+            //At the end of the cost fading out then go to the updateValues function where it will change the values while faded
+            $("#carouselCost").fadeTo(500, 0, function () {
+                updateValues();
+            });
+        }
+
+        function updateValues() {
+            //Get the current Slide ID from the array (which starts at 0 so subtract 1 to get the correct ID out of the array)
+            var currentSlideID = sliderID[currentSlideNum - 1];
+
+
+            // set the text of the title to the current ID index - 1 (to get the correct title from the array)
+            $("#carouselTitleHeader").text(carouselTitle[currentSlideID - 1]);
+
+            // set the text of the brand to the current ID index - 1 (to get the correct brand from the array)
+            $("#carouselBrand").text("By: " + carouselBrand[currentSlideID - 1]);
+
+            // set the text of the cost to the pound symbol and then to the current ID index - 1 (to get the correct cost from the array)
+            $("#carouselCost").text("£" + carouselCost[currentSlideID - 1]);
+
+            //When values have changed then go to the fadeIn function
+            fadeIn();
+        }
+
+        function fadeIn() {
+            // Fade the updatedValues to full opacity
+            $("#carouselTitleHeader").fadeTo(500, 1);
+            $("#carouselBrand").fadeTo(500, 1);
+            $("#carouselCost").fadeTo(500, 1);
+        }
 
         // Any user defined functions should be declared above here -^
 
@@ -163,143 +285,64 @@
             }, 100);
 
             // Your $(document).ready() event script code goes below here -v
-            //Do this function for every product
-
-            $products.find("product").each(function () {
-
-                //Get the data from the product//
-                imgSrc = $(this).find("picture").text();
-                imgTitle = $(this).find("title").text();
-                imgBrand = $(this).find("brand").text();
-                imgCost = $(this).find("price").text();
-                imgID = $(this).find("id").text();
-
-                carouselImage.push(imgSrc);
-                carouselTitle.push(imgTitle);
-                carouselBrand.push(imgBrand);
-                carouselCost.push(imgCost);
-                carouselID.push(imgID);
-            });
-            carouselImages();
-
-            function carouselImages() {
-                for (var i = 1; i < 7; i++) {
-                    $('#slider' + i).children('img').attr('src', "/Images/ProductImages/" + vars['prod' + i] + ".png");
-                    $('#slider' + i).attr('href', '/product.html?id=' + vars['prod' + i]);
-
-                    updateValues();
-
-                    var convertedID = parseInt(vars['prod' + i]);
-
-                    sliderID.push(convertedID);
-                }
-            }
 
             // Variable for the slider itself
             var slider = $('#slider');
 
-            // move the last image to the first place
-            $('#slider .slider__section:last').insertBefore('#slider .slider__section:first');
-            // display the first image with a margin of -100%
+            // move the last image of the carousel to the first place
+            $('#slider .sliderContents:last').insertBefore('#slider .sliderContents:first');
+
+            // display the first image of the carousel with a margin of -100%
             slider.css('margin-left', '-' + 100 + '%');
 
+            //Do this function for every product
+            $products.find("product").each(function () {
 
-            function moveNext() {
-                if (slideNum == 6) {
-                    slideNum = 0;
-                }
-                slideNum = slideNum + 1;
-                fadeOut();
-                slider.animate({marginLeft: '-' + 200 + '%'}, 700, function () {
-                    $('#slider .slider__section:first').insertAfter('#slider .slider__section:last');
-                    slider.css('margin-left', '-' + 100 + '%');
-                });
-                fadeIn();
-            }
+                //Get the data from the product//
+                imgTitle = $(this).find("title").text();
+                imgBrand = $(this).find("brand").text();
+                imgCost = $(this).find("price").text();
 
-            function fadeOut() {
-                $("#carouselTitleHeader").fadeTo(500, 0);
-                $("#carouselBrand").fadeTo(500, 0);
-                $("#carouselCost").fadeTo(500, 0, function () {
-                    updateValues();
-                });
-
-
-                fadeIn();
-            }
-
-            function fadeIn() {
-                $("#carouselTitleHeader").fadeTo(500, 1);
-                $("#carouselBrand").fadeTo(500, 1);
-                $("#carouselCost").fadeTo(500, 1);
-
-            }
-
-
-            function updateValues() {
-                var currentSlideID = sliderID[slideNum - 1];
-                $("#carouselTitleHeader").text(carouselTitle[currentSlideID - 1]);
-                $("#carouselBrand").text("By: " + carouselBrand[currentSlideID - 1]);
-                $("#carouselCost").text("£" + carouselCost[currentSlideID - 1]);
-                fadeIn();
-            }
-
-            function movePrev() {
-                if (slideNum == 1) {
-                    slideNum = 7;
-                }
-                slideNum = slideNum - 1;
-                fadeOut();
-
-                slider.animate({marginLeft: 0}, 700, function () {
-                    $('#slider .slider__section:last').insertBefore('#slider .slider__section:first');
-                    slider.css('margin-left', '-' + 100 + '%');
-                });
-                fadeIn();
-            }
-
-            //Runs moveNext, every 5 seconds//
-            function autoplay() {
-                interval = setInterval(function () {
-                    moveNext();
-
-                }, 5000);
-            }
-
-            //When the user clicks the Next (>) button
-            $('#btn-next').on('click', function () {
-                //Runs MoveNext and resets timer and goes back to autoplay//
-                moveNext();
-                clearInterval(interval);
-                autoplay();
+                // Put them into an array
+                carouselTitle.push(imgTitle);
+                carouselBrand.push(imgBrand);
+                carouselCost.push(imgCost);
             });
+            // Call the loadedCorrectly function where it will wait until the $homepage has loaded correctly
+            loadedCorrectly();
 
-            //When the user clicks the Previous (<) button
-            $('#btn-prev').on('click', function () {
-                //Runs MoveNext and resets timer nd goes back to autoplay//
-                movePrev();
-                clearInterval(interval);
-                autoplay();
-            });
 
-            //When the user's mouse enters the carousel
-            $('#slider').mouseenter(function () {
-                clearInterval(interval);
-            });
-
-            //When the user's mouse leaves the carousel
-            $('#slider').mouseleave(function () {
-                autoplay();
-
-            });
+            //Run autoPlay (for the first time)
             autoplay();
 
 
-            //For me to pause animation if needed//
-            jQuery(window).keydown(function (e) {
-                if (e.keyCode == 123) debugger;
+            //When the user clicks the Previous (<) button
+            $('#carouselPrevious').on('click', function () {
+                //Runs MoveNext and resets timer nd goes back to autoplay//
+                movePrev();
+                clearInterval(intervalMove);
+                autoplay();
             });
 
+
+            //When the user clicks the Next (>) button
+            $('#carouselNext').on('click', function () {
+                //Runs MoveNext, resets timer and goes back to autoplay//
+                moveNext();
+                clearInterval(intervalMove);
+                autoplay();
+            });
+
+
+            //When the user's mouse enters the carousel, reset the timer
+            $('#slider').mouseenter(function () {
+                clearInterval(intervalMove);
+            });
+
+            //When the user's mouse leaves the carousel, start the autoPlay again
+            $('#slider').mouseleave(function () {
+                autoplay();
+            });
 
             // Your $(document).ready() event script code goes above here -^
         });
@@ -313,19 +356,19 @@
         <div class="Trust-Header">
             <div id="Trust-eBay">
                 <a href="https://bit.ly/2to8o1z" target="_blank">
-                    <h3> 98% OF CUSTOMERS LOVE US ON</h3>
+                    <h3>98% OF CUSTOMERS LOVE US ON</h3>
                     <img src="Images/OnEveryPage/Trust Banner/eBay logo.png" alt="eBay">
                 </a>
             </div>
             <div id="Trust-Fast_Delivery">
-                <a href="delivery.html#NextDay"> <img src="Images/OnEveryPage/Trust Banner/Next Day Delivery.png"
-                                                         alt="Next Day Delivery">
-                    <h3> ORDER BY 3PM FOR NEXT DAY FREE DELIVERY</h3>
+                <a href="Delivery.html#NextDay"> <img src="Images/OnEveryPage/Trust Banner/Next Day Delivery.png"
+                                                      alt="Next Day Delivery">
+                    <h3>ORDER BY 3PM FOR NEXT DAY FREE DELIVERY</h3>
                 </a>
             </div>
             <div id="Trust-Free_Delivery">
                 <a href="Returns.html"> <img src="Images/OnEveryPage/Trust Banner/Returns.png"
-                                              alt="Returns">
+                                             alt="Returns">
                     <h3>FREE 28 DAY RETURN ON EVERYTHING</h3>
                 </a></div>
         </div>
@@ -345,7 +388,7 @@
                            placeholder="Search Gadget Gainey..."/>
                     <button class="searchButton"><img
                             src="Images/OnEveryPage/Main Banner/Magnifier Glass - Search.png" alt="Search">
-                    </img></button>
+                    </button>
                 </div>
             </form>
 
@@ -356,7 +399,7 @@
                 </a>
                 </div>
                 <div id="Basket"><a href="404Error.html"> <img src="Images/OnEveryPage/Main Banner/Basket.png"
-                                                                   alt="Basket">
+                                                               alt="Basket">
                     <h3>Basket</h3>
                 </a>
                 </div>
@@ -368,103 +411,117 @@
     <ul class="navmenu">
     </ul>
     <div id=Outside_Body>
-        <img src="\Images\Home\50 percent off everything in store.gif" alt="50% off across our store!">
+        <img src="Images/Home/50 percent off everything in store.gif" alt="50% off across our store!">
         <div id=Main_Body>
-                <div class="carousel">
-                    <div class="row visible-md visible-lg">
-                        <div id="slider-carouselTitleHeader">
-                            <h1 id="carouselTitleHeader">TITLE</h1>
-                        </div>
+            <!--Holds full carousel-->
+            <!--Add a header 1 which will hold title of product -->
+            <h1 id="carouselTitleHeader">TITLE</h1>
 
-                        <div class="full-slider curveRadius">
-                            <div id="slider" class="slider">
-                                <a id="slider1" class="slider__section" href=""><img src="Images\Home\Loading.png"
-                                                                                     class="slider__img">
-                                </a>
-                                <a id="slider2" class="slider__section" href=""><img src="Images\Home\Loading.png"
-                                                                                     class="slider__img">
-                                </a>
-                                <a id="slider3" class="slider__section" href=""><img src="Images\Home\Loading.png"
-                                                                                     class="slider__img">
-                                </a>
-                                <a id="slider4" class="slider__section" href=""><img src="Images\Home\Loading.png"
-                                                                                     class="slider__img">
-                                </a>
-                                <a id="slider5" class="slider__section" href=""><img src="Images\Home\Loading.png"
-                                                                                     class="slider__img">
-                                </a>
-                                <a id="slider6" class="slider__section"><img src="Images\Home\Loading.png"
-                                                                             class="slider__img">
-                                </a>
-                            </div>
-                            <div id="btn-prev" class="btn-prev curveRadius">&#60;</div>
-                            <div id="btn-next" class="btn-next curveRadius">&#62;</div>
-                        </div>
-                        <div id="carouselBrandcost">
-                            <h2 id="carouselBrand">By: BRAND</h2>
-                            <h2 id="carouselCost">£Co.st</h2>
-                        </div>
-                        <hr/>
-                    </div>
+            <!--Holds full Carousel and adds the class of curveRadius so it can have a curve on the whole thing-->
+            <div class="fullCarousel curveRadius">
+
+                <!--This div holds the images of the carousel called sliders-->
+                <div id="slider" class="carouselSlide">
+
+                    <!--Add anchor tags (for the links), inside that add an image with a source,
+                    the placeholder at the moment is Loading.png but will be replaced when injected-->
+                    <a id="slider1" class="sliderContents" href=""><img src="Images/Home/Loading.png"
+                                                                        alt="Product 1"
+                    >
+                    </a>
+                    <a id="slider2" class="sliderContents" href=""><img src="Images/Home/Loading.png"
+                                                                        alt="Product 2"
+                    >
+                    </a>
+                    <a id="slider3" class="sliderContents" href=""><img src="Images/Home/Loading.png"
+                                                                        alt="Product 3"
+                    >
+                    </a>
+                    <a id="slider4" class="sliderContents" href=""><img src="Images/Home/Loading.png"
+                                                                        alt="Product 4">
+                    </a>
+                    <a id="slider5" class="sliderContents" href=""><img src="Images/Home/Loading.png"
+                                                                        alt="Product 5">
+                    </a>
+                    <a id="slider6" class="sliderContents" href=""><img src="Images/Home/Loading.png"
+                                                                        alt="Product 6">
+                        >
+                    </a>
                 </div>
-        </div>
 
+                <!--Add divs that are < > giving an id is Previous and the other is Next and give the class of
+                curveRadius which will curve the buttons-->
+                <div id="carouselPrevious" class="curveRadius">&#60;</div>
+                <div id="carouselNext" class="curveRadius">&#62;</div>
+            </div>
+
+            <!--Div that holds the brand and the cost-->
+            <div id="carouselBrandcost">
+                <!--Add a header 2 which will hold the brand of product -->
+                <h2 id="carouselBrand">By: BRAND</h2>
+
+                <!--Add a header 2 which will hold the cost of product -->
+                <h2 id="carouselCost">£Co.st</h2>
+            </div>
+            <hr/>
+        </div>
     </div>
 
     <footer>
-            <div id="Footer-GadgetGainey" class="footerTextSection">
-                <a href="index.html">
-                    <h1>Gadget Gainey</h1>
-                </a>
-                <a href="About.html" >
-                    <h4>About Us</h4>
-                </a>
-                <a href="Basket.html">
-                    <h4>Basket</h4>
-                </a>
-                <a href="https://bit.ly/2BLLE05" target="_blank">
-                    <h4>eBay Store</h4>
-                </a>
-                <a href="404Error.html">
-                    <h4>Sitemap</h4>
-                </a>
-            </div>
-            <div id="Footer-TheBoringStuff" class="footerTextSection">
-                <h2>The Boring Stuff</h2>
-                <a href="Delivery.html">
-                    <h4>Shipping & Delivery</h4>
-                </a>
-                <a href="Returns.html">
-                    <h4>Returns & Refunds</h4>
-                </a>
-                <a href="TermsConditions.html">
-                    <h4>Terms & Conditions</h4>
-                </a>
-            </div>
-            <div id="Footer-Support" class="footerTextSection">
-                <h2>Support</h2>
-                <a href="404Error.html">
-                    <h4>Contact Us</h4>
-                </a>
-                <a href="404Error.html">
-                    <h4>FAQ's</h4>
-                </a>
-            </div>
-            <div id="Footer-Supported_Payments" class="footerTextSection">
-                <h2>Supported Payments </h2>
-                <img src="Images/OnEveryPage/Payment Types.png">
-            </div>
-            <div id="Footer-Find-eBay">
-                <h2>Find us on</h2>
-                <a href="https://bit.ly/2BLLE05" target="_blank">
-                    <img src="Images/OnEveryPage/Trust Banner/eBay logo.png">
-                </a>
-            </div>
-            <div id="Footer-copyright" class="footerTextSection">
-                <h5>
-                    © Gadget Gainey 2019. All Rights Reserved
-                </h5>
-            </div>
+        <div id="Footer-GadgetGainey" class="footerTextSection">
+            <a href="index.html">
+                <h1>Gadget Gainey</h1>
+            </a>
+            <a href="About.html">
+                <h4>About Us</h4>
+            </a>
+            <a href="404Error.html">
+                <h4>Basket</h4>
+            </a>
+            <a href="https://bit.ly/2BLLE05" target="_blank">
+                <h4>eBay Store</h4>
+            </a>
+            <a href="404Error.html">
+                <h4>Sitemap</h4>
+            </a>
+        </div>
+        <div id="Footer-TheBoringStuff" class="footerTextSection">
+            <h2>The Boring Stuff</h2>
+            <a href="Delivery.html">
+                <h4>Shipping & Delivery</h4>
+            </a>
+            <a href="Returns.html">
+                <h4>Returns & Refunds</h4>
+            </a>
+            <a href="TermsConditions.html">
+                <h4>Terms & Conditions</h4>
+            </a>
+        </div>
+        <div id="Footer-Support" class="footerTextSection">
+            <h2>Support</h2>
+            <a href="404Error.html">
+                <h4>Contact Us</h4>
+            </a>
+            <a href="404Error.html">
+                <h4>FAQ's</h4>
+            </a>
+        </div>
+        <div id="Footer-Supported_Payments" class="footerTextSection">
+            <h2>Supported Payments</h2>
+            <img src="Images/OnEveryPage/Payment Types.png"
+                 alt="Mastercard, Maestro, American Express, Visa and PayPal">
+        </div>
+        <div id="Footer-Find-eBay">
+            <h2>Find us on</h2>
+            <a href="https://bit.ly/2BLLE05" target="_blank">
+                <img src="Images/OnEveryPage/Trust Banner/eBay logo.png" alt="eBay">
+            </a>
+        </div>
+        <div id="Footer-copyright" class="footerTextSection">
+            <h5>
+                © Gadget Gainey 2019. All Rights Reserved
+            </h5>
+        </div>
     </footer>
 </div>
 </body>
