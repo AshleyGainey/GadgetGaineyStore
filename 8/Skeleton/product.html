@@ -2,9 +2,6 @@
 <html>
 
 <head>
-    <!-- This is a comment tag -->
-
-    <!-- All meta data for SEO-->
     <meta charset="UTF-8"/>
     <meta name="author" content="Ashley Gainey">
     <meta name="description"
@@ -17,137 +14,142 @@
     <link rel="stylesheet" href="siteLayout.css" type="text/css" media="screen,projection"/>
     <link rel="stylesheet" href="siteTheme.css" type="text/css" media="screen,projection"/>
 
-    <!-- <base href="/images/" target = "_blank"> -->
     <style>
-        /* This is an internal style sheet */
+        /*Start: Breadcrumb*/
 
-        .whiteBox {
-            -webkit-box-shadow: 10px 10px 40px 0px rgba(0, 0, 0, 0.27);
-            -moz-box-shadow: 10px 10px 40px 0px rgba(0, 0, 0, 0.27);
-            box-shadow: 10px 10px 40px 0px rgba(0, 0, 0, 0.27);
-
-
-            border-radius: 10px 10px 10px 10px;
-            -moz-border-radius: 10px 10px 10px 10px;
-            -webkit-border-radius: 10px 10px 10px 10px;
-
-            background-color: #FFFFFF;
-
-            padding: 10px;
-            margin-bottom: 20px;
+        /*The whole breadcrumb has a padding of 15px for the top, 30px for the left and don't style the bullet points*/
+        .breadcrumb {
+            padding: 15px 0 0 30px;
+            list-style: none;
         }
 
-        .whiteBox h1 {
-            font-size: 30px;
-        }
-        .whiteBox h4 {
+        /*If it is a list then have the font size of 15px and have them in line with each other*/
+        .breadcrumb li {
+            display: inline;
             font-size: 15px;
         }
 
-
-
-        .whiteBox img {
-            width: 100%;
-            height: 450px;
+        /*Select all the list items that are after the first one and insert the following before the list items: */
+        /*Add a padding of 15px to the left and right of the list, add a right arrow (more than sign), colour that arrow black*/
+        .breadcrumb li + li:before {
+            padding: 0 15px 0 15px;
+            content: ">";
+            color: black;
         }
 
-        .leftFloatLine {
-            color: rgba(37, 37, 37, 0.041);
-            width: 100%;
-            height: 1px;
-            margin-left: auto;
-            margin-right: auto;
-            /* Gives space from the line and the Main Header (which contains the logo, search, help and basket*/
-            padding-top: 1px;
-
-            padding-bottom: 10px;
+        /*Add a light blue colour to all of the anchor tags (all list items)*/
+        .breadcrumb a {
+            color: #009fe7;
         }
 
-        #PriceBasket h1 {
-            padding-top: 10px;
-            padding-bottom: 30px;
-            font-size: 50px;
-            float: left;
-            padding-left: 25px;
-            padding-right: 30px;
+        /*When on the anchor tags are on hover, change the colour to dark blue and underline the item*/
+        .breadcrumb a:hover {
+            color: #1B3C7D;
+            text-decoration: underline;
         }
+        /*End of Breadcrumb*/
 
-        #PriceBasket img {
-            width: 30px;
-            height: 40px;
-        }
 
+        /*Makes the width 50% and centers the Price and the Basket div*/
         #PriceBasket {
             width: 50%;
             margin: 0 auto;
             margin-bottom: 15px
         }
 
+        /*Center the elements inside the priceBasket and give a padding of 50px left and 30px right*/
+        #elementsInPriceBasket {
+            text-align: center;
+            padding: 0 30px 0 50px;
+        }
+
+        /*Vertically align the price by adding a padding of 10px to the top and 30px to the bottom, make the price
+        stand out by giving it a size of 50px
+        and to make the price and the button on one line, add a float of left to the price text*/
+        #productCost {
+            padding: 10px 0 30px 0;
+
+            font-size: 50px;
+            float: left;
+        }
+
+        /*The images inside the price and basket div (so the background gradient of the button and the basket)
+        to both be set to 30px by 40px*/
         #PriceBasket img {
+            width: 30px;
+            height: 40px;
+        }
+
+        /*The Add to Basket Button should have a background image of the gradient image,
+        give the whole button a padding of 10, to give space between the image, the text and the border, was having an
+        issue with the width so now the max width of the button is 200px and the border isn't that horrible thick grey,
+        it is now nothing. Since it is a button add a cursor as the pointer to indicate that you can click on this. The
+        colour of the text is white and make the text bigger and bold*/
+        #addToBasketButton {
+            background-image: url(/Images/Background.png);
+            padding: 10px;
+            max-width: 200px;
+            border: none;
+            cursor: pointer;
+
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /*And then separately the basket image in the add To Basket button is reduced to 20%, due to it being too big*/
+        #addToBasketButton img {
             width: 20%;
         }
 
-        #button {
-            background-image: url(/Images/Background.png);
-            color: white;
-            padding: 10px;
-            max-width: 200px;
-            font-size: 20px;
-            font-family: Century Gothic;
-            font-weight: bold;
-            cursor: pointer;
-            border: 1px solid #305875;
-
+        /*When on hover of the Add to Basket button, show the opacity to 80% which will show a white tinge to the button*/
+        #addToBasketButton:hover {
+            opacity: 0.8;
         }
 
-        #button:hover {
-            color: #FBFBFB;
-            opacity: 0.9;
-            filter: alpha(opacity=90);
+        /*For the product image, force the image to a width of a 100% and a height of 450px (so it doesn't look
+        stretched), also have a value of half a second with an ease in and out for animation (this is for the hover
+        over so that it doesn't do it straight away)*/
+        #productImage {
+            width: 100%;
+            height: 450px;
+
+            transition: all .5s ease-in-out;
+
+            /*Safari*/
+            -webkit-transition: all .5s ease-in-out;
+
+            /*Firefox*/
+            -moz-transition: all .5s ease-in-out;
         }
 
+        /*When the product image is on hover then increase the size of the image to 1.1 */
+        #productImage:hover {
+            transform: scale(1.1);
+
+            /*Safari*/
+            -webkit-transform: scale(1.1);
+
+            /*Firefox*/
+            -moz-transform: scale(1.1);
+        }
+
+        /*Whatever is in .line for siteLayout still applies but this time, instead if it is the line inside the
+        Main Body then set the the line to 100% instead of it being 75%*/
+        #Main_Body .line {
+            width: 100%;
+        }
+
+        /*Everything in the redirect Div should be centered and shouldn't be shown until the
+        Add to basket button is clicked*/
         #redirectDiv {
             text-align: center;
             display: none;
         }
+
+        /*The eBay image in the redirect Div should be reduced to 20%, because it was too big*/
         #redirectDiv img {
             width: 20%
-        }
-       ul.breadcrumb {
-            padding: 10px 16px;
-            list-style: none;
-        }
-        ul.breadcrumb li {
-            display: inline;
-            font-size: 15px;
-        }
-        ul.breadcrumb li+li:before {
-            padding: 10px;
-            color: black;
-            content: ">";
-        }
-        ul.breadcrumb li a {
-            color: #9e796b;
-            text-decoration: none;
-        }
-        ul.breadcrumb li a:hover {
-            color: white;
-            text-decoration: underline;
-        }
-
-
-
-        .transition {
-            -webkit-transform: scale(1.1);
-            -moz-transform: scale(1.1);
-            -o-transform: scale(1.1);
-            transform: scale(1.1);
-        }
-
-        #productImage{
-            -webkit-transition: all .4s ease-in-out;
-            -moz-transition: all .4s ease-in-out;
-            -o-transition: all .4s ease-in-out;
         }
     </style>
     <script src="jquery-3.3.1.min.js"></script>
@@ -158,17 +160,78 @@
 
         // Your global variables should be declared below here -v
 
-        carouselTop = [];
-        carouselSub = [];
-        carouselTitle = [];
-        carouselBrand = [];
-        carouselCost = [];
-        carouselDesc = [];
-        carouseleBayLink = [];
+        //Array holding all the information of the product
+        productTopLevel = [];
+        productSubLevel = [];
+        productTitle = [];
+        productBrand = [];
+        productCost = [];
+        productDesc = [];
+        productEBayLink = [];
 
-        indexedeBayLinks = null;
+        //The variable will hold the eBay number for that individual item
+        indexedEBayLink = null;
+
         // Your global variables should be declared above here -^
         // Any user defined functions should be declared below here -v
+
+        function insertProductInfo() {
+            // Convert the id to an integer and subtract one to get the array index for that item
+            var convertedID = parseInt(vars['id']);
+            var indexForID = convertedID - 1;
+
+            // Changes title of the tab page to the product name
+            document.title = (productTitle[convertedID - 1]) + " - Gadget Gainey Store";
+
+
+            //Use the index of that item to add all of the attributes from the corresponding arrays to the breadcrumb
+            $('#productTop').text(productTopLevel[indexForID]);
+            $('#productSub').text(productSubLevel[indexForID]);
+
+            //Use the index of that item to add all of the attributes from the corresponding arrays to the attributes
+            $('.productTitle').text(productTitle[indexForID]);
+            $('#productBrand').text("By: " + productBrand[indexForID]);
+            $('#productCost').text("£" + productCost[indexForID]);
+            $('#productImage').attr('src', "/Images/ProductImages/" + vars['id'] + ".png");
+            $('#productDescription').text(productDesc[indexForID]);
+
+            //Use the index of that product to look it up in the array and then that one item is equal to the indexedEBayLink
+            indexedEBayLink = productEBayLink[indexForID];
+        }
+
+        //Come to this function if add to basket button is pressed
+        function delayRedirect() {
+
+            //Sets a variable which will count down from 5 to 0
+            var count = 5;
+
+            //Do this function every second
+            setInterval(function () {
+
+                //Decrease count
+                count = count - 1;
+
+                //Set the text to when it will be redirected in if the counter is higher than 1.
+                if (count > 1) {
+                    $('#redirectText').text("Redirecting to eBay in " + count + " seconds.");
+
+                }
+                //Set the text to say that they are being directed now if the counter is less than or equal to 1.
+                else if (count <= 1) {
+                    $('#redirectText').text("Redirecting to eBay now. Come back soon!");
+                }
+
+                //If the counter hits 0 then redirect to the link with the correct eBay item
+                if (count == 0) {
+                    window.location = "https://www.ebay.co.uk/itm/" + indexedEBayLink;
+                }
+                //Having an issue where it wouldn't show the animation of the colouring in of the eBay logo every
+                // second when it goes to 0, image not found so if the counter is above 0 then change the image.
+                if (count > 0) {
+                    $('#redirectDiv').children('img').attr('src', 'Images/ProductPage/Redirect/Countdown ' + count + ' eBay logo.png');
+                }
+            }, 1000)
+        }
 
 
         // Any user defined functions should be declared above here -^
@@ -193,6 +256,12 @@
 
                     // Your $(document).ready() event script code goes below here -v
 
+                    //When the add To Basket button has been clicked then show the redirectDiv with animation of 500 milliseconds
+                    // and go to the function delayRedirect
+                    $("#addToBasketButton").click(function () {
+                        $("#redirectDiv").show(500);
+                        delayRedirect();
+                    });
 
                     // Your $(document).ready() event script code goes above here -^
                 }
@@ -201,99 +270,34 @@
             // Your $(document).ready() event script code goes below here -v
 
 
-            $('#productImage').hover(function() {
-                $("#productImage").addClass('transition');
-
-            }, function() {
-                $("#productImage").removeClass('transition');
-            });
-
-
-
-
-
+            //When document is loaded then find every product,
             $products.find("product").each(function () {
 
                 //Get the data from the product//
-                imgTop = top = $(this).attr("top-level-category");
-                imgSub = $(this).attr("sub-level-category");
-                imgTitle = $(this).find("title").text();
-                imgBrand = $(this).find("brand").text();
-                imgCost = $(this).find("price").text();
-                imgID = $(this).find("id").text();
-                imgDesc = $(this).find("description").text();
-                imgeBay = $(this).find("eBayLink").text();
+                itemTopLevel = top = $(this).attr("top-level-category");
+                itemSubLevel = $(this).attr("sub-level-category");
+                itemTitle = $(this).find("title").text();
+                itemBrand = $(this).find("brand").text();
+                itemCost = $(this).find("price").text();
+                itemDesc = $(this).find("description").text();
+                itemEBayNumber = $(this).find("eBayLink").text();
 
-                carouselTop.push(imgTop);
-                carouselSub.push(imgSub);
-                carouselTitle.push(imgTitle);
-                carouselBrand.push(imgBrand);
-                carouselCost.push(imgCost);
-                carouselDesc.push(imgDesc);
-                carouseleBayLink.push(imgeBay)
+                //push that single data to the corresponding arrays
+                productTopLevel.push(itemTopLevel);
+                productSubLevel.push(itemSubLevel);
+                productTitle.push(itemTitle);
+                productBrand.push(itemBrand);
+                productCost.push(itemCost);
+                productDesc.push(itemDesc);
+                productEBayLink.push(itemEBayNumber)
 
             });
-
-
-
-            whiteBox();
-
-            function whiteBox() {
-                for (var i = 1; i < 7; i++) {
-                    // Changes title of the tab page to the product name
-                    document.title = (carouselTitle[convertedID - 1]) + " - Gadget Gainey Store";
-
-
-                    $('#productImage').attr('src', "/Images/ProductImages/" + vars['id'] + ".png");
-
-
-                    var convertedID = parseInt(vars['id']);
-                    var iDforIndex = convertedID - 1;
-
-                    $('#productTop').text(carouselTop[iDforIndex]);
-                    $('#productSub').text(carouselSub[iDforIndex]);
-                    $('.productTitle').text(carouselTitle[iDforIndex]);
-                    $('#productBrand').text("By: " + carouselBrand[iDforIndex]);
-
-
-
-                    $('#productCost').text("£" + carouselCost[iDforIndex]);
-                    $('#productDescription').text(carouselDesc[iDforIndex]);
-
-
-                }
-               indexedeBayLinks = carouseleBayLink[iDforIndex];
-
-                $("#buttonID").click(function(){
-                    $("#redirectDiv").show(500);
-                    delayRedirect();
-                });
-            }
+            //When all items have been pushed too the array,
+            // go to the insertProductInfo which will inject the data onto the page
+            insertProductInfo();
 
             // Your $(document).ready() event script code goes above here -^
         });
-
-        function delayRedirect() {
-            var count = 5;
-            setInterval(function() {
-                count = count - 1;
-               if (count > 1) {
-                   $('#redirectText').text("Redirecting to eBay in " + count + " seconds.");
-               } else if (count <= 1) {
-                    $('#redirectText').text("Redirecting to eBay now. Come back soon!");
-                }
-               if (count == 0) {
-                    window.location = "https://www.ebay.co.uk/itm/" + indexedeBayLinks;
-                }
-               if (count > 0) {
-                   $('#redirectDiv').children('img').attr('src', 'Images/ProductPage/Redirect/Countdown ' + count + ' eBay logo.png');
-               }
-
-            }, 1000)
-        }
-
-
-
     </script>
 </head>
 
@@ -303,19 +307,19 @@
         <div class="Trust-Header">
             <div id="Trust-eBay">
                 <a href="https://bit.ly/2to8o1z" target="_blank">
-                    <h3> 98% OF CUSTOMERS LOVE US ON</h3>
+                    <h3>98% OF CUSTOMERS LOVE US ON</h3>
                     <img src="Images/OnEveryPage/Trust Banner/eBay logo.png" alt="eBay">
                 </a>
             </div>
             <div id="Trust-Fast_Delivery">
                 <a href="Delivery.html"> <img src="Images/OnEveryPage/Trust Banner/Next Day Delivery.png"
                                               alt="Next Day Delivery">
-                    <h3> ORDER BY 3PM FOR NEXT DAY FREE DELIVERY</h3>
+                    <h3>ORDER BY 3PM FOR NEXT DAY FREE DELIVERY</h3>
                 </a>
             </div>
             <div id="Trust-Free_Delivery">
                 <a href="Returns.html"> <img src="Images/OnEveryPage/Trust Banner/Returns.png"
-                                              alt="Returns">
+                                             alt="Returns">
                     <h3>FREE 28 DAY RETURN ON EVERYTHING</h3>
                 </a></div>
         </div>
@@ -345,7 +349,7 @@
                 </a>
                 </div>
                 <div id="Basket"><a href="404Error.html"> <img src="Images/OnEveryPage/Main Banner/Basket.png"
-                                                                   alt="Basket">
+                                                               alt="Basket">
                     <h3>Basket</h3>
                 </a>
                 </div>
@@ -357,103 +361,140 @@
     <ul class="navmenu">
     </ul>
     <div id=Outside_Body>
+
+        <!--unordered list that has a class of breadcrumb as this is the container of all of the breadcrumb-->
         <ul class="breadcrumb">
+
+            <!--list item that hold the Home page text and a link to the home page-->
             <li><a href="index.html">Home</a></li>
-            <li ><a id="productTop" href="404Error.html">Top</a></li>
-            <li ><a id="productSub" href="404Error.html">Sub</a></li>
+
+            <!--list items that will hold the top/Sub level, to achieve this we want to reference the list
+            item and therefore give it an ID of productTop/productSub, since we haven't got a category lookup,
+            have the href as the 4040Error.html -->
+            <li><a id="productTop" href="404Error.html">Top</a></li>
+            <li><a id="productSub" href="404Error.html">Sub</a></li>
+
+            <!--list item that will hold the product title itself, achieve this afterwards by using a
+            class of productTitle (productTitle will be used later on to show the product Title in the product
+            information and therefore has been used as a class instead of an id)-->
             <li class="productTitle">Product</li>
-            </ul>
+        </ul>
         <div id=Main_Body>
+
+            <!--This is the redirect Div, so when you click the add to basket button, it will show this div-->
             <div id="redirectDiv">
-                <h1> Thank you for browsing Gadget Gainey. </h1>
-                <h2 id="redirectText"> Redirecting to eBay in <span id="countDown">5</span> seconds. </h2>
-                    <img src="Images/ProductPage/Redirect/Countdown 5 eBay logo.png">
+
+                <!--That holds a thanks for buying and will show a redirect in.. header too with an image of
+                eBay to show them where they are being redirected too -->
+                <h1>Thank you for browsing Gadget Gainey.</h1>
+                <h2 id="redirectText">Redirecting to eBay in 5 seconds.</h2>
+                <img src="Images/ProductPage/Redirect/Countdown 5 eBay logo.png" alt="eBay logo">
             </div>
 
+            <!--Have a class of whiteBox, therefore, anything in this div will include a white box
+                                around the whole of it and make the white box round with curveRadius -->
+            <div class="whiteBox curveRadius">
+                <!--h1 (big) header for the product Title, giving it a class of productTitle-->
+                <h1 class="productTitle">TITLE</h1>
+                <!--For brand, be a lot smaller (because it is less useless than other information
+                on screen but is still good to have), apply an id of productBrand to later reference this part-->
+                <h4 id="productBrand">BRAND</h4>
+            </div>
 
+            <!--Have a class of whiteBox, therefore, anything in this div will include a white box
+                            around the whole of it and make the white box round with curveRadius-->
+            <div class="whiteBox curveRadius" id="PriceBasket">
 
+                <!--div that holds all of the contents, this is separate from the whiteBox as the whiteBox will have a
+                width of 50% to be in the middle whereas the contents will be 100% and be in the center-->
+                <div id="elementsInPriceBasket">
 
-                <div class="whiteBox">
-                    <div id="upperTopProduct">
-                        <h1 class="productTitle">TITLE</h1>
-                        <h4 id="productBrand">BRAND</h4>
-                    </div>
-                </div>
-
-                <div class="whiteBox curveRadius" id="PriceBasket">
+                    <!--h1 (big) header for the product Title, giving it a class of productTitle-->
                     <h1 id="productCost">£CO.ST</h1>
-                    <a id="buttonID"><button id="button" class="curveRadius"> <img
-                            src="Images/ProductPage/basket.png" alt="Add to Basket">
-                        <p>Add to basket</p></button></a>
-                </div>
-                <div class="whiteBox curveRadius">
-                    <img id="productImage" class="curveRadius" src="Images\Home\Loading.png">
-                </div>
 
-                <div class="whiteBox curveRadius">
-                    <h3> About This Product</h3>
-
-                    <div class="leftFloatLine curveRadius">
-                        <hr/>
-                    </div>
-                    <p id="productDescription"> By </p>
+                    <!--Make a button that has a link (anchor tag) to it, this button will be curved and will
+                    have an image inside it of a basket with the words Add to Basket in a paragraph tag so I can
+                    style it later on-->
+                        <button id="addToBasketButton" class="curveRadius" ><img
+                                src="Images/ProductPage/basket.png" alt="Add to Basket">
+                            <p>Add to basket</p></button>
                 </div>
+            </div>
+            <!--Have a class of whiteBox, therefore, anything in this div will include a white box
+                       around the whole of it and make the white box round with curveRadius-->
+            <div class="whiteBox curveRadius">
+                <!--This is where the product Image will go and with this, I will curve the image itself-->
+                <img id="productImage" class="curveRadius" src="Images/Home/Loading.png">
+            </div>
+
+            <!--This class will hold the product description with a white box and a curve.-->
+            <div class="whiteBox curveRadius">
+                <!--A header telling the user that this is about the product-->
+                <h3>About This Product</h3>
+                <!--Line separating the About this product and the actual description-->
+                <div class="line">
+                    <hr/>
+                </div>
+                <!--This paragraph tag will hold the description of the product, how it does this is it references the id of productDescription-->
+                <p id="productDescription"></p>
+            </div>
         </div>
     </div>
-   <footer>
-            <div id="Footer-GadgetGainey" class="footerTextSection">
-                <a href="index.html">
-                    <h1>Gadget Gainey</h1>
-                </a>
-                <a href="About.html" >
-                    <h4>About Us</h4>
-                </a>
-                <a href="404Error.html">
-                    <h4>Basket</h4>
-                </a>
-                <a href="https://bit.ly/2BLLE05" target="_blank">
-                    <h4>eBay Store</h4>
-                </a>
-                <a href="404Error.html">
-                    <h4>Sitemap</h4>
-                </a>
-            </div>
-            <div id="Footer-TheBoringStuff" class="footerTextSection">
-                <h2>The Boring Stuff</h2>
-                <a href="Delivery.html">
-                    <h4>Shipping & Delivery</h4>
-                </a>
-                <a href="Returns.html">
-                    <h4>Returns & Refunds</h4>
-                </a>
-                <a href="TermsConditions.html">
-                    <h4>Terms & Conditions</h4>
-                </a>
-            </div>
-            <div id="Footer-Support" class="footerTextSection">
-                <h2>Support</h2>
-                <a href="404Error.html">
-                    <h4>Contact Us</h4>
-                </a>
-                <a href="404Error.html">
-                    <h4>FAQ's</h4>
-                </a>
-            </div>
-            <div id="Footer-Supported_Payments" class="footerTextSection">
-                <h2>Supported Payments </h2>
-                <img src="Images/OnEveryPage/Payment Types.png" alt="Mastercard, Maestro, American Express, Visa and PayPal">
-            </div>
-            <div id="Footer-Find-eBay">
-                <h2>Find us on</h2>
-                <a href="https://bit.ly/2BLLE05" target="_blank">
-                    <img src="Images/OnEveryPage/Trust Banner/eBay logo.png" alt="eBay">
-                </a>
-            </div>
-            <div id="Footer-copyright" class="footerTextSection">
-                <h5>
-                    © Gadget Gainey 2019. All Rights Reserved
-                </h5>
-            </div>
+    <footer>
+        <div id="Footer-GadgetGainey" class="footerTextSection">
+            <a href="index.html">
+                <h1>Gadget Gainey</h1>
+            </a>
+            <a href="About.html">
+                <h4>About Us</h4>
+            </a>
+            <a href="404Error.html">
+                <h4>Basket</h4>
+            </a>
+            <a href="https://bit.ly/2BLLE05" target="_blank">
+                <h4>eBay Store</h4>
+            </a>
+            <a href="404Error.html">
+                <h4>Sitemap</h4>
+            </a>
+        </div>
+        <div id="Footer-TheBoringStuff" class="footerTextSection">
+            <h2>The Boring Stuff</h2>
+            <a href="Delivery.html">
+                <h4>Shipping & Delivery</h4>
+            </a>
+            <a href="Returns.html">
+                <h4>Returns & Refunds</h4>
+            </a>
+            <a href="TermsConditions.html">
+                <h4>Terms & Conditions</h4>
+            </a>
+        </div>
+        <div id="Footer-Support" class="footerTextSection">
+            <h2>Support</h2>
+            <a href="404Error.html">
+                <h4>Contact Us</h4>
+            </a>
+            <a href="404Error.html">
+                <h4>FAQ's</h4>
+            </a>
+        </div>
+        <div id="Footer-Supported_Payments" class="footerTextSection">
+            <h2>Supported Payments</h2>
+            <img src="Images/OnEveryPage/Payment Types.png"
+                 alt="Mastercard, Maestro, American Express, Visa and PayPal">
+        </div>
+        <div id="Footer-Find-eBay">
+            <h2>Find us on</h2>
+            <a href="https://bit.ly/2BLLE05" target="_blank">
+                <img src="Images/OnEveryPage/Trust Banner/eBay logo.png" alt="eBay">
+            </a>
+        </div>
+        <div id="Footer-copyright" class="footerTextSection">
+            <h5>
+                © Gadget Gainey 2019. All Rights Reserved
+            </h5>
+        </div>
     </footer>
 </div>
 </body>

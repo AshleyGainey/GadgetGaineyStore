@@ -124,7 +124,7 @@
 
         // Your global variables should be declared below here -v
 
-        //Integer to tell me what Slide we are on
+        //Integer to tell me what Slide it is on
         var currentSlideNum = 1;
         //Array to tell me what the id of that slide is
         var sliderID = [];
@@ -233,7 +233,6 @@
         }
 
         function updateValues() {
-            console.log("In UpdateValues");
             //Get the current Slide ID from the array (which starts at 0 so subtract 1 to get the correct ID out of the array)
             var currentSlideID = sliderID[currentSlideNum - 1];
 
@@ -357,14 +356,14 @@
         <div class="Trust-Header">
             <div id="Trust-eBay">
                 <a href="https://bit.ly/2to8o1z" target="_blank">
-                    <h3> 98% OF CUSTOMERS LOVE US ON</h3>
+                    <h3>98% OF CUSTOMERS LOVE US ON</h3>
                     <img src="Images/OnEveryPage/Trust Banner/eBay logo.png" alt="eBay">
                 </a>
             </div>
             <div id="Trust-Fast_Delivery">
                 <a href="Delivery.html#NextDay"> <img src="Images/OnEveryPage/Trust Banner/Next Day Delivery.png"
                                                       alt="Next Day Delivery">
-                    <h3> ORDER BY 3PM FOR NEXT DAY FREE DELIVERY</h3>
+                    <h3>ORDER BY 3PM FOR NEXT DAY FREE DELIVERY</h3>
                 </a>
             </div>
             <div id="Trust-Free_Delivery">
@@ -508,7 +507,7 @@
             </a>
         </div>
         <div id="Footer-Supported_Payments" class="footerTextSection">
-            <h2>Supported Payments </h2>
+            <h2>Supported Payments</h2>
             <img src="Images/OnEveryPage/Payment Types.png"
                  alt="Mastercard, Maestro, American Express, Visa and PayPal">
         </div>

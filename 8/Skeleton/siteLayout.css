@@ -55,7 +55,7 @@ and the text can both be in-line with each other */
 /* Separates the trust us Header with the main header with a grey line, 
 making it 75% of the width, a visible but small width. making the margin auto 
 for left and right to position the line in the middle but also allow padding at the bottom to
-gives space from the line and the Main Header (which contains the logo, search, help and basket*/
+gives space from the line and the Main Header (which contains the logo, search, help and basket)*/
 .line {
     width: 75%;
     margin: 0 auto 10px auto;
@@ -155,7 +155,7 @@ not 100% so it doesn't go off the screen for the third menu item*/
 /*End: Already here code */
 
 
-/* Add a margin to the main_container that is inside the main body, this is because we 
+/* Add a margin to the main_container that is inside the main body, this is because I
 want something up against the Nav (for instance the breadcrumb/the half price Sale)*/
 #Main_Body {
     padding: 20px;
@@ -214,7 +214,7 @@ other section that is 20% and the padding of 10% */
 
 /*Width of the Find us on eBay is 24%, and has a float to the left with a padding of 10px for the top
 (in line with other sections), and a left padding of 10px, to move it more to the right
-since we have lots of room for this section*/
+since I have lots of room for this section*/
 #Footer-Find-eBay {
     width: 24%;
     float: left;
