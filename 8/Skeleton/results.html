@@ -8,10 +8,12 @@
     <meta charset="UTF-8"/>
     <meta name="author" content="Ashley Gainey">
     <meta name="description"
-          content="Looking for the best kids products with a great price? Browse our amazing collection and get the perfect gift">
+          content="Looking for the best kids products with a great price? Browse our amazing collection and get the
+                    perfect gift">
     <meta property="og:title" content="Gadget Gainey Store - Home of the best kids products!">
-    <meta name="keywords" content="toys, kids, children, store, go kart, playsets, play, presents, fun, little kids, pedal, pedal go karts, pedal go kart,
-		car, ride on, ride on bike, ride on cars, cars, bike, outdoor, racing">
+    <meta name="keywords" content="toys, kids, children, store, go kart, playsets, play, presents, fun, kids, pedal,
+                pedal go karts, pedal go kart, car, ride on, ride on bike, ride on cars, cars, bike, outdoor, racing,
+                drone">
     <link rel="icon" href="Images/OnEveryPage/Gadget Gainey icon.png">
 
     <Title>Gadget Gainey Store</Title>
@@ -58,13 +60,13 @@
         /*Give the floating div a display of none (so it is not shown),
         a position of absolute so it is not in the table itself, it is above it,
         a top of 50% so you can still see the text of the row,
-        left of -425px so that the div won't show for the title but it will show for the brand
-        and price and make sure it is on top with a z-index of 1*/
+        right of 60px (floats to the left for brand and price) and make sure it is
+        on top with a z-index of 1*/
         .floatingImageDiv {
             display: none;
             position: absolute;
-            top: 50%;
-            left: -425px;
+            top: 60%;
+            right: 100px;
             z-index: 1;
         }
 
@@ -109,10 +111,14 @@
 
                 //Add all of the information to the tbody with a link to the product with the searchTerm in the URL
                 $('tbody').append("<tr>"
-                    + "<td>" + "<a href=" + "'product.html?id=" + id + "&searchTerm=" + vars['searchTerm'] + "'" + "</a>" + id + "</td>"
-                    + "<td>" + "<a href=" + "'product.html?id=" + id + "&searchTerm=" + vars['searchTerm'] + "'" + "</a>" + title + "</td>"
-                    + "<td>" + "<a href=" + "'product.html?id=" + id + "&searchTerm=" + vars['searchTerm'] + "'" + "</a>" + brand + "</td>"
-                    + "<td>" + "<a href=" + "'product.html?id=" + id + "&searchTerm=" + vars['searchTerm'] + "'" + "</a>" + "£" + price + "</td>"
+                    + "<td>" + "<a href=" + "'product.html?id=" + id + "&searchTerm=" + vars['searchTerm'] + "'" +
+                    "</a>" + id + "</td>"
+                    + "<td>" + "<a href=" + "'product.html?id=" + id + "&searchTerm=" + vars['searchTerm'] + "'" +
+                    "</a>" + title + "</td>"
+                    + "<td>" + "<a href=" + "'product.html?id=" + id + "&searchTerm=" + vars['searchTerm'] + "'" +
+                    "</a>" + brand + "</td>"
+                    + "<td>" + "<a href=" + "'product.html?id=" + id + "&searchTerm=" + vars['searchTerm'] + "'" +
+                    "</a>" + "£" + price + "</td>"
                     + "</tr>");
 
                 //When mouse is on the row then change the back colour to the colour scheme of dark blue
@@ -132,7 +138,7 @@
 
                     //Add the link of the product to the floatingImage
                     $('.floatingImage').attr('src', "/Images/ProductImages/" + idOfRow + ".png");
-                },);
+                });
             });
         }
 
@@ -154,7 +160,7 @@
                 //And add the removed plus' value to the searchedFor text
                 $("#searchedFor").text("You've searched for: " + removePlus);
 
-                // Check if products have loaded
+                // Check if products and results have loaded
                 if (($products === null) || ($sResults === null)) {
                     // They haven't loaded
                     return;

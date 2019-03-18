@@ -5,10 +5,12 @@
     <meta charset="UTF-8"/>
     <meta name="author" content="Ashley Gainey">
     <meta name="description"
-          content="Looking for the best kids products with a great price? Browse our amazing collection and get the perfect gift">
+          content="Looking for the best kids products with a great price? Browse our amazing collection and get the
+                    perfect gift">
     <meta property="og:title" content="Gadget Gainey Store - Home of the best kids products!">
-    <meta name="keywords" content="toys, kids, children, store, go kart, playsets, play, presents, fun, little kids, pedal, pedal go karts, pedal go kart,
-		car, ride on, ride on bike, ride on cars, cars, bike, outdoor, racing">
+    <meta name="keywords" content="toys, kids, children, store, go kart, playsets, play, presents, fun, kids, pedal,
+                pedal go karts, pedal go kart, car, ride on, ride on bike, ride on cars, cars, bike, outdoor, racing,
+                drone">
     <link rel="icon" href="Images/OnEveryPage/Gadget Gainey icon.png">
     <Title>Gadget Gainey Store</Title>
     <link rel="stylesheet" href="siteLayout.css" type="text/css" media="screen,projection"/>
@@ -30,7 +32,8 @@
         }
 
         /*Select all the list items that are after the first one and insert the following before the list items: */
-        /*Add a padding of 15px to the left and right of the list, add a right arrow (more than sign), colour that arrow black*/
+        /*Add a padding of 15px to the left and right of the list, add a right arrow (more than sign), colour that
+        arrow black*/
         .breadcrumb li + li:before {
             padding: 0 15px 0 15px;
             content: ">";
@@ -47,6 +50,7 @@
             color: #1B3C7D;
             text-decoration: underline;
         }
+
         /*End of Breadcrumb*/
 
 
@@ -102,7 +106,8 @@
             width: 20%;
         }
 
-        /*When on hover of the Add to Basket button, show the opacity to 80% which will show a white tinge to the button*/
+        /*When on hover of the Add to Basket button, show the opacity to 80% which will show a white tinge to the
+        button*/
         #addToBasketButton:hover {
             opacity: 0.8;
         }
@@ -195,7 +200,8 @@
             $('#productImage').attr('src', "/Images/ProductImages/" + vars['id'] + ".png");
             $('#productDescription').text(productDesc[indexForID]);
 
-            //Use the index of that product to look it up in the array and then that one item is equal to the indexedEBayLink
+            //Use the index of that product to look it up in the array and then that one item is equal to the
+            // indexedEBayLink
             indexedEBayLink = productEBayLink[indexForID];
         }
 
@@ -228,7 +234,8 @@
                 //Having an issue where it wouldn't show the animation of the colouring in of the eBay logo every
                 // second when it goes to 0, image not found so if the counter is above 0 then change the image.
                 if (count > 0) {
-                    $('#redirectDiv').children('img').attr('src', 'Images/ProductPage/Redirect/Countdown ' + count + ' eBay logo.png');
+                    $('#redirectDiv').children('img').attr('src', 'Images/ProductPage/Redirect/Countdown ' + count +
+                        ' eBay logo.png');
                 }
             }, 1000)
         }
@@ -256,8 +263,8 @@
 
                     // Your $(document).ready() event script code goes below here -v
 
-                    //When the add To Basket button has been clicked then show the redirectDiv with animation of 500 milliseconds
-                    // and go to the function delayRedirect
+                    //When the add To Basket button has been clicked then show the redirectDiv with animation of 500
+                    // milliseconds and go to the function delayRedirect
                     $("#addToBasketButton").click(function () {
                         $("#redirectDiv").show(500);
                         delayRedirect();
@@ -415,9 +422,9 @@
                     <!--Make a button that has a link (anchor tag) to it, this button will be curved and will
                     have an image inside it of a basket with the words Add to Basket in a paragraph tag so I can
                     style it later on-->
-                        <button id="addToBasketButton" class="curveRadius" ><img
-                                src="Images/ProductPage/basket.png" alt="Add to Basket">
-                            <p>Add to basket</p></button>
+                    <button id="addToBasketButton" class="curveRadius"><img
+                            src="Images/ProductPage/basket.png" alt="Add to Basket">
+                        <p>Add to basket</p></button>
                 </div>
             </div>
             <!--Have a class of whiteBox, therefore, anything in this div will include a white box
@@ -435,7 +442,8 @@
                 <div class="line">
                     <hr/>
                 </div>
-                <!--This paragraph tag will hold the description of the product, how it does this is it references the id of productDescription-->
+                <!--This paragraph tag will hold the description of the product, how it does this is it references the
+                id of productDescription-->
                 <p id="productDescription"></p>
             </div>
         </div>

@@ -9,10 +9,12 @@
 #Header, footer {
     Background-image: url("Images/OnEveryPage/Trust Banner/Background.png");
 }
+
 /*In the trust us header at the very top, the h3 tag should have a font size of 14px*/
 .Trust-Header h3 {
     font-size: 14px;
 }
+
 /* End: Trusting Banner at the top*/
 
 /* All links will be white (instead of blue) and no underline until hover */
@@ -26,16 +28,19 @@ this makes it more recognisable that it is a link*/
 a:hover {
     text-decoration: underline;
 }
+
 /*Apply a border of black, the width being 3px to the input box of the search bar and the button*/
-.searchBox, .searchButton  {
+.searchBox, .searchButton {
     border: 3px solid #000000;
 }
+
 /*In the input bar, round the top left and bottom left corners 6px and give it a font of Arial,
 with a fall back of Segoe UI (which decreases the search bar)*/
 .searchBox {
     border-radius: 6px 0 0 6px;
     font-family: "Arial", "Segoe UI";
 }
+
 /*For the search button, add a black background and round the top right and bottom right corners 6px*/
 .searchButton {
     background-color: #000000;
@@ -60,6 +65,7 @@ rid of what they are searching, this would be ideal for long text*/
 .searchBox::-webkit-search-cancel-button {
     -webkit-appearance: none;
 }
+
 /*End: Search Bar*/
 
 /*Start: Nav Bar*/
@@ -73,8 +79,8 @@ rid of what they are searching, this would be ideal for long text*/
     width: 200px;
 }
 
-/*The whole navbar menu itself, background colour is black and it fits all the way width-wise and takes up the screens width,
-with this, center all the items to the middle*/
+/*The whole navbar menu itself, background colour is black and it fits all the way width-wise and takes up the screens
+width, with this, center all the items to the middle*/
 .navmenu {
     background-color: black;
     width: 100%;
@@ -85,6 +91,7 @@ with this, center all the items to the middle*/
 .chosenItem {
     background-color: #1B3C7D;
 }
+
 /*End: Nav Bar*/
 
 /*Change the whole body's colour to light grey*/
@@ -107,14 +114,18 @@ footer h1 {
 footer h2 {
     font-size: 16px;
 }
-/*Set all h4 tags in the footer to a font size of 14px, to show a sub menu, that is less important than title and heading*/
+
+/*Set all h4 tags in the footer to a font size of 14px, to show a sub menu, that is less important than title and
+heading*/
 footer h4 {
     font-size: 14px;
 }
+
 /*All sections of the footer that include text should have a float of left*/
 .footerTextSection {
     float: left;
 }
+
 /*End: Footer*/
 
 /*Add a curve onto many elements that have this has a class. 10px curve each side */
@@ -123,16 +134,30 @@ footer h4 {
 
     /*For Firefox (cross browser)*/
     -moz-border-radius: 10px;
-    
+
     /*For safari (cross browser)*/
     -webkit-border-radius: 10px;
 }
+
 /*If the id is Main_Body have the color of #143576 for any anchor tags.*/
 #Main_Body a {
     color: #143576;
 }
 
-/*White Box is a class that holds a background color of white*/
+/*White Box is a class that holds a shadow on the container,
+a round surface and a background color of white*/
 .whiteBox {
+    box-shadow: 10px 10px 40px 0 rgba(0, 0, 0, 0.27);
+    /*Safari - Cross Browser*/
+    -webkit-box-shadow: 10px 10px 40px 0 rgba(0, 0, 0, 0.27);
+    /*Firefox - Cross Browser*/
+    -moz-box-shadow: 10px 10px 40px 0 rgba(0, 0, 0, 0.27);
+
+    border-radius: 10px 10px 10px 10px;
+    /*Firefox - Cross Browser*/
+    -moz-border-radius: 10px 10px 10px 10px;
+    /*Safari - Cross Browser*/
+    -webkit-border-radius: 10px 10px 10px 10px;
+
     background-color: #FFFFFF;
 }

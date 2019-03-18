@@ -5,10 +5,12 @@
     <meta charset="UTF-8"/>
     <meta name="author" content="Ashley Gainey">
     <meta name="description"
-          content="Looking for the best kids products with a great price? Browse our amazing collection and get the perfect gift">
+          content="Looking for the best kids products with a great price? Browse our amazing collection and get the
+                    perfect gift">
     <meta property="og:title" content="Gadget Gainey Store - Home of the best kids products!">
-    <meta name="keywords" content="toys, kids, children, store, go kart, playsets, play, presents, fun, little kids, pedal, pedal go karts, pedal go kart,
-		car, ride on, ride on bike, ride on cars, cars, bike, outdoor, racing">
+    <meta name="keywords" content="toys, kids, children, store, go kart, playsets, play, presents, fun, kids, pedal,
+                pedal go karts, pedal go kart, car, ride on, ride on bike, ride on cars, cars, bike, outdoor, racing,
+                drone">
     <link rel="icon" href="Images/OnEveryPage/Gadget Gainey icon.png">
     <Title>Gadget Gainey Store - Home of the best kids products!</Title>
 
@@ -39,6 +41,7 @@
             position: relative;
             overflow: hidden;
         }
+
         /*Keep the slider at a 100% width, had to make the width 100% because it didn't resize to 100%,
         leaving some of the next image on screen*/
         .sliderContents {
@@ -48,6 +51,7 @@
         .sliderContents {
             width: 100%;
         }
+
         /*All anchor tags (including the image itself) of the slider are put into one line no matter the
         width of the container, the width is 600% (for 6 pictures)*/
         .carouselSlide {
@@ -64,8 +68,8 @@
         /*The previous and next buttons on the carousel should have a width of 50px and a height of 40px.
         They should be absolute, meaning it is positioned relative to the carousel itself and the top 50%,
         puts it in the center of the carousel. The background colour will a dark blue to fit with the colour scheme*/
-        /*Set the font to Arial because the default font, doesn't look right for the arrow <>, with a fallback font of Segoe UI
-        and center the text. */
+        /*Set the font to Arial because the default font, doesn't look right for the arrow <>, with a fallback font of
+        Segoe UI and center the text. */
         /*Make the whole div look like it is a button with the cursor as the pointer*/
         #carouselPrevious, #carouselNext {
             width: 50px;
@@ -159,7 +163,8 @@
             for (slideNo = 1; slideNo < 7; slideNo++) {
 
                 //Add the image source to whatever the slide number is and the product id of what ever slide number is
-                $('#slider' + slideNo).children('img').attr('src', "/Images/ProductImages/" + vars['prod' + slideNo] + ".png");
+                $('#slider' + slideNo).children('img').attr('src', "/Images/ProductImages/" + vars['prod' + slideNo]
+                    + ".png");
 
                 // Add a link to the product to the slider of whatever the slide number is and add the href of prod
                 $('#slider' + slideNo).attr('href', '/product.html?id=' + vars['prod' + slideNo]);
@@ -226,14 +231,16 @@
             $("#carouselTitleHeader").fadeTo(500, 0);
             $("#carouselBrand").fadeTo(500, 0);
 
-            //At the end of the cost fading out then go to the updateValues function where it will change the values while faded
+            //At the end of the cost fading out then go to the updateValues function where it will change the values
+            // while faded
             $("#carouselCost").fadeTo(500, 0, function () {
                 updateValues();
             });
         }
 
         function updateValues() {
-            //Get the current Slide ID from the array (which starts at 0 so subtract 1 to get the correct ID out of the array)
+            //Get the current Slide ID from the array (which starts at 0 so subtract 1 to get the correct ID out of
+            // the array)
             var currentSlideID = sliderID[currentSlideNum - 1];
 
 
@@ -243,7 +250,8 @@
             // set the text of the brand to the current ID index - 1 (to get the correct brand from the array)
             $("#carouselBrand").text("By: " + carouselBrand[currentSlideID - 1]);
 
-            // set the text of the cost to the pound symbol and then to the current ID index - 1 (to get the correct cost from the array)
+            // set the text of the cost to the pound symbol and then to the current ID index - 1 (to get the correct
+            // cost from the array)
             $("#carouselCost").text("£" + carouselCost[currentSlideID - 1]);
 
             //When values have changed then go to the fadeIn function

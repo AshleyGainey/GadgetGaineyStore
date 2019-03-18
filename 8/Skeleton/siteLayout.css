@@ -241,21 +241,8 @@ this is for the footer to not overlap with the last parts of the page*/
     padding-bottom: 250px;
 }
 
-/*White Header is a class that holds a shadow on the container,
-a round surface and have a padding of 10px and a margin bottom of 20px*/
+/*White Header has a padding of 10px and a margin bottom of 20px*/
 .whiteBox {
-    box-shadow: 10px 10px 40px 0px rgba(0, 0, 0, 0.27);
-    /*Safari - Cross Browser*/
-    -webkit-box-shadow: 10px 10px 40px 0px rgba(0, 0, 0, 0.27);
-    /*Firefox - Cross Browser*/
-    -moz-box-shadow: 10px 10px 40px 0px rgba(0, 0, 0, 0.27);
-
-    border-radius: 10px 10px 10px 10px;
-    /*Firefox - Cross Browser*/
-    -moz-border-radius: 10px 10px 10px 10px;
-    /*Safari - Cross Browser*/
-    -webkit-border-radius: 10px 10px 10px 10px;
-
     padding: 10px;
     margin-bottom: 20px;
 }
@@ -264,6 +251,7 @@ a round surface and have a padding of 10px and a margin bottom of 20px*/
 .whiteBox h1 {
     font-size: 30px;
 }
+
 /*With the class of whiteBox and a h4 header, then the font-size is 15px*/
 .whiteBox h4 {
     font-size: 15px;
