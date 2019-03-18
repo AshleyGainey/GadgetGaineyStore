@@ -55,6 +55,10 @@
         // Your global variables should be declared above here -^
         // Any user defined functions should be declared below here -v
 
+        //When the function goBack() is called then use the history to go back.
+        function goBack() {
+            window.history.back();
+        }
 
         // Any user defined functions should be declared above here -^
 
@@ -84,10 +88,6 @@
             }, 100);
 
             // Your $(document).ready() event script code goes below here -v
-            //When the function goBack() is called then use the history to go back.
-            function goBack() {
-                window.history.back();
-            }
 
             // Your $(document).ready() event script code goes above here -^
         });
@@ -221,7 +221,8 @@
         </div>
         <div id="Footer-Supported_Payments" class="footerTextSection">
             <h2>Supported Payments</h2>
-            <img src="Images/OnEveryPage/Payment Types.png" alt="Mastercard, Maestro, American Express, Visa and PayPal">
+            <img src="Images/OnEveryPage/Payment Types.png"
+                 alt="Mastercard, Maestro, American Express, Visa and PayPal">
         </div>
         <div id="Footer-Find-eBay">
             <h2>Find us on</h2>
